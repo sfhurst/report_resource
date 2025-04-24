@@ -2815,7 +2815,25 @@ const bridgeComponents = [
                 <p>
                   River training countermeasures may include: spurs, bendway weirs, guide banks, drop structures, and check dams. Additional river training countermeasures can be
                   found in HEC-23 and elsewhere.
-                </p>`,
+                </p>
+                
+                <p>
+                  Armoring countermeasures may include: rock riprap, grouted riprap, concrete slope paving, articulating concrete blocks, gabion mattresses, and grout-filled mats. 
+                  Additional armoring countermeasures can be found in HEC-23 and elsewhere.
+                </p>
+
+                <p>
+                  For bridges that have countermeasures not visible for inspection, use appropriate visual condition indicators to determine the applicable code. These may include 
+                  measurements taken at the bridge face(s) during every inspection to help determine degree of degradation, aggradation, and/or channel migration.
+                </p>
+
+
+                <p>
+                  For this item, a minor defect does not limit the effectiveness of the channel protection, while a moderate defect may limit its effectiveness. A major defect 
+                  indicates that the channel protection is missing or is no longer effective as determined by a hydraulic review.
+                </p>
+                
+                `,
     example_comments: [
       ["There are no deficiencies to report."],
       ["Under normal conditions, none of the substructure components are in the channel."],
