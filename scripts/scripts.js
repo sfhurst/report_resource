@@ -6,6 +6,15 @@ document.querySelector(
   "#user-local-storage"
 ).textContent = `User information is saved in the browser's local storage by completing the fields. Clear the browser cache to remove.`;
 
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("theme-toggle");
+  slider.addEventListener("click", () => {
+    const html = document.documentElement;
+    const current = html.getAttribute("data-theme");
+    html.setAttribute("data-theme", current === "blue" ? "pink" : "blue");
+  });
+});
+
 // Table of Contents
 // :::: (HTML Injection)
 

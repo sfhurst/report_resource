@@ -43,24 +43,23 @@ button:focus::after {
   width: 10px; /* Control the width of the effect */
   height: 4px; /* Control the thickness of the effect */
   background: linear-gradient(to right, transparent, var(--color-orange), transparent); /* Gradient effect */
-  background: linear-gradient(to right, transparent, rgb(76, 76, 253), transparent); /* Gradient effect */
+  background: linear-gradient(to right, transparent, var(--neon-light), transparent); /* Gradient effect */
   background: var(--color-orange);
-  background: rgb(76, 76, 253);
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  Optional subtle shadow for better visibility */
+  background: var(--neon-light);
 }
 
 .main-content-containers:has(button:focus) {
   /* Styles for the parent when the child is focused */
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
 }
 
 .main-content-containers:has(a:focus) {
   /* Styles for the parent when the child is focused */
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
 }
 
 .header:has(button:focus) {
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
   width: calc(100% - 3px); /* Subtract the border width */
 }
 
@@ -124,7 +123,6 @@ button.active:focus {
 
 /* Focus effect for active alt2-buttons - red glow only when focused */
 .alt2-buttons.active:focus {
-  box-shadow: 0 0 4px 2px rgba(18, 156, 37, 0.884); /* More pronounced red glow with larger spread */
   background-color: var(--active-button-color2); /* Keep background color intact */
 }
 
@@ -176,7 +174,7 @@ button.active:focus {
 }
 
 .main-content-containers:focus {
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
 }
 
 .content-container-tabs {
@@ -198,7 +196,7 @@ button.active:focus {
 }
 
 .content-container-rating-lines {
-  border-bottom: solid 2px rgba(128, 128, 128, 0.2);
+  border-bottom: solid 2px var(--rating-lines);
   display: flex;
   cursor: default;
   background-color: var(--content-background-color);
@@ -237,9 +235,9 @@ button.active:focus {
 .content-container-comment-lines {
   padding: 0 15px;
   margin-bottom: 3px;
-  color: rgb(172, 172, 172);
+  color: var(--text-color);
   text-indent: -15px;
-  border-bottom: solid 2px rgba(128, 128, 128, 0.2);
+  border-bottom: solid 2px var(--rating-lines);
   transition: 0.2s;
   color: var(--text-color);
 }
@@ -282,7 +280,6 @@ button.active:focus {
   text-decoration: none;
   padding: 4px 8px;
   margin: 0 2px;
-  /* background: rgb(33, 33, 99); */
   background-color: var(--inactive-button-color1);
   border-radius: 4px;
   white-space: nowrap;
@@ -301,7 +298,7 @@ button.active:focus {
 }
 
 .content-container-links-line-links:focus {
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
 }
 
 .paragraph-rating {
@@ -321,14 +318,9 @@ button.active:focus {
   background: rgba(91, 84, 122, 0.1);
 }
 
-/* .textarea-comments:focus {
-  border-left: 3px solid rgb(76, 76, 253);
-  background: rgba(90, 88, 61, 0.18);
-} */
-
 .main-content-containers:has(.textarea-comments:focus) {
   /* Styles for the parent when the child is focused */
-  border-left: 3px solid rgb(76, 76, 253);
+  border-left: 3px solid var(--neon-light);
 }
 
 .textarea-mirrors {
@@ -360,7 +352,6 @@ button.active:focus {
   background: transparent;
   overflow: hidden;
   transition: 3s;
-  color: rgb(172, 172, 172);
   color: var(--text-color);
 }
 
@@ -423,7 +414,6 @@ button.active:focus {
   background: transparent;
   overflow: hidden;
   transition: 3s;
-  color: rgb(172, 172, 172);
   color: var(--text-color);
 }
 
@@ -558,7 +548,7 @@ button.active:focus {
 /* ::: ---------------------------- Bridge | Rating Table --------------------------------- */
 
 .highlight {
-  background-color: rgba(63, 63, 63, 0.7);
+  background-color: var(--highlight);
 }
 
 /* ::: ---------------------------- Bridge | Comment Builder --------------------------------- */
@@ -1123,4 +1113,44 @@ kbd {
 
 .review-textarea-highlighted {
   background: rgba(74, 36, 20, 0.7);
+}
+
+/* ------------------------------ */
+
+.theme-slider {
+  position: fixed;
+  bottom: 12px;
+  left: 20px;
+  width: 40px;
+  height: 30px;
+  background-color: #1c4592;
+  background-color: #f78da7;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 3s;
+  z-index: 9999;
+}
+
+.theme-slider .slider-knob {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 1s;
+}
+
+[data-theme="pink"] .theme-slider {
+  background-color: #f78da7;
+  background-color: #1c4592;
+}
+
+[data-theme="pink"] .theme-slider .slider-knob {
+  transform: translateX(10px);
+}
+
+html,
+body,
+* {
+  transition: background-color 3s, color 3s, border-color 3s;
 }

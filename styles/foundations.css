@@ -1,39 +1,19 @@
 /* ::: --------------------------- Defaults | Resets --------------------------- */
 
 :root {
-  /* theme blue-grey*/
-  --main-background: url("../media/light-down-black2.svg");
-  --main-background-overlay: rgb(54 54 54 / 0.9);
-  --main-color: rgb(58 73 95 / 0.9);
-  --text-color: rgb(233 233 233);
-  --content-background-color: rgb(34 34 34 / 0.7);
-
-  /* primary buttons - background */
-  --active-button-color1: rgb(182 182 182);
-  --hover-button-color1: rgb(40 40 65);
-  --inactive-button-color1: rgb(47 47 77);
-  /* primary buttons - text */
-  --active-button-text-color1: rgb(42 42 42);
-  --hover-button-text-color1: var(--text-color);
-  --inactive-button-text-color1: var(--text-color);
-
-  /* secondary buttons - background */
-  --active-button-color2: rgb(200 200 200);
-  --hover-button-color2: rgb(58 88 74);
-  --inactive-button-color2: rgb(65 99 79);
-  /* secondary buttons - text */
-  --active-button-text-color2: rgb(42 42 42);
-  --hover-button-text-color2: var(--text-color);
-  --inactive-button-text-color2: var(--text-color);
-
-  /* secondary buttons - background */
-  --active-button-color3: rgb(200 200 200);
-  --hover-button-color3: rgb(88, 83, 58);
-  --inactive-button-color3: rgb(97, 99, 65);
-  /* secondary buttons - text */
-  --active-button-text-color3: rgb(42 42 42);
-  --hover-button-text-color3: var(--text-color);
-  --inactive-button-text-color3: var(--text-color);
+  /* Default fallback values if no theme is set */
+  --main-background: none;
+  --main-background-overlay: rgba(0, 0, 0, 0.5);
+  --main-color: gray;
+  --text-color: white;
+  --content-background-color: rgba(0, 0, 0, 0.5);
+  --active-button-color1: #ccc;
+  --hover-button-color1: #666;
+  --inactive-button-color1: #444;
+  --active-button-text-color1: black;
+  --hover-button-text-color1: white;
+  --inactive-button-text-color1: white;
+  /* repeat for color2 and color3 */
 
   --color-red: rgb(234, 30, 30);
   --color-blue: rgb(45, 45, 168);
@@ -76,6 +56,150 @@
   --rating-9: rgba(19, 60, 192, 0.6); /* Deep Green */
 }
 
+[data-theme="white"] {
+  --main-background: url("../media/light-down-black2.svg");
+  --main-background-overlay: rgba(255, 255, 255, 0.85);
+  --main-color: rgba(240, 240, 240, 0.95); /* light neutral */
+  --text-color: rgb(33, 33, 33); /* dark readable text */
+  --content-background-color: rgba(250, 250, 250, 0.9); /* soft white */
+
+  /* primary buttons - background */
+  --active-button-color1: rgb(230, 230, 230); /* light grey */
+  --hover-button-color1: rgb(200, 215, 255); /* soft blue highlight */
+  --inactive-button-color1: rgb(210, 210, 210); /* muted grey */
+
+  /* primary buttons - text */
+  --active-button-text-color1: rgb(42, 42, 42);
+  --hover-button-text-color1: var(--text-color);
+  --inactive-button-text-color1: var(--text-color);
+
+  /* secondary buttons - background */
+  --active-button-color2: rgb(230, 230, 230);
+  --hover-button-color2: rgb(180, 220, 180); /* light green */
+  --inactive-button-color2: rgb(200, 210, 200); /* pale greenish grey */
+
+  /* secondary buttons - text */
+  --active-button-text-color2: rgb(42, 42, 42);
+  --hover-button-text-color2: var(--text-color);
+  --inactive-button-text-color2: var(--text-color);
+
+  /* tertiary buttons - background */
+  --active-button-color3: rgb(230, 230, 230);
+  --hover-button-color3: rgb(240, 220, 180); /* light beige/tan */
+  --inactive-button-color3: rgb(225, 215, 195); /* muted tan */
+
+  /* tertiary buttons - text */
+  --active-button-text-color3: rgb(42, 42, 42);
+  --hover-button-text-color3: var(--text-color);
+  --inactive-button-text-color3: var(--text-color);
+
+  --rating-lines: rgba(128, 128, 128, 0.1); /* subtle grid lines */
+  --neon-light: rgb(76, 76, 253);
+  --highlight: rgba(63, 63, 63, 0.7);
+}
+
+[data-theme="orange"] {
+  --main-background: url("../media/light-down-black2.svg");
+  --main-background-overlay: rgb(65 45 25 / 0.9); /* warm dark overlay */
+  --main-color: rgb(124 69 18 / 0.9); /* rich burnt orange */
+  --text-color: rgb(245 235 220); /* light tan text */
+  --content-background-color: rgb(50 30 20 / 0.7); /* muted brownish base */
+
+  /* primary buttons - background */
+  --active-button-color1: rgb(215 180 140); /* warm beige */
+  --hover-button-color1: rgb(160 85 30); /* deep orange hover */
+  --inactive-button-color1: rgb(130 70 25); /* duller burnt orange */
+
+  /* primary buttons - text */
+  --active-button-text-color1: rgb(42 42 42);
+  --hover-button-text-color1: var(--text-color);
+  --inactive-button-text-color1: var(--text-color);
+
+  /* secondary buttons - background */
+  --active-button-color2: rgb(215 180 140);
+  --hover-button-color2: rgb(155 100 50); /* medium toast brown */
+  --inactive-button-color2: rgb(140 85 45); /* muted orange-brown */
+
+  /* secondary buttons - text */
+  --active-button-text-color2: rgb(42 42 42);
+  --hover-button-text-color2: var(--text-color);
+  --inactive-button-text-color2: var(--text-color);
+
+  /* tertiary buttons - background */
+  --active-button-color3: rgb(215 180 140);
+  --hover-button-color3: rgb(125 95 55); /* mustard brown */
+  --inactive-button-color3: rgb(110 80 45); /* toned down mustard */
+
+  /* tertiary buttons - text */
+  --active-button-text-color3: rgb(42 42 42);
+  --hover-button-text-color3: var(--text-color);
+  --inactive-button-text-color3: var(--text-color);
+
+  --rating-lines: rgba(160, 120, 90, 0.2); /* soft orange tint */
+  --neon-light: rgb(76, 76, 253);
+  --highlight: rgba(63, 63, 63, 0.7);
+}
+
+[data-theme="blue"] {
+  --main-background: url("../media/light-down-black2.svg");
+  --main-background-overlay: rgb(54 54 54 / 0.9);
+  --main-color: rgb(58 73 95 / 0.9);
+  --text-color: rgb(233 233 233);
+  --content-background-color: rgb(34 34 34 / 0.7);
+  --active-button-color1: rgb(182 182 182);
+  --hover-button-color1: rgb(40 40 65);
+  --inactive-button-color1: rgb(47 47 77);
+  --active-button-text-color1: rgb(42 42 42);
+  --hover-button-text-color1: var(--text-color);
+  --inactive-button-text-color1: var(--text-color);
+  --active-button-color2: rgb(182 182 182);
+  --hover-button-color2: rgb(58 88 74);
+  --inactive-button-color2: rgb(65 99 79);
+  --active-button-text-color2: rgb(42 42 42);
+  --hover-button-text-color2: var(--text-color);
+  --inactive-button-text-color2: var(--text-color);
+  --active-button-color3: rgb(182 182 182);
+  --hover-button-color3: rgb(88, 83, 58);
+  --inactive-button-color3: rgb(97, 99, 65);
+  --active-button-text-color3: rgb(42 42 42);
+  --hover-button-text-color3: var(--text-color);
+  --inactive-button-text-color3: var(--text-color);
+
+  --rating-lines: rgba(128, 128, 128, 0.2);
+  --neon-light: rgb(76, 76, 253);
+  --highlight: rgba(63, 63, 63, 0.7);
+}
+
+[data-theme="pink"] {
+  --main-background: url("../media/light-down-black2.svg");
+  --main-background-overlay: rgba(147, 147, 147, 0.9);
+  --main-color: rgba(109, 93, 110, 0.9);
+  --text-color: rgb(29, 29, 29);
+  --content-background-color: rgba(156, 156, 156, 0.7);
+  --active-button-color1: rgb(182 182 182);
+  --hover-button-color1: rgb(166, 152, 174);
+  --inactive-button-color1: rgb(149, 135, 156);
+  --active-button-text-color1: rgb(42 42 42);
+  --hover-button-text-color1: var(--text-color);
+  --inactive-button-text-color1: var(--text-color);
+  --active-button-color2: rgb(182 182 182);
+  --hover-button-color2: rgb(119, 156, 153);
+  --inactive-button-color2: rgb(107, 140, 137);
+  --active-button-text-color2: rgb(42 42 42);
+  --hover-button-text-color2: var(--text-color);
+  --inactive-button-text-color2: var(--text-color);
+  --active-button-color3: rgb(182 182 182);
+  --hover-button-color3: rgb(103, 118, 134);
+  --inactive-button-color3: rgb(89, 103, 117);
+  --active-button-text-color3: rgb(42 42 42);
+  --hover-button-text-color3: var(--text-color);
+  --inactive-button-text-color3: var(--text-color);
+
+  --rating-lines: rgba(199, 199, 199, 0.2);
+  --neon-light: rgb(76, 76, 253);
+  --highlight: rgba(63, 63, 63, 0.7);
+}
+
 html,
 header,
 textarea,
@@ -98,6 +222,15 @@ ul {
 ul {
   margin: 0 0 0 -15px;
   /* text-indent: -5px; */
+}
+
+select {
+  background-color: #222;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #666;
 }
 
 h1,

@@ -6,7 +6,7 @@
 <!-- Comment bookmarks are as follows: :: = Pages, ::: = Tabs, :::: = Assets, ::::: = Layout Sections -->
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="blue">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9230,13 +9230,25 @@
                   </div>
                 </div>
 
-                <!-- Display -->
+                <!-- Dark Mode -->
                 <div class="textarea-group">
-                  <p class="paragraph-rating2">Display:</p>
+                  <p class="paragraph-rating2">Dark Mode:</p>
                   <div class="content-container-paragraphs">
                     <div class="textarea-containers2">
                       <div class="textarea-mirrors2">
-                        <textarea readonly id="global-textarea-display" rows="1" class="textarea-comments2">Dark Mode</textarea>
+                        <textarea readonly id="global-textarea-dark" rows="1" class="textarea-comments2">Blue</textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Light Mode -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">Light Mode:</p>
+                  <div class="content-container-paragraphs">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea readonly id="global-textarea-light" rows="1" class="textarea-comments2">Pink</textarea>
                       </div>
                     </div>
                   </div>
@@ -9468,6 +9480,10 @@
         <div class="tick" style="width: 0.02in; left: 45px"></div>
         <div class="tick" style="width: 0.04in; left: 60px"></div>
       </div> -->
+
+      <div id="theme-toggle" class="theme-slider" title="Toggle Theme">
+        <div class="slider-knob"></div>
+      </div>
     </footer>
   </body>
 </html>
