@@ -1125,6 +1125,7 @@ kbd {
   height: 30px;
   background-color: #1c4592;
   background-color: #f78da7;
+  background-color: #d2d2d2;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 3s;
@@ -1143,14 +1144,33 @@ kbd {
 [data-theme="pink"] .theme-slider {
   background-color: #f78da7;
   background-color: #1c4592;
+  background-color: #6c6c6c;
 }
 
 [data-theme="pink"] .theme-slider .slider-knob {
   transform: translateX(10px);
 }
 
+[data-theme="white"] .theme-slider {
+  background-color: #f78da7;
+  background-color: #1c4592;
+  background-color: #6c6c6c;
+}
+
+[data-theme="white"] .theme-slider .slider-knob {
+  transform: translateX(10px);
+}
+
+.iterate-img {
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+.iterate-img.fade-out {
+  opacity: 0;
+}
+
 html,
 body,
 * {
-  transition: background-color 3s, color 3s, border-color 3s;
+  transition: background-color 1s, color 1s, border-color 1s;
 }
