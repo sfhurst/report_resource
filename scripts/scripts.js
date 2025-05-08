@@ -6,24 +6,6 @@ document.querySelector(
   "#user-local-storage"
 ).textContent = `User information is saved in the browser's local storage by completing the fields. Clear the browser cache to remove.`;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.getElementById("theme-toggle");
-  const logoImg = document.querySelector(".iterate-img");
-
-  slider.addEventListener("click", () => {
-    const html = document.documentElement;
-    const current = html.getAttribute("data-theme");
-
-    if (current === "blue") {
-      html.setAttribute("data-theme", "white");
-      logoImg.src = "./media/logo-rings-only-orange.png";
-    } else {
-      html.setAttribute("data-theme", "blue");
-      logoImg.src = "./media/logo-rings-only-purple.png";
-    }
-  });
-});
-
 // Table of Contents
 // :::: (HTML Injection)
 
@@ -89,7 +71,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // :::: (Not Sorted || Working)
 
-// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// :::: (Theme Button) = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("theme-toggle");
+  const logoImg = document.querySelector(".iterate-img");
+
+  slider.addEventListener("click", () => {
+    const html = document.documentElement;
+    const current = html.getAttribute("data-theme");
+
+    if (current === "blue") {
+      html.setAttribute("data-theme", "white");
+      logoImg.src = "./media/logo-rings-only-orange.png";
+    } else {
+      html.setAttribute("data-theme", "blue");
+      logoImg.src = "./media/logo-rings-only-purple.png";
+    }
+  });
+});
+
+// :::: (Paint Year Link) = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+document.addEventListener("DOMContentLoaded", () => {
+  const paintMain = document.getElementById("paint-main");
+  const paintReview = document.getElementById("paint-review");
+
+  if (paintMain && paintReview) {
+    function syncPaintInputs(source, target) {
+      target.value = source.value;
+    }
+
+    paintMain.addEventListener("input", () => syncPaintInputs(paintMain, paintReview));
+    paintReview.addEventListener("input", () => syncPaintInputs(paintReview, paintMain));
+  }
+});
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // :::: (HTML Injection) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

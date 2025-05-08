@@ -1174,3 +1174,31 @@ body,
 * {
   transition: background-color 1s, color 1s, border-color 1s;
 }
+
+/* --------------------------------------- */
+
+.label-and-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.paint-year {
+  width: 80px;
+  padding: 4px;
+  background-color: var(--main-color);
+  margin-left: auto;
+
+  border-radius: 4px;
+  background-color: var(--active-button-color1);
+  color: var(--active-button-text-color1);
+
+  position: relative;
+  top: -5px;
+}
+
+.paint-year::placeholder {
+  color: #555; /* Darker gray */
+  opacity: 1; /* Ensures full opacity */
+}

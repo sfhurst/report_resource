@@ -145,8 +145,16 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   if (event.key !== "Enter") return; // Ensures only Enter triggers the search
   event.preventDefault();
 
-  // Reset Comments variable
+  // Reset paint year
+  const paintMain = document.getElementById("paint-main");
+  const paintReview = document.getElementById("paint-review");
+  paintMain.value = "";
+  paintReview.value = "";
+
+  // Reset Comments key to zero so it can unlock the clear and set new comments function once per enter press
   resetComments = 0;
+
+  // Reset window position to default
   if (window.innerWidth > 768) {
     resetViaSimulatedClicks();
   }
