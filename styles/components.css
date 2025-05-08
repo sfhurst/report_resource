@@ -131,7 +131,7 @@ button.active:focus {
 /*  */
 .asset-update-text {
   margin-left: 20px;
-  color: rgba(233 233 233 / 0.6);
+  color: var(--notes-text);
 }
 
 /* ::: ---------------------------- General | Containers --------------------------------- */
@@ -1120,7 +1120,7 @@ kbd {
 .theme-slider {
   position: fixed;
   bottom: 12px;
-  left: 20px;
+  left: 12px;
   width: 40px;
   height: 30px;
   background-color: #1c4592;
