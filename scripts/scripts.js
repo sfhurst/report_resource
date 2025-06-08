@@ -1720,20 +1720,18 @@ let toggleArrow = "navigation";
 
 // Event listener for keydown events
 window.addEventListener("keydown", function (event) {
-  if (event.key !== "Control") return;
+  if (event.key !== "Control" || event.repeat) return; // Ignore repeats
 
   const currentTime = Date.now();
-  if (currentTime - lastCtrlPressTime > 300) ctrlPresses = 0;
+  if (currentTime - lastCtrlPressTime > 300) {
+    ctrlPresses = 0;
+  }
 
   lastCtrlPressTime = currentTime;
   ctrlPresses++;
 
   if (ctrlPresses === 2) {
-    if (toggleArrow === "navigation") {
-      toggleArrow = "default";
-    } else {
-      toggleArrow = "navigation";
-    }
+    toggleArrow = toggleArrow === "navigation" ? "default" : "navigation";
     ctrlPresses = 0; // Reset counter
     showArrowMessage(toggleArrow);
   }
