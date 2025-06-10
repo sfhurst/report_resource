@@ -1427,6 +1427,7 @@ const bridgeComponents = [
       ["Under normal conditions, none of the substructure components are in the channel."],
       ["All channel protection measures appear to be functioning as designed."],
       ["The interior piers and abutments are protected with riprap."],
+      ["The abutments are protected with riprap. The interior piers are in the channel and no channel protection is visible."],
       ["No channel protection is visible at the bridge."],
       ["No channel protection is visible at the interior piers."],
       ["Some riprap has washed away leaving sections of bank unprotected."],

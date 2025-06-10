@@ -431,6 +431,10 @@ main {
   cursor: default;
 }
 
+.logolink {
+  text-decoration: none;
+}
+
 .inner-container {
   margin: auto;
   width: 290px;
