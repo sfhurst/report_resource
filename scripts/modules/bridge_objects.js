@@ -89,7 +89,7 @@ const bridgeComponents = [
       ["There are no deficiencies to report. The approach slabs show no noticeable settlement or visible surface defects."],
       ["The approach slabs have been covered with an overlay."],
       ["The approach slabs appear level and stable with no signs of shifting."],
-      ["There are sealed cracks in the approach slabs."],
+      ["There are some minor cracks in the approach slabs."],
       ["There are sound concrete patches in the approach slabs."],
       ["There is minor settlement of the approach slabs."],
     ],
