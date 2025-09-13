@@ -1,4 +1,4 @@
-const dataDate = "03/21/2025"; // Date iTAMS data was output
+const dataDate = "09/13/2025"; // Date iTAMS data was output
 document.querySelector(
   "#asset-updated"
 ).textContent = `These are populated when an asset number is searched. The asset data was last updated on ${dataDate}.`;

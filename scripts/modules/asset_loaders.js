@@ -369,7 +369,24 @@ function generateSummary(assetObject) {
   const cardinalResponse = cardinalResponseFunction(assetValues);
 
   // CHannel
-  const channelResponse = assetValues.channelValue === "N" ? `The bridge is not over water.` : "";
+  // const channelResponse = assetValues.channelValue === "N" ? `The bridge is not over water.` : "";
+
+  const noChannel = assetValues.channelValue === "N";
+  const channelResponse = noChannel ? `The bridge is not over water.` : "";
+
+  const btn1 = document.querySelector('button[data-target="bridge-channel-tab"]');
+  const btn2 = document.querySelector('button[data-target="bridge-scour-tab"]');
+  const btn3 = document.querySelector('button[data-target="bridge-overtopping-tab"]');
+
+  if (noChannel) {
+    btn1.classList.add("gray-out");
+    btn2.classList.add("gray-out");
+    btn3.classList.add("gray-out");
+  } else {
+    btn1.classList.remove("gray-out");
+    btn2.classList.remove("gray-out");
+    btn3.classList.remove("gray-out");
+  }
 
   ////
 
@@ -426,7 +443,18 @@ function generateSummary(assetObject) {
     "CD-T": "scour critical, ",
   };
 
-  const elementSubmittalResponse = assetValues.highwaySystem === 1 ? "Element, " : "Not element, ";
+  // const elementSubmittalResponse = assetValues.highwaySystem === 1 ? "Element, " : "Not element, ";
+
+  const isElement = assetValues.highwaySystem === 1;
+  const elementSubmittalResponse = isElement ? "Element, " : "Not element, ";
+
+  const btn = document.querySelector('button[data-target="bridge-elements-tab"]');
+  if (isElement) {
+    btn.classList.remove("gray-out");
+  } else {
+    btn.classList.add("gray-out");
+  }
+
   const scourCriticalSubmittalResponse = scourTypesSubmittal[assetValues.scourVulnerability] || "not over water, ";
   const scourVulnerabilitySubmittalResponse =
     scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
