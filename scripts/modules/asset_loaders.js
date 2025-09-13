@@ -145,6 +145,10 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   if (event.key !== "Enter") return; // Ensures only Enter triggers the search
   event.preventDefault();
 
+  // Clear maintenance class
+  document.querySelectorAll(".active-maintenance").forEach((el) => el.classList.remove("active-maintenance"));
+  maintenanceArray = [];
+
   // Reset paint year
   const paintMain = document.getElementById("paint-main");
   const paintReview = document.getElementById("paint-review");

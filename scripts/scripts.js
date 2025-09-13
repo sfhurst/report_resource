@@ -3149,3 +3149,43 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // :::: (Not Sorted | Working) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// :::: (Clicking in textarea open rating tab)
+
+document.addEventListener("DOMContentLoaded", () => {
+  // map of button data-target → textarea id
+  const tabMap = {
+    "bridge-alignment-pg2": "BAP01-textarea",
+    "bridge-approach-pg2": "BC01b-textarea",
+    "bridge-joints-pg2": "BC08-textarea",
+    "bridge-joints-pg5": "BC08a-textarea",
+    "bridge-railings-pg2": "BC05-textarea",
+    "bridge-railings-pg5": "BC06-textarea",
+    "bridge-deck-pg2": "BC01-textarea",
+    "bridge-deck-pg5": "BC01a-textarea",
+    "bridge-super-pg2": "BC02-textarea",
+    "bridge-super-pg5": "BC02a-textarea",
+    "bridge-bearings-pg2": "BC07-textarea",
+    "bridge-sub-pg2": "BC03-textarea",
+    "bridge-sub-pg5": "BC03a-textarea",
+    "bridge-culvert-pg2": "BC04-textarea",
+    "bridge-channel-pg2": "BC09-textarea",
+    "bridge-channel-pg5": "BC10-textarea",
+    "bridge-scour-pg2": "BC11-textarea",
+    "bridge-scour-pg5": "BAP03-textarea",
+    "bridge-overtopping-pg2": "BAP02-textarea",
+  };
+
+  // loop through each mapping
+  Object.entries(tabMap).forEach(([dataTarget, textareaId]) => {
+    const textarea = document.getElementById(textareaId);
+    const button = document.querySelector(`button[data-target="${dataTarget}"]`);
+    if (!textarea || !button) return; // skip if missing
+
+    textarea.addEventListener("focus", () => {
+      // directly call openTab using the button as currentTarget
+      openTab({ currentTarget: button });
+      // textarea stays focused for typing
+    });
+  });
+});
