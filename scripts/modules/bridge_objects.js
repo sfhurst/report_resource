@@ -5,7 +5,7 @@ const bridgeComponents = [
     item_id: "B.AP.01",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Alignment",
     commentary_page_id: "bridge-alignment-pg1",
     example_comments_page_id: "bridge-alignment-pg3",
@@ -28,17 +28,31 @@ const bridgeComponents = [
     <li>Use code P when the operating speed is substantially different at the bridge than the rest of the highway segment that crosses the bridge.</li>
     </ul>`,
     example_comments: [
-      ["No speed reduction is necessary."],
-      ["A minor speed reduction is expected due to the approach roadway geometry."],
+      ["No speed reduction is necessary.", "No speed reduction is indicated."],
       // "An intersection is present at the north approach.",
       // "The bridge is at a traffic light and carries part of the queue.",
-      ["The bridge is in a horizontal curve."],
-      ["The bridge is in a superelevated horizontal curve."],
-      ["There are advisory speed signs recommending a speed reduction for curves in the approach alignment."],
-      ["There are horizontal alignment signs warning of curves in the approach alignment."],
-      ["The bridge is in a sag vertical curve."],
-      ["The bridge is in a crest vertical curve."],
-      ["The bridge is over/carries a railroad. INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8)."],
+      ["The bridge is in a horizontal curve.", "The bridge is located within a horizontal curve."],
+      ["The bridge is in a superelevated horizontal curve.", "The bridge is located in a superelevated horizontal curve."],
+      [
+        "There are advisory speed signs recommending a speed reduction for curves in the approach alignment.",
+        "Advisory speed signs recommend reduced speeds for curves in the approach alignment.",
+        "Advisory speed signs suggest reduced speeds for approach alignment curves.",
+      ],
+      [
+        "There are horizontal alignment signs warning of curves in the approach alignment.",
+        "Horizontal alignment signs indicate curves in the approach alignment.",
+      ],
+      ["The bridge is in a sag vertical curve.", "The bridge is located within a sag vertical curve."],
+      ["The bridge is in a crest vertical curve.", "The bridge is located within a crest vertical curve."],
+      [
+        "The bridge carries a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        "The bridge is a railroad owned and maintained structure; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+      ],
+      [
+        "The bridge is over a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        "The bridge crosses a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        "The bridge spans a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+      ],
     ],
 
     rating_table: [
@@ -71,7 +85,7 @@ const bridgeComponents = [
     item_id: "B.C.01b",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Approach",
     commentary_page_id: "bridge-approach-pg1",
     example_comments_page_id: "bridge-approach-pg3",
@@ -84,14 +98,22 @@ const bridgeComponents = [
                 <br />
                 <p>Consider the roughness and ride provided by the approach slab.</p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
-      ["No significant settlement has occurred."],
-      ["There are no deficiencies to report. The approach slabs show no noticeable settlement or visible surface defects."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
+      [
+        "The approach slabs provide a smooth transition from the approach roadway to the bridge.",
+        "Rideability is generally smooth with no noticeable impact.",
+      ],
+      ["No significant settlement has occurred.", "No noticeable settlement is present."],
+      [
+        "The approach slabs show no noticeable settlement or significant surface defects.",
+        "The approach slabs have some insignificant cracking. No noticeable settlement is present.",
+        "There is some insignificant cracking with no noticeable settlement in the approach slabs.",
+      ],
       ["The approach slabs have been covered with an overlay."],
-      ["The approach slabs appear level and stable with no signs of shifting."],
       ["There are some minor cracks in the approach slabs."],
       ["There are sound concrete patches in the approach slabs."],
       ["There is minor settlement of the approach slabs."],
+      ["There is a moderate impact to rideability."],
     ],
     rating_table: [
       {
@@ -160,7 +182,7 @@ const bridgeComponents = [
     item_id: "B.C.08a",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Joints",
     commentary_page_id: "bridge-joints-pg4",
     example_comments_page_id: "bridge-joints-pg6",
@@ -191,7 +213,6 @@ const bridgeComponents = [
         "The west construction joint is slightly raised due to thermal expansion and compression from the approach slab, creating a slight unevenness in the roadway.",
       ],
       ["The terminal joints present a rough transition to the bridge."],
-      ["There are no terminal joints at either end."],
     ],
     rating_table: [
       {
@@ -223,7 +244,7 @@ const bridgeComponents = [
     item_id: "B.C.08",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Joints",
     commentary_page_id: "bridge-joints-pg1",
     example_comments_page_id: "bridge-joints-pg3",
@@ -245,7 +266,7 @@ const bridgeComponents = [
                   In cases where the joint is not visible, the condition can be assessed based on other indirect indicators of the condition.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["The expansion joints are functioning as designed."],
       ["The bridge has integral or semi-integral abutments."],
       ["The joints are partially full of debris."],
@@ -322,7 +343,7 @@ const bridgeComponents = [
     item_id: "B.C.05",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Railings",
     commentary_page_id: "bridge-railings-pg1",
     example_comments_page_id: "bridge-railings-pg3",
@@ -340,7 +361,7 @@ const bridgeComponents = [
                   that problems with the protective coating system are indicative of problems with the underlying railing material.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["The railings are functioning as designed with only minor issues."],
       ["There is an isolated area of collision damage."],
       ["There are widely spaced hairline vertical cracks in the concrete barrier walls."],
@@ -417,7 +438,7 @@ const bridgeComponents = [
     item_id: "B.C.06",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Railings",
     commentary_page_id: "bridge-railings-pg4",
     example_comments_page_id: "bridge-railings-pg6",
@@ -504,7 +525,7 @@ const bridgeComponents = [
     item_id: "B.C.01a",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Deck",
     commentary_page_id: "bridge-deck-pg4",
     example_comments_page_id: "bridge-deck-pg6",
@@ -518,10 +539,10 @@ const bridgeComponents = [
                   below, both the deck and the wearing surface must be rated the same and assigned the lower rating.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["The wearing surface is monolithic with the deck.", "The wearing surface is cast monolithically with the deck."],
       ["The wearing surface is monolithic with the deck. See the deck comments."],
-      ["There are sealed cracks in the wearing surface."],
+      ["There are partially sealed cracks in the wearing surface."],
       ["There are unsealed cracks visible across less than 10% of the total surface area."],
       ["There are isolated areas of minor peeling in the epoxy overlay."],
       ["There are scattered areas of peeling in less than 5% of the total surface area."],
@@ -580,7 +601,7 @@ const bridgeComponents = [
     item_id: "B.C.01",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Deck",
     commentary_page_id: "bridge-deck-pg1",
     example_comments_page_id: "bridge-deck-pg3",
@@ -607,7 +628,7 @@ const bridgeComponents = [
                 <br />
                 <p>The deck and superstructure condition ratings are the same for slab bridges.</p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Strength and performance are not affected."],
       ["The top of the deck is covered by an epoxy overlay."],
       // "No deficiencies are showing through the overlay.",
@@ -692,7 +713,7 @@ const bridgeComponents = [
     item_id: "B.C.02",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Super",
     commentary_page_id: "bridge-super-pg1",
     example_comments_page_id: "bridge-super-pg3",
@@ -737,7 +758,7 @@ const bridgeComponents = [
                   (Scour Vulnerability). Observed scour that is less than the tolerable limit determined in the scour appraisal does not affect this item.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Strength and performance are not affected."],
       ["The superstructure is a reinforced concrete slab. See the deck comments."],
 
@@ -817,7 +838,7 @@ const bridgeComponents = [
     item_id: "B.C.02a",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Super",
     commentary_page_id: "bridge-super-pg4",
     example_comments_page_id: "bridge-super-pg6",
@@ -825,7 +846,7 @@ const bridgeComponents = [
                 <br />
                 <p>At stages of advanced deterioration, consider any section loss in the painted material.</p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["The steel beams of the superstructure have a protective coating."],
       ["There are some areas where surface corrosion has initiated."],
       ["The piles are painted."],
@@ -900,7 +921,7 @@ const bridgeComponents = [
     item_id: "B.C.07",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Bearings",
     commentary_page_id: "bridge-bearings-pg1",
     example_comments_page_id: "bridge-bearings-pg3",
@@ -916,8 +937,9 @@ const bridgeComponents = [
                   condition.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
-      ["The bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
+      ["The elastomeric bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
+      ["The steel bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
       ["There is minor corrosion in the bearings at the abutments."],
       // "There is minor pitting in the bearings at the abutments that has been painted over.",
       ["There is moderate pack rust and heavy corrosion in the bearings at the abutments."],
@@ -992,7 +1014,7 @@ const bridgeComponents = [
     item_id: "B.C.03",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Sub",
     commentary_page_id: "bridge-sub-pg1",
     example_comments_page_id: "bridge-sub-pg3",
@@ -1036,7 +1058,7 @@ const bridgeComponents = [
                   determined in the scour appraisal does not affect this item.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Strength and performance are not affected."],
       ["There is light abrasion in the interior piers at the waterline."],
       ["There is minor staining and insignificant surface defects on the interior piers and in the abutment backwalls."],
@@ -1045,8 +1067,7 @@ const bridgeComponents = [
       // "There is an area of moderate spalling in the Pier 2 pier cap near the bearing area of Beams 1 and 2. There is still good bearing beneath the beams.",
       ["There is moderate erosion at the east abutment due to unchanneled drainage and excessive runoff."],
       ["There is moderate scour at the upstream end of Pier 2 where it is directly impacted by the channel."],
-      ["There are several piles exposed at the north abutment."],
-      ["No significant settlement has occurred and the substructure is not being undermined."],
+      ["The bridge has integral abutments."],
       // "There is a wide-width horizontal crack (indicating settlement) running the length of the west abutment.",
     ],
     rating_table: [
@@ -1116,7 +1137,7 @@ const bridgeComponents = [
     item_id: "B.C.03a",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Sub",
     commentary_page_id: "bridge-sub-pg4",
     example_comments_page_id: "bridge-sub-pg6",
@@ -1128,11 +1149,7 @@ const bridgeComponents = [
       ["The slopewalls are in good condition."],
       ["There are some settlement cracks in the slopewalls."],
       ["The slopewalls appear to be stable with no signs of distress or movement."],
-      ["The east slopewall has wide cracking."],
-      ["The slopewall exhibits minor settlement, but there are no signs of structural instability."],
-      ["There are minor voids present behind the slopewall, but they do not appear to be affecting stability."],
-      // "There is moderate erosion under the east slopewall.",
-      ["The slopewall is overgrown with vegetation, which may be hiding potential issues."],
+      ["The slopewalls are overgrown with vegetation, which may be hiding potential issues."],
       ["The structure has MSE walls."],
       ["There are no obvious structural deficiencies in the MSE walls."],
     ],
@@ -1161,7 +1178,7 @@ const bridgeComponents = [
     item_id: "B.C.04",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Culvert",
     commentary_page_id: "bridge-culvert-pg1",
     example_comments_page_id: "bridge-culvert-pg3",
@@ -1205,7 +1222,7 @@ const bridgeComponents = [
                   determined in the scour appraisal does not affect this item.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Strength and performance are not affected."],
       ["There is minor leaking between the segments."],
       ["There are minor deformations to the pipe shape."],
@@ -1283,7 +1300,7 @@ const bridgeComponents = [
     item_id: "B.C.09",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Channel",
     commentary_page_id: "bridge-channel-pg1",
     example_comments_page_id: "bridge-channel-pg3",
@@ -1301,7 +1318,7 @@ const bridgeComponents = [
                   Item B.C.10 (Channel Protection Condition Rating).
                 </p>`,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Under normal conditions, the shallow, low-velocity channel flows from north to south through Span B."],
       ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near normal pool."],
       ["There are localized areas of minor erosion."],
@@ -1310,7 +1327,6 @@ const bridgeComponents = [
       ["Flow direction varies with rising and receding water levels."],
       ["Accumulated debris has caused localized flow obstruction in the channel."],
       ["The channel flows against the south abutment, creating a low spot in the channel."],
-      ["The bridge is not over water."],
     ],
     rating_table: [
       {
@@ -1380,7 +1396,7 @@ const bridgeComponents = [
     item_id: "B.C.10",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Channel",
     commentary_page_id: "bridge-channel-pg4",
     example_comments_page_id: "bridge-channel-pg6",
@@ -1423,7 +1439,7 @@ const bridgeComponents = [
                 
                 `,
     example_comments: [
-      ["There are no deficiencies to report."],
+      ["There are no deficiencies to report.", "There are no defects to report."],
       ["Under normal conditions, none of the substructure components are in the channel."],
       ["All channel protection measures appear to be functioning as designed."],
       ["The interior piers and abutments are protected with riprap."],
@@ -1501,7 +1517,7 @@ const bridgeComponents = [
     item_id: "B.C.11",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Scour",
     commentary_page_id: "bridge-scour-pg1",
     example_comments_page_id: "bridge-scour-pg3",
@@ -1597,7 +1613,7 @@ const bridgeComponents = [
     item_id: "B.AP.03",
     format: "AN (1)",
     frequency: "I",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Scour",
     commentary_page_id: "bridge-scour-pg4",
     example_comments_page_id: "bridge-scour-pg6",
@@ -1690,7 +1706,7 @@ const bridgeComponents = [
     item_id: "B.AP.02",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Overtopping",
     commentary_page_id: "bridge-overtopping-pg1",
     example_comments_page_id: "bridge-overtopping-pg3",
@@ -1710,14 +1726,14 @@ const bridgeComponents = [
     
                 <p>This item does not apply to the likelihood of the waterway overtopping approach roadways.</p>`,
     example_comments: [
+      ["There is nothing to indicate overtopping has ever occurred."],
+      ["Based on the surrounding terrain, overtopping is unlikely."],
       ["The Q100/HW elevation is significantly below the low structure elevation."],
       ["The Q100/HW elevation is below the low structure elevation."],
       ["The Q100/HW elevation is above the low structure elevation."],
       ["The Q100/HW elevation is 582.2' and 4.3' below the low structure elevation of 586.5'."],
       ["The maximum backwater elevation overtops the bridge."],
-      ["There is nothing to indicate overtopping has ever occurred."],
       ["There is drift and debris deposited on the superstructure."],
-      ["Based on the surrounding terrain, overtopping is unlikely."],
       [
         "Based on the surrounding terrain, overtopping may occur during major hydrologic events due to the limited hydraulic capacity of the structure.",
       ],
@@ -1772,7 +1788,7 @@ const bridgeComponents = [
     item_id: "",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Wildlife",
     commentary_page_id: "bridge-wildlife-pg1",
     commentary: `<p>Information on cliff swallows can be found in Part 9 of the INDOT BIM and in the INDOT Protected Species Guidance. Both documents are linked below.</p>`,
@@ -1797,7 +1813,7 @@ const bridgeComponents = [
     item_id: "",
     format: "AN (1)",
     frequency: "EI",
-    referenece: "SNBI",
+    reference: "SNBI",
     category: "Wildlife",
     commentary_page_id: "bridge-wildlife-pg4",
     commentary: `<p>Information on bats can be found in Part 9 of the INDOT BIM and in the INDOT Protected Species Guidance. Both documents are linked below.</p>

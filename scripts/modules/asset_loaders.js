@@ -149,6 +149,8 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   document.querySelectorAll(".active-maintenance").forEach((el) => el.classList.remove("active-maintenance"));
   maintenanceArray = [];
 
+  updateExampleComments();
+
   // Reset paint year
   const paintMain = document.getElementById("paint-main");
   const paintReview = document.getElementById("paint-review");

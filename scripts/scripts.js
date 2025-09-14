@@ -3150,8 +3150,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // :::: (Not Sorted | Working) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-// :::: (Clicking in textarea open rating tab)
+// :::: (Clicking in Textarea)
 
+// When a component textarea is clicked the component rating tab is opened
 document.addEventListener("DOMContentLoaded", () => {
   // map of button data-target → textarea id
   const tabMap = {
@@ -3187,5 +3188,19 @@ document.addEventListener("DOMContentLoaded", () => {
       openTab({ currentTarget: button });
       // textarea stays focused for typing
     });
+  });
+});
+
+// :::: (Example Comments Button Dbl Click)
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all buttons
+  const allButtons = document.querySelectorAll("button");
+
+  // Attach dblclick listener to buttons with text "Example Comments" for repopulating/randomizing comments
+  allButtons.forEach((button) => {
+    if (button.textContent.trim() === "Example Comments") {
+      button.addEventListener("dblclick", updateExampleComments);
+    }
   });
 });
