@@ -43,8 +43,8 @@ const bridgeComponents = [
         "Advisory speed signs suggest reduced speeds for approach alignment curves.",
       ],
       [
-        "There are horizontal alignment signs warning of curves in the approach alignment.",
-        "Horizontal alignment signs indicate curves in the approach alignment.",
+        "There are horizontal alignment signs marking curves in the approach alignment.",
+        "Horizontal alignment signs are present for curves in the approach alignment.",
       ],
       ["The bridge is in a sag vertical curve.", "The bridge is located within a sag vertical curve."],
       ["The bridge is in a crest vertical curve.", "The bridge is located within a crest vertical curve."],
