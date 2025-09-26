@@ -1098,7 +1098,8 @@ function addDeficiencyButtons(event) {
     if (searchValue !== "") {
       const asset = assetData.find((item) => item["Asset Number"].toLowerCase() === searchValue.toLowerCase());
       if (asset) {
-        displaySummary(asset); // Pass the whole asset object to the function
+        displaySummary(assetObject); // Pass the whole asset object to the function
+
       } else {
         console.log("Asset not found.");
       }
