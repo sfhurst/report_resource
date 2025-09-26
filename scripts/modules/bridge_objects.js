@@ -374,6 +374,7 @@ const bridgeComponents = [
       ["There are no defects to report."],
       ["The railings are functioning as designed with only minor issues."],
       ["There is an isolated area of collision damage."],
+      ["Some minor deformations are present in the aluminum railing."],
       ["There are widely spaced hairline vertical cracks in the concrete barrier walls.", "Some minor cracking is present in the concrete barrier walls."],
       ["There are intermittently spaced hairline vertical cracks with efflorescence in the concrete barrier walls."],
       ["There is horizontal cracking in the concrete barrier walls."],
