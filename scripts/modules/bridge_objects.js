@@ -375,11 +375,11 @@ const bridgeComponents = [
       ["The railings are functioning as designed with only minor issues."],
       ["There is an isolated area of collision damage."],
       ["Some minor deformations are present in the aluminum railing."],
+      ["There is some minor corrosion in the steel railings.", "Some minor corrosion is present in the steel railings."],
       ["There are widely spaced hairline vertical cracks in the concrete barrier walls.", "Some minor cracking is present in the concrete barrier walls."],
       ["There are intermittently spaced hairline vertical cracks with efflorescence in the concrete barrier walls."],
       ["There is horizontal cracking in the concrete barrier walls."],
       ["The steel railings are anchored into the exterior box beams."],
-      ["There is some minor corrosion in the steel railings.", "Some minor corrosion is present in the steel rainings."],
     ],
     rating_table: [
       {
