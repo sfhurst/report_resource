@@ -102,8 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
       target.value = source.value;
     }
 
-    paintMain.addEventListener("input", () => syncPaintInputs(paintMain, paintReview));
-    paintReview.addEventListener("input", () => syncPaintInputs(paintReview, paintMain));
+    paintMain.addEventListener("input", () =>
+      syncPaintInputs(paintMain, paintReview)
+    );
+    paintReview.addEventListener("input", () =>
+      syncPaintInputs(paintReview, paintMain)
+    );
   }
 });
 
@@ -129,7 +133,9 @@ function setSafeHTML(container, unsafeHTML) {
 
 // Populate glossary with defect definitions
 function populateGlossaryDefects() {
-  const container = document.querySelector("#glossary-defects-tab .glossary-numeric-ratings-container");
+  const container = document.querySelector(
+    "#glossary-defects-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each defect definition and create a glossary card for each
   defectDefinitions.forEach((defect) => {
@@ -143,11 +149,14 @@ function populateGlossaryDefects() {
 
     // Create the hidden link for the term
     const link = document.createElement("a");
-    let search = defect.search || `What is "${defect.term}" in ${defect.discipline}?`; // Search query
+    let search =
+      defect.search || `What is "${defect.term}" in ${defect.discipline}?`; // Search query
     link.classList.add("glossary-term-link");
     link.textContent = defect.term;
     // If defect.link exists, use it; otherwise, fall back to Google search
-    link.href = defect.link || `https://www.google.com/search?q=${encodeURIComponent(search)}`;
+    link.href =
+      defect.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search)}`;
     link.target = "_blank";
 
     // Append the link inside the header div
@@ -173,7 +182,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryDefects);
 
 // Populate glossary with bridge definitions
 function populateGlossaryBridge() {
-  const container2 = document.querySelector("#glossary-bridge-tab .glossary-numeric-ratings-container");
+  const container2 = document.querySelector(
+    "#glossary-bridge-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each glossary term and create a glossary card for each
   glossaryTerms.forEach((defect2) => {
@@ -187,11 +198,14 @@ function populateGlossaryBridge() {
 
     // Create the hidden link for the term
     const link2 = document.createElement("a");
-    let search2 = defect2.search || `What is "${defect2.term}" in ${defect2.discipline}?`; // Search query
+    let search2 =
+      defect2.search || `What is "${defect2.term}" in ${defect2.discipline}?`; // Search query
     link2.classList.add("glossary-term-link");
     link2.textContent = defect2.term;
     // If defect2.link exists, use it; otherwise, fall back to Google search
-    link2.href = defect2.link || `https://www.google.com/search?q=${encodeURIComponent(search2)}`;
+    link2.href =
+      defect2.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search2)}`;
     link2.target = "_blank";
 
     // Append the link inside the header div
@@ -215,7 +229,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryBridge);
 
 // Populate glossary with culvert definitions
 function populateGlossaryCulvert() {
-  const container2 = document.querySelector("#glossary-culvert-tab .glossary-numeric-ratings-container");
+  const container2 = document.querySelector(
+    "#glossary-culvert-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each glossary term and create a glossary card for each
   culvertTerms.forEach((defect2) => {
@@ -229,11 +245,14 @@ function populateGlossaryCulvert() {
 
     // Create the hidden link for the term
     const link2 = document.createElement("a");
-    let search2 = defect2.search || `What is "${defect2.term}" in ${defect2.discipline}?`; // Search query
+    let search2 =
+      defect2.search || `What is "${defect2.term}" in ${defect2.discipline}?`; // Search query
     link2.classList.add("glossary-term-link");
     link2.textContent = defect2.term;
     // If defect2.link exists, use it; otherwise, fall back to Google search
-    link2.href = defect2.link || `https://www.google.com/search?q=${encodeURIComponent(search2)}`;
+    link2.href =
+      defect2.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search2)}`;
     link2.target = "_blank";
 
     // Append the link inside the header div
@@ -257,7 +276,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryCulvert);
 
 // Populate glossary with wall definitions
 function populateGlossaryWall() {
-  const container3 = document.querySelector("#glossary-wall-tab .glossary-numeric-ratings-container");
+  const container3 = document.querySelector(
+    "#glossary-wall-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each glossary term and create a glossary card for each
   wallTerms.forEach((defect3) => {
@@ -271,11 +292,14 @@ function populateGlossaryWall() {
 
     // Create the hidden link for the term
     const link3 = document.createElement("a");
-    let search3 = defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
+    let search3 =
+      defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
     link3.classList.add("glossary-term-link");
     link3.textContent = defect3.term;
     // If defect3.link exists, use it; otherwise, fall back to Google search
-    link3.href = defect3.link || `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
+    link3.href =
+      defect3.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
     link3.target = "_blank";
 
     // Append the link inside the header div
@@ -299,7 +323,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryWall);
 
 // Populate glossary with compound word definitions
 function populateGlossaryCompound() {
-  const container3 = document.querySelector("#glossary-compounds-tab .glossary-numeric-ratings-container");
+  const container3 = document.querySelector(
+    "#glossary-compounds-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each glossary term and create a glossary card for each
   compoundTerms.forEach((defect3) => {
@@ -313,11 +339,14 @@ function populateGlossaryCompound() {
 
     // Create the hidden link for the term
     const link3 = document.createElement("a");
-    let search3 = defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
+    let search3 =
+      defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
     link3.classList.add("glossary-term-link");
     link3.textContent = defect3.term;
     // If defect3.link exists, use it; otherwise, fall back to Google search
-    link3.href = defect3.link || `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
+    link3.href =
+      defect3.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
     link3.target = "_blank";
 
     // Append the link inside the header div
@@ -341,7 +370,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryCompound);
 
 // Populate glossary with all definitions (Text Content Insertion)
 function populateGlossaryAll() {
-  const container3 = document.querySelector("#glossary-all-tab .glossary-numeric-ratings-container");
+  const container3 = document.querySelector(
+    "#glossary-all-tab .glossary-numeric-ratings-container"
+  );
 
   // Loop through each glossary term and create a glossary card for each
   glossaryAllTerms.forEach((defect3) => {
@@ -355,12 +386,14 @@ function populateGlossaryAll() {
 
     // Create the hidden link for the term
     const link3 = document.createElement("a");
-    let search3 = defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
+    let search3 =
+      defect3.search || `What is "${defect3.term}" in ${defect3.discipline}?`; // Search query
     link3.classList.add("glossary-term-link");
 
     // Special case for "iterate" to use styled HTML
     if (defect3.term.toLowerCase() === "iterate") {
-      link3.innerHTML = '<span class="ite-text">ite<span class="rate-text">rate</span></span>';
+      link3.innerHTML =
+        '<span class="ite-text">ite<span class="rate-text">rate</span></span>';
     } else {
       link3.textContent = defect3.term;
     }
@@ -369,7 +402,9 @@ function populateGlossaryAll() {
     link3.setAttribute("data-term", defect3.term.toLowerCase()); // Add the data-term attribute here
 
     // If defect3.link exists, use it; otherwise, fall back to Google search
-    link3.href = defect3.link || `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
+    link3.href =
+      defect3.link ||
+      `https://www.google.com/search?q=${encodeURIComponent(search3)}`;
     link3.target = "_blank";
 
     // Append the link inside the header div
@@ -395,7 +430,9 @@ document.addEventListener("DOMContentLoaded", populateGlossaryAll);
 // This is still generated in the index.html and can be deleted.
 // Function to populate the county glossary
 function populateCountyGlossary() {
-  const container = document.querySelector("#glossary-county-tab .glossary-card-paragraph");
+  const container = document.querySelector(
+    "#glossary-county-tab .glossary-card-paragraph"
+  );
 
   if (!container) {
     console.error("Glossary container not found.");
@@ -418,7 +455,9 @@ function populateCountyGlossary() {
       // Create a link element wrapping the county info
       const link = document.createElement("a");
       link.classList.add("glossary-term-link");
-      link.href = `https://www.google.com/maps?q=${encodeURIComponent(description + " County, Indiana")}`;
+      link.href = `https://www.google.com/maps?q=${encodeURIComponent(
+        description + " County, Indiana"
+      )}`;
       link.target = "_blank"; // Open in a new tab
 
       // Create a span for the code
@@ -446,7 +485,9 @@ function populateCountyGlossary() {
       container.appendChild(countyItem);
     });
   } else {
-    console.error("No matching object with 'variable: countyCode' found in bridgeData.");
+    console.error(
+      "No matching object with 'variable: countyCode' found in bridgeData."
+    );
   }
 }
 
@@ -485,7 +526,9 @@ function buildGlossaries(bridgeComponents) {
         let search = item.search || `What is "${item.term}" in highway design?`;
         link.classList.add("glossary-term-link");
         link.textContent = item.term;
-        link.href = `https://www.google.com/search?q=${encodeURIComponent(search)}`;
+        link.href = `https://www.google.com/search?q=${encodeURIComponent(
+          search
+        )}`;
         link.target = "_blank";
 
         // Append the link inside the header div
@@ -514,11 +557,15 @@ buildGlossaries(bridgeComponents);
 // Populate example comments for bridge components
 function updateExampleComments() {
   bridgeComponents.forEach((component) => {
-    const commentsContainer = document.getElementById(component.example_comments_page_id);
+    const commentsContainer = document.getElementById(
+      component.example_comments_page_id
+    );
 
     if (commentsContainer && component.example_comments) {
       // Find or create the content container for comments
-      let contentContainer = commentsContainer.querySelector(".content-container-paragraphs");
+      let contentContainer = commentsContainer.querySelector(
+        ".content-container-paragraphs"
+      );
       if (!contentContainer) {
         contentContainer = document.createElement("div");
         contentContainer.classList.add("content-container-paragraphs");
@@ -569,7 +616,9 @@ function handleTextareaChange(event) {
 
   // Find the div with the matching data-category within #bridge-review-tab
   const reviewTab = document.getElementById("bridge-review-tab");
-  const targetDiv = reviewTab.querySelector(`.content-container-rating-lines[data-category="${dataCategory}"]`);
+  const targetDiv = reviewTab.querySelector(
+    `.content-container-rating-lines[data-category="${dataCategory}"]`
+  );
 
   if (targetDiv) {
     // Find the span with the class 'textarea-content-here' inside this div
@@ -588,7 +637,9 @@ function handleTextareaChange(event) {
 
   // Update the corresponding textarea without causing an endless loop
   if (isReviewTextarea) {
-    const matchingTextareas = document.querySelectorAll(`[id^="${textarea.id.split("-")[0]}-textarea"]`);
+    const matchingTextareas = document.querySelectorAll(
+      `[id^="${textarea.id.split("-")[0]}-textarea"]`
+    );
     matchingTextareas.forEach((matchingTextarea) => {
       if (matchingTextarea !== textarea) {
         matchingTextarea.value = textareaContents;
@@ -596,7 +647,9 @@ function handleTextareaChange(event) {
     });
   } else {
     // Update the corresponding review textarea without causing an endless loop
-    const matchingReviewTextareas = document.querySelectorAll(`[id^="${textarea.id.split("-")[0]}-textarea-review"]`);
+    const matchingReviewTextareas = document.querySelectorAll(
+      `[id^="${textarea.id.split("-")[0]}-textarea-review"]`
+    );
     matchingReviewTextareas.forEach((matchingReviewTextarea) => {
       if (matchingReviewTextarea !== textarea) {
         matchingReviewTextarea.value = textareaContents;
@@ -643,9 +696,11 @@ function copyToClipboard(evt) {
 }
 
 // Add Event Listener for Copying Text from Comment Lines to Clipboard
-document.querySelectorAll(".content-container-comment-lines").forEach(function (element) {
-  element.addEventListener("click", copyToClipboard); // Add click event listener to each comment line
-});
+document
+  .querySelectorAll(".content-container-comment-lines")
+  .forEach(function (element) {
+    element.addEventListener("click", copyToClipboard); // Add click event listener to each comment line
+  });
 
 // :::: (Dbl-Clicked Textarea to Clipboard) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -693,7 +748,8 @@ function expandTextarea(event, componentName) {
       textareaElem.parentNode.dataset.replicatedValue = textareaElem.value;
     }
     if (reviewTextareaElem) {
-      reviewTextareaElem.parentNode.dataset.replicatedValue = reviewTextareaElem.value;
+      reviewTextareaElem.parentNode.dataset.replicatedValue =
+        reviewTextareaElem.value;
     }
   });
 }
@@ -707,14 +763,18 @@ document.addEventListener("keydown", function (event) {
   }
 
   // Step 1: Check if the unique bridge asset tab button is active
-  const bridgeAssetTab = document.querySelector('button[data-target="bridge-asset-tab"]');
+  const bridgeAssetTab = document.querySelector(
+    'button[data-target="bridge-asset-tab"]'
+  );
   if (!bridgeAssetTab || !bridgeAssetTab.classList.contains("active")) {
     // alert("Step 1: The bridge asset tab is not active.");
     return;
   }
 
   // Step 2: Find the active bridge component button in row 2
-  const activeComponentButton = document.querySelector("button.bridge-component-buttons.active.row2");
+  const activeComponentButton = document.querySelector(
+    "button.bridge-component-buttons.active.row2"
+  );
   if (!activeComponentButton) {
     // alert("Step 2: No active bridge component button found.");
     return;
@@ -759,9 +819,16 @@ document.addEventListener("keydown", function (event) {
   }
 
   // Step 6: If no input fields are active, focus the appropriate textarea and append the letter
-  if (!document.activeElement || (document.activeElement.tagName !== "TEXTAREA" && document.activeElement.tagName !== "INPUT")) {
+  if (
+    !document.activeElement ||
+    (document.activeElement.tagName !== "TEXTAREA" &&
+      document.activeElement.tagName !== "INPUT")
+  ) {
     targetTextarea.focus();
-    targetTextarea.setSelectionRange(targetTextarea.value.length, targetTextarea.value.length);
+    targetTextarea.setSelectionRange(
+      targetTextarea.value.length,
+      targetTextarea.value.length
+    );
   }
 });
 
@@ -928,15 +995,21 @@ function handleTabClick(event) {
       ).textContent = `User information is saved in the browser's local storage by completing the fields. Clear the browser cache to remove.`;
     }
     if (target === "settings-global-tab") {
-      document.querySelector("#user-local-storage").textContent = `Global features are under development.`;
+      document.querySelector(
+        "#user-local-storage"
+      ).textContent = `Global features are under development.`;
       // `Global settings are saved in the browser's local storage by completing the fields. Clear the browser cache to remove.`
     }
     if (target === "settings-guide-tab") {
-      document.querySelector("#user-local-storage").textContent = `A general overview of site functionality.`;
+      document.querySelector(
+        "#user-local-storage"
+      ).textContent = `A general overview of site functionality.`;
     }
 
     // If two or more comment builders hold the active view on their tabs then select the correct one to be active
-    const activeButtons = document.querySelectorAll(".bridge-approach-buttons.active, .bridge-deck-buttons.active");
+    const activeButtons = document.querySelectorAll(
+      ".bridge-approach-buttons.active, .bridge-deck-buttons.active"
+    );
     if (activeTab === "bridge-approach-tab") {
       currentTarget = "approach-pg6";
     }
@@ -984,17 +1057,23 @@ function handleHighlight(event) {
     // Reset the numerical value in #bridge-review-tab to an empty string
     const dataCategory = clickedItem.getAttribute("data-category");
     const bridgeReviewTab = document.getElementById("bridge-review-tab");
-    const matchingItem = bridgeReviewTab.querySelector(`.content-container-rating-lines[data-category="${dataCategory}"]`);
+    const matchingItem = bridgeReviewTab.querySelector(
+      `.content-container-rating-lines[data-category="${dataCategory}"]`
+    );
 
     if (matchingItem) {
-      const span = matchingItem.querySelector(".content-container-rating-numerical");
+      const span = matchingItem.querySelector(
+        ".content-container-rating-numerical"
+      );
       if (span) {
         span.textContent = ""; // Reset the numerical value to an empty string
       }
     }
 
     // Reset the numerical value on the corresponding review button
-    const reviewButton = document.getElementById(`${dataCategory}-button-review`);
+    const reviewButton = document.getElementById(
+      `${dataCategory}-button-review`
+    );
     if (reviewButton) {
       reviewButton.textContent = "N"; // Reset button text or whatever default text you prefer
     }
@@ -1008,7 +1087,9 @@ function handleHighlight(event) {
     clickedItem.classList.add("highlight");
 
     // Capture the numerical value from the clicked item's .content-container-rating-numerical
-    const numericalValue = clickedItem.querySelector(".content-container-rating-numerical").textContent.trim();
+    const numericalValue = clickedItem
+      .querySelector(".content-container-rating-numerical")
+      .textContent.trim();
 
     // Capture the data-category from the clicked item's data-category attribute
     const dataCategory = clickedItem.getAttribute("data-category");
@@ -1019,11 +1100,15 @@ function handleHighlight(event) {
     const bridgeReviewTab = document.getElementById("bridge-review-tab");
 
     // Search for the div with matching data-category under the bridge-review-tab
-    const matchingItem = bridgeReviewTab.querySelector(`.content-container-rating-lines[data-category="${dataCategory}"]`);
+    const matchingItem = bridgeReviewTab.querySelector(
+      `.content-container-rating-lines[data-category="${dataCategory}"]`
+    );
 
     // If a match is found, update the span with the new numerical value
     if (matchingItem) {
-      const span = matchingItem.querySelector(".content-container-rating-numerical");
+      const span = matchingItem.querySelector(
+        ".content-container-rating-numerical"
+      );
       if (span) {
         span.textContent = numericalValue; // Update the numerical value
       } else {
@@ -1040,7 +1125,9 @@ function handleHighlight(event) {
       reviewButton.textContent = numericalValue; // Update button text with the numerical value
 
       const colorVar = `--rating-${numericalValue}`;
-      const color = getComputedStyle(document.documentElement).getPropertyValue(colorVar);
+      const color = getComputedStyle(document.documentElement).getPropertyValue(
+        colorVar
+      );
       reviewButton.style.backgroundColor = color.trim();
     }
   }
@@ -1064,7 +1151,9 @@ function addDeficiencyButtons(event) {
   const buttonCategory = button.getAttribute("data-button-category");
 
   // Find all buttons that match the same task name and category
-  const allMatchingButtons = document.querySelectorAll(`button[data-button-name="${buttonName}"][data-button-category="${buttonCategory}"]`);
+  const allMatchingButtons = document.querySelectorAll(
+    `button[data-button-name="${buttonName}"][data-button-category="${buttonCategory}"]`
+  );
 
   // Determine if we are activating or deactivating based on the clicked button
   const isActive = button.classList.contains("active-maintenance");
@@ -1083,7 +1172,9 @@ function addDeficiencyButtons(event) {
     // Add or remove task from global array
     if (isActive) {
       // If it's active, remove it from the array
-      maintenanceArray = maintenanceArray.filter((task) => task.name !== buttonName || task.category !== buttonCategory);
+      maintenanceArray = maintenanceArray.filter(
+        (task) => task.name !== buttonName || task.category !== buttonCategory
+      );
     } else {
       // If it's not active, add it to the array
       maintenanceArray.push({ name: buttonName, category: buttonCategory });
@@ -1092,14 +1183,18 @@ function addDeficiencyButtons(event) {
     const categoryOrder = ["Red", "Yellow", "Green", "Grey"];
 
     maintenanceArray.sort((a, b) => {
-      return categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category);
+      return (
+        categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category)
+      );
     });
 
     if (searchValue !== "") {
-      const asset = assetData.find((item) => item["Asset Number"].toLowerCase() === searchValue.toLowerCase());
+      const asset = assetData.find(
+        (item) =>
+          item["Asset Number"].toLowerCase() === searchValue.toLowerCase()
+      );
       if (asset) {
         displaySummary(assetObject); // Pass the whole asset object to the function
-
       } else {
         console.log("Asset not found.");
       }
@@ -1121,7 +1216,8 @@ function updateObjectRatings(numericalValue, dataCategory) {
     }
     if (dataCategory === "B.C.02") {
       if (assetObject) {
-        assetObject["(B.C.02) Superstructure Condition Rating"] = numericalValue;
+        assetObject["(B.C.02) Superstructure Condition Rating"] =
+          numericalValue;
         hideAllErrors();
         displaySummary(assetObject);
       }
@@ -1142,7 +1238,8 @@ function updateObjectRatings(numericalValue, dataCategory) {
     }
     if (dataCategory === "B.C.01a") {
       if (assetObject) {
-        assetObject["(B.C.01a) Wearing Surface Condition Rating"] = numericalValue;
+        assetObject["(B.C.01a) Wearing Surface Condition Rating"] =
+          numericalValue;
         hideAllErrors();
         displaySummary(assetObject);
       }
@@ -1203,27 +1300,36 @@ const data = {
 window.addEventListener("load", loadSavedValues);
 
 // Event listener for populating predefined data on Enter press
-document.getElementById("user-textarea-name").addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault(); // Prevent newline
+document
+  .getElementById("user-textarea-name")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent newline
 
-    const inputValue = this.value.toLowerCase().trim();
+      const inputValue = this.value.toLowerCase().trim();
 
-    // Only populate and save if matching data is found
-    if (data[inputValue]) {
-      document.getElementById("user-textarea-name").value = data[inputValue].name;
-      document.getElementById("user-textarea-number").value = data[inputValue].number;
-      document.getElementById("user-textarea-email").value = data[inputValue].email;
-      document.getElementById("user-textarea-teamleader").value = data[inputValue].teamleader;
+      // Only populate and save if matching data is found
+      if (data[inputValue]) {
+        document.getElementById("user-textarea-name").value =
+          data[inputValue].name;
+        document.getElementById("user-textarea-number").value =
+          data[inputValue].number;
+        document.getElementById("user-textarea-email").value =
+          data[inputValue].email;
+        document.getElementById("user-textarea-teamleader").value =
+          data[inputValue].teamleader;
 
-      // Manually trigger save for the updated values in localStorage
-      localStorage.setItem("user-textarea-name", data[inputValue].name);
-      localStorage.setItem("user-textarea-number", data[inputValue].number);
-      localStorage.setItem("user-textarea-email", data[inputValue].email);
-      localStorage.setItem("user-textarea-teamleader", data[inputValue].teamleader);
+        // Manually trigger save for the updated values in localStorage
+        localStorage.setItem("user-textarea-name", data[inputValue].name);
+        localStorage.setItem("user-textarea-number", data[inputValue].number);
+        localStorage.setItem("user-textarea-email", data[inputValue].email);
+        localStorage.setItem(
+          "user-textarea-teamleader",
+          data[inputValue].teamleader
+        );
+      }
     }
-  }
-});
+  });
 
 // Handle double-click to copy text from textareas to clipboard
 document.querySelectorAll("[id^='user-textarea']").forEach((textarea) => {
@@ -1286,7 +1392,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Scroll to the first matched term's parent div
     if (matchedTerms.length > 0) {
       const firstMatch = matchedTerms[0];
-      const termElement = document.querySelector(`.glossary-term-link[data-term="${firstMatch.term.toLowerCase()}"]`);
+      const termElement = document.querySelector(
+        `.glossary-term-link[data-term="${firstMatch.term.toLowerCase()}"]`
+      );
 
       if (termElement) {
         const parentElement = termElement.closest(".glossary-card-header");
@@ -1318,7 +1426,11 @@ document.addEventListener("DOMContentLoaded", function () {
         activeButton.focus(); // Focus on the active button
       }
     } else if (event.key === "End") {
-      mainSection.scrollTo({ top: mainSection.scrollHeight, left: 0, behavior: "auto" });
+      mainSection.scrollTo({
+        top: mainSection.scrollHeight,
+        left: 0,
+        behavior: "auto",
+      });
     }
   });
 });
@@ -1332,8 +1444,12 @@ document.querySelectorAll(".paragraph-navigate").forEach((paragraph) => {
       const targetNavigate = paragraph.dataset.navigate;
       const targetComments = paragraph.dataset.comments;
 
-      const navigateButton = document.querySelector(`button[data-navigate="${targetNavigate}"]`);
-      const commentsButton = document.querySelector(`button[data-target="${targetComments}"]`);
+      const navigateButton = document.querySelector(
+        `button[data-navigate="${targetNavigate}"]`
+      );
+      const commentsButton = document.querySelector(
+        `button[data-target="${targetComments}"]`
+      );
 
       if (navigateButton) {
         navigateButton.click();
@@ -1355,8 +1471,12 @@ document.querySelectorAll(".rating-button").forEach((paragraph) => {
       const targetNavigate = paragraph.dataset.navigate;
       const targetRating = paragraph.dataset.rating;
 
-      const navigateButton = document.querySelector(`button[data-navigate="${targetNavigate}"]`);
-      const ratingButton = document.querySelector(`button[data-target="${targetRating}"]`);
+      const navigateButton = document.querySelector(
+        `button[data-navigate="${targetNavigate}"]`
+      );
+      const ratingButton = document.querySelector(
+        `button[data-target="${targetRating}"]`
+      );
 
       if (navigateButton) {
         navigateButton.click();
@@ -1385,14 +1505,18 @@ document.addEventListener("keydown", (event) => {
       // Step 3: Trigger the same functionality as the paragraph click event
       if (window.innerWidth > 768) {
         // Step 4: Find the button with the matching data-navigate and simulate a click
-        const navigateButton = document.querySelector(`button[data-navigate="${dataNavigate}"]`);
+        const navigateButton = document.querySelector(
+          `button[data-navigate="${dataNavigate}"]`
+        );
         if (navigateButton) {
           navigateButton.click(); // Simulate click on the navigate button
           navigateButton.focus(); // Set focus after click
         }
 
         // Step 5: Find the button with the matching data-target (matching data-comments) and simulate a click
-        const commentsButton = document.querySelector(`button[data-target="${dataComments}"]`);
+        const commentsButton = document.querySelector(
+          `button[data-target="${dataComments}"]`
+        );
         if (commentsButton) {
           commentsButton.click(); // Simulate click on the comments button
           commentsButton.focus(); // Set focus on the comments button
@@ -1498,7 +1622,8 @@ function showCopiedMessage() {
 
   // Create the part with instructions (Ctrl+Shift+Z and Ctrl+Shift+Y)
   const instructionsPart = document.createElement("div");
-  instructionsPart.textContent = "Press Ctrl+Shift+Z to undo and Ctrl+Shift+Y to redo.";
+  instructionsPart.textContent =
+    "Press Ctrl+Shift+Z to undo and Ctrl+Shift+Y to redo.";
   instructionsPart.style.backgroundColor = "#333"; // Dark background for instructions
   instructionsPart.style.color = "#fff"; // White text color
   instructionsPart.style.padding = "6px 10px"; // Reduced padding for instructions
@@ -1655,8 +1780,14 @@ document.addEventListener("copy", (event) => {
   let copiedText = "";
 
   const activeEl = document.activeElement;
-  if (activeEl && (activeEl.tagName === "TEXTAREA" || activeEl.tagName === "INPUT")) {
-    copiedText = activeEl.value.substring(activeEl.selectionStart, activeEl.selectionEnd);
+  if (
+    activeEl &&
+    (activeEl.tagName === "TEXTAREA" || activeEl.tagName === "INPUT")
+  ) {
+    copiedText = activeEl.value.substring(
+      activeEl.selectionStart,
+      activeEl.selectionEnd
+    );
   } else {
     copiedText = window.getSelection().toString();
   }
@@ -1756,7 +1887,9 @@ function handleElementAction(element) {
 }
 
 function getVisibleElements(rowClass) {
-  return Array.from(document.querySelectorAll(`.${rowClass}`)).filter((el) => el.offsetParent !== null);
+  return Array.from(document.querySelectorAll(`.${rowClass}`)).filter(
+    (el) => el.offsetParent !== null
+  );
 }
 
 function getAllRowClasses() {
@@ -1782,7 +1915,9 @@ function getAllRowClasses() {
 
 window.addEventListener("keydown", function (event) {
   let activeElement = document.activeElement;
-  let rowClass = Array.from(activeElement.classList).find((cls) => cls.startsWith("row"));
+  let rowClass = Array.from(activeElement.classList).find((cls) =>
+    cls.startsWith("row")
+  );
   if (!rowClass) return;
 
   const elements = getVisibleElements(rowClass);
@@ -1860,26 +1995,29 @@ window.addEventListener("keydown", function (event) {
       if (cursorPosition === textLength) {
         if (rowIndex === allRows.length - 1) {
           // It's the last row, so focus the first element in Row1
-          const firstRow = getVisibleElements(allRows[0]);
-          if (firstRow.length) {
-            firstRow[0].focus();
-            handleElementAction(firstRow[0]);
+          const firstRowElements = getVisibleElements(allRows[0]);
+          if (firstRowElements.length) {
+            // Try to find the active element
+            const activeElement = Array.from(firstRowElements).find((el) =>
+              el.classList.contains("active")
+            );
+            const elementToFocus = activeElement || firstRowElements[0];
+            elementToFocus.focus();
+            handleElementAction(elementToFocus);
           }
         } else {
           // Move focus to the first element in the next row
           const nextRowIndex = (rowIndex + 1) % allRows.length;
-          const nextRow = getVisibleElements(allRows[nextRowIndex]);
-
-          if (nextRow.length) {
-            // Check if there's an active button in the next row
-            const activeButton = nextRow.find((el) => el.tagName.toLowerCase() === "button" && el.classList.contains("active"));
-            if (activeButton) {
-              activeButton.focus(); // Focus the active button
-              handleElementAction(activeButton);
-            } else {
-              nextRow[0].focus(); // If no active button, focus the first visible element
-              handleElementAction(nextRow[0]);
-            }
+          const nextRowElements = getVisibleElements(allRows[nextRowIndex]);
+          if (nextRowElements.length) {
+            const nextRowArray = Array.from(nextRowElements);
+            // Find the element with "active" class
+            const activeElement = nextRowArray.find((el) =>
+              el.classList.contains("active")
+            );
+            const elementToFocus = activeElement || nextRowArray[0]; // fallback to first element
+            elementToFocus.focus();
+            handleElementAction(elementToFocus);
           }
         }
         event.preventDefault();
@@ -1895,7 +2033,11 @@ window.addEventListener("keydown", function (event) {
 
       if (nextRow.length) {
         // Check if there's an active button in the next row
-        const activeButton = nextRow.find((el) => el.tagName.toLowerCase() === "button" && el.classList.contains("active"));
+        const activeButton = nextRow.find(
+          (el) =>
+            el.tagName.toLowerCase() === "button" &&
+            el.classList.contains("active")
+        );
         if (activeButton) {
           activeButton.focus(); // Focus the active button
           handleElementAction(activeButton);
@@ -1909,37 +2051,38 @@ window.addEventListener("keydown", function (event) {
   }
 
   if (event.code === "ArrowUp" && toggleArrow !== "default") {
-    let activeElement = document.activeElement;
-
+    const activeElement = document.activeElement;
     // Check if the active element is a textarea
     if (activeElement.tagName.toLowerCase() === "textarea") {
       const textarea = activeElement;
       const cursorPosition = textarea.selectionStart;
-
       // If the cursor is at the beginning of the textarea, proceed with normal behavior
       if (cursorPosition === 0) {
-        const nextRowIndex = (rowIndex - 1 + allRows.length) % allRows.length;
-        const nextRow = getVisibleElements(allRows[nextRowIndex]);
-        if (nextRow.length) {
-          nextRow[0].focus(); // Focus the first visible element in the previous row
-          handleElementAction(nextRow[0]);
+        const prevRowIndex = (rowIndex - 1 + allRows.length) % allRows.length;
+        const prevRowElements = getVisibleElements(allRows[prevRowIndex]);
+        if (prevRowElements.length) {
+          // Focus the element with "active" class, or first element if none
+          const prevRowArray = Array.from(prevRowElements);
+          const elementToFocus =
+            prevRowArray.find((el) => el.classList.contains("active")) ||
+            prevRowArray[0];
+          elementToFocus.focus();
+          handleElementAction(elementToFocus);
         }
         event.preventDefault();
       }
     } else {
       // Normal behavior if not in a textarea
-      const nextRowIndex = (rowIndex - 1 + allRows.length) % allRows.length;
-      const nextRow = getVisibleElements(allRows[nextRowIndex]);
-      if (nextRow.length) {
-        // Check if there's an active button in the previous row
-        const activeButton = nextRow.find((el) => el.tagName.toLowerCase() === "button" && el.classList.contains("active"));
-        if (activeButton) {
-          activeButton.focus(); // Focus the active button
-          handleElementAction(activeButton);
-        } else {
-          nextRow[0].focus(); // If no active button, focus the first visible element
-          handleElementAction(nextRow[0]);
-        }
+      const prevRowIndex = (rowIndex - 1 + allRows.length) % allRows.length;
+      const prevRowElements = getVisibleElements(allRows[prevRowIndex]);
+      if (prevRowElements.length) {
+        // Focus the element with "active" class, or first element if none
+        const prevRowArray = Array.from(prevRowElements);
+        const elementToFocus =
+          prevRowArray.find((el) => el.classList.contains("active")) ||
+          prevRowArray[0];
+        elementToFocus.focus();
+        handleElementAction(elementToFocus);
       }
       event.preventDefault();
     }
@@ -1955,7 +2098,10 @@ window.addEventListener("keydown", function (event) {
       const targetButton = document.activeElement;
 
       // Check if the target button has both required classes
-      if (targetButton.classList.contains("row2") && targetButton.classList.contains("bridge-component-buttons")) {
+      if (
+        targetButton.classList.contains("row2") &&
+        targetButton.classList.contains("bridge-component-buttons")
+      ) {
         // Trigger a simulated "ArrowDown" key event
         const arrowDownEvent = new KeyboardEvent("keydown", {
           key: "ArrowDown",
@@ -2007,12 +2153,16 @@ window.addEventListener("keydown", function (event) {
   ];
 
   // Find the currently visible container
-  const activeContainer = containerIds.map((id) => document.getElementById(id)).find((el) => el && el.offsetParent !== null);
+  const activeContainer = containerIds
+    .map((id) => document.getElementById(id))
+    .find((el) => el && el.offsetParent !== null);
 
   if (!activeContainer) return; // No visible container
 
   // Find the rating line matching the key
-  const targetLine = Array.from(activeContainer.querySelectorAll(".content-container-rating-lines")).find((line) => {
+  const targetLine = Array.from(
+    activeContainer.querySelectorAll(".content-container-rating-lines")
+  ).find((line) => {
     const span = line.querySelector(".content-container-rating-numerical");
     return span && span.textContent.trim().toUpperCase() === key;
   });
@@ -2083,7 +2233,8 @@ function navigate(direction) {
     let roundedUp = Math.ceil(foundIndex);
     // alert(roundedUp);
     // Move backward in the sequence, looping back to the last entry if at the start
-    currentIndex = (roundedUp - 1 + navigationMap.length) % navigationMap.length;
+    currentIndex =
+      (roundedUp - 1 + navigationMap.length) % navigationMap.length;
   }
 
   // Simulate button clicks for the current navigation entry
@@ -2114,7 +2265,9 @@ function findNavigationIndex() {
   let buttonActive3Prefix = null;
 
   // Get all buttons whose data-target starts with "bridge-" and ends with "-tab", but exclude "bridge-asset-tab"
-  const activeButton2 = document.querySelectorAll('[data-target^="bridge-"][data-target$="-tab"]:not([data-target="bridge-asset-tab"])');
+  const activeButton2 = document.querySelectorAll(
+    '[data-target^="bridge-"][data-target$="-tab"]:not([data-target="bridge-asset-tab"])'
+  );
 
   // Loop through all the buttons and check if any of them is active
   activeButton2.forEach((button) => {
@@ -2123,13 +2276,16 @@ function findNavigationIndex() {
     // Check if the button follows the "bridge-*-tab" pattern and is active
     if (button.classList.contains("active") && activeTarget2.includes("-tab")) {
       buttonActive2 = activeTarget2; // Store the active button's data-target
-      buttonActive3Prefix = buttonActive2.split("-").slice(0, 2).join("-") + "-";
+      buttonActive3Prefix =
+        buttonActive2.split("-").slice(0, 2).join("-") + "-";
       // alert(buttonActive2);
     }
   });
 
   // alert(buttonActive3Prefix);
-  const activeButton3 = document.querySelectorAll(`[data-target^="${buttonActive3Prefix}pg"]`);
+  const activeButton3 = document.querySelectorAll(
+    `[data-target^="${buttonActive3Prefix}pg"]`
+  );
   // alert(activeButton3); // works to here!
 
   // Loop through all the buttons and check if any of them is active
@@ -2147,18 +2303,42 @@ function findNavigationIndex() {
   for (let i = 0; i < navigationMap.length; i++) {
     const buttonTarget2 = navigationMap[i][1]; // Second element in the array // bridge-*-tab // Components // buttonActive2
     const buttonTarget3 = navigationMap[i][2]; // Third element in the array // bridge-something-pgN (typically)
-    if (["bridge-elements-tab", "bridge-maintenance-tab", "bridge-review-tab"].includes(buttonActive2) && buttonActive2 === buttonTarget2) {
+    if (
+      [
+        "bridge-elements-tab",
+        "bridge-maintenance-tab",
+        "bridge-review-tab",
+      ].includes(buttonActive2) &&
+      buttonActive2 === buttonTarget2
+    ) {
       foundIndex = i;
       break;
     }
     // If buttonActive2 is set, compare it with other elements in the navigationMap
-    else if (buttonActive3 && buttonActive3.includes("-pg") && buttonTarget3 && buttonTarget3.includes("-pg")) {
+    else if (
+      buttonActive3 &&
+      buttonActive3.includes("-pg") &&
+      buttonTarget3 &&
+      buttonTarget3.includes("-pg")
+    ) {
       // Extract the number after the "-pg"
-      const numberFromButtonActive3 = parseInt(buttonActive3.slice(buttonActive3.lastIndexOf("-pg") + 3), 10);
-      const numberFromButtonTarget3 = parseInt(buttonTarget3.slice(buttonTarget3.lastIndexOf("-pg") + 3), 10);
+      const numberFromButtonActive3 = parseInt(
+        buttonActive3.slice(buttonActive3.lastIndexOf("-pg") + 3),
+        10
+      );
+      const numberFromButtonTarget3 = parseInt(
+        buttonTarget3.slice(buttonTarget3.lastIndexOf("-pg") + 3),
+        10
+      );
       // Get the prefix before "-pg"
-      const prefixFromButtonActive3 = buttonActive3.slice(0, buttonActive3.lastIndexOf("-pg"));
-      const prefixFromButtonTarget3 = buttonTarget3.slice(0, buttonTarget3.lastIndexOf("-pg"));
+      const prefixFromButtonActive3 = buttonActive3.slice(
+        0,
+        buttonActive3.lastIndexOf("-pg")
+      );
+      const prefixFromButtonTarget3 = buttonTarget3.slice(
+        0,
+        buttonTarget3.lastIndexOf("-pg")
+      );
 
       // Compare the active button's number with other elements in the navigationMap (if needed)
       // For example, if you want to compare this with `buttonTarget2` or any other values, you can add that logic here
@@ -2212,7 +2392,8 @@ function showArrowMessage(value) {
 
   // Create the message container
   const currentMessage = document.createElement("div"); //
-  const messageValue = value === "default" ? "Set to vertical scroll." : "Set to page navigation.";
+  const messageValue =
+    value === "default" ? "Set to vertical scroll." : "Set to page navigation.";
 
   currentMessage.classList.add("arrow-message"); // Add a class to target this specific message
 
@@ -2265,7 +2446,11 @@ function showArrowMessage(value) {
 
 document.addEventListener("keydown", function (event) {
   // Do nothing if an input or textarea is focused
-  if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
+  if (
+    document.activeElement.tagName === "INPUT" ||
+    document.activeElement.tagName === "TEXTAREA"
+  )
+    return;
 
   // Check if the key is 1-9, 0 (which represents 10), or Delete
   if (!/^[1-9]$|^0$|Delete$/.test(event.key)) return;
@@ -2278,7 +2463,9 @@ document.addEventListener("keydown", function (event) {
   }
 
   // Select all visible comment lines
-  const comments = Array.from(document.querySelectorAll(".content-container-comment-lines")).filter(
+  const comments = Array.from(
+    document.querySelectorAll(".content-container-comment-lines")
+  ).filter(
     (comment) => comment.offsetParent !== null // Ensure it's visible
   );
 
@@ -2287,7 +2474,9 @@ document.addEventListener("keydown", function (event) {
     return Array.from(comment.classList).some((cls) => cls.startsWith("p-"));
   });
 
-  const pClass = Array.from(firstVisibleComment.classList).find((cls) => cls.startsWith("p-"));
+  const pClass = Array.from(firstVisibleComment.classList).find((cls) =>
+    cls.startsWith("p-")
+  );
   const textareaId = pClass.replace("p-", "") + "-textarea"; // Remove 'p' and add '-textarea'
   const textarea = document.getElementById(textareaId);
 
@@ -2370,17 +2559,19 @@ document.addEventListener("keydown", function (event) {
 
 // :::: (Quick TL#) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-document.querySelectorAll('[data-target="bridge-asset-tab"]').forEach((button) => {
-  button.addEventListener("dblclick", function () {
-    const textarea = document.getElementById("user-textarea-teamleader");
-    if (textarea) {
-      navigator.clipboard
-        .writeText(textarea.value)
-        .then(() => console.log("Copied:", textarea.value))
-        .catch((err) => console.error("Failed to copy:", err));
-    }
+document
+  .querySelectorAll('[data-target="bridge-asset-tab"]')
+  .forEach((button) => {
+    button.addEventListener("dblclick", function () {
+      const textarea = document.getElementById("user-textarea-teamleader");
+      if (textarea) {
+        navigator.clipboard
+          .writeText(textarea.value)
+          .then(() => console.log("Copied:", textarea.value))
+          .catch((err) => console.error("Failed to copy:", err));
+      }
+    });
   });
-});
 
 // :::: (Reset Tabs) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -2392,11 +2583,15 @@ function resetViaSimulatedClicks() {
   }
 
   // Step 2: Simulate clicks on all buttons targeting bridge-SOMETHING-pg2
-  const pg2Buttons = document.querySelectorAll('button[data-target^="bridge-"][data-target$="-pg2"]');
+  const pg2Buttons = document.querySelectorAll(
+    'button[data-target^="bridge-"][data-target$="-pg2"]'
+  );
   pg2Buttons.forEach((btn) => btn.click());
 
   // Step 3: Simulate click on the bridge-alignment-tab button
-  const alignmentButton = document.querySelector('button[data-target="bridge-alignment-tab"]');
+  const alignmentButton = document.querySelector(
+    'button[data-target="bridge-alignment-tab"]'
+  );
   if (alignmentButton) alignmentButton.click();
 }
 
@@ -2428,10 +2623,12 @@ function checkScreenWidthAndTriggerClicks() {
     focusButton("review-data-tab"); // Focus the "review-data-tab" button
 
     // Trigger expandTextarea on all matching textareas
-    document.querySelectorAll("textarea[oninput^='expandTextarea']").forEach((textarea) => {
-      const event = new Event("input", { bubbles: true });
-      textarea.dispatchEvent(event);
-    });
+    document
+      .querySelectorAll("textarea[oninput^='expandTextarea']")
+      .forEach((textarea) => {
+        const event = new Event("input", { bubbles: true });
+        textarea.dispatchEvent(event);
+      });
   }
 }
 
@@ -2443,19 +2640,23 @@ window.addEventListener("resize", checkScreenWidthAndTriggerClicks);
 
 // :::: (SPMS Link) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-document.getElementById("spms-link").addEventListener("click", function (event) {
-  // Get the textarea content
-  const assetTextarea = document.getElementById("asset-textarea-assetNumberNBI");
-  if (assetTextarea) {
-    // Use the Clipboard API to copy the text to the clipboard
-    navigator.clipboard
-      .writeText(assetTextarea.value)
-      .then(function () {})
-      .catch(function (err) {
-        console.error("Unable to copy text", err);
-      });
-  }
-});
+document
+  .getElementById("spms-link")
+  .addEventListener("click", function (event) {
+    // Get the textarea content
+    const assetTextarea = document.getElementById(
+      "asset-textarea-assetNumberNBI"
+    );
+    if (assetTextarea) {
+      // Use the Clipboard API to copy the text to the clipboard
+      navigator.clipboard
+        .writeText(assetTextarea.value)
+        .then(function () {})
+        .catch(function (err) {
+          console.error("Unable to copy text", err);
+        });
+    }
+  });
 
 // :::: (Glossary Shortcut Ctrl + Shift + G) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -2466,9 +2667,15 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
 
     // Trigger the button with data-target="misc-asset-tab"
-    const targetButton1 = document.querySelector('[data-target="misc-asset-tab"]');
-    const targetButton2 = document.querySelector('[data-target="glossary-tab"]');
-    const targetButton3 = document.querySelector('[data-target="glossary-all-tab"]');
+    const targetButton1 = document.querySelector(
+      '[data-target="misc-asset-tab"]'
+    );
+    const targetButton2 = document.querySelector(
+      '[data-target="glossary-tab"]'
+    );
+    const targetButton3 = document.querySelector(
+      '[data-target="glossary-all-tab"]'
+    );
     if (targetButton3) {
       targetButton1.click();
       targetButton2.click();
@@ -2487,8 +2694,12 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
 
     // Trigger the button with data-target="misc-asset-tab"
-    const targetButton1 = document.querySelector('[data-target="misc-asset-tab"]');
-    const targetButton2 = document.querySelector('[data-target="settings-tab"]');
+    const targetButton1 = document.querySelector(
+      '[data-target="misc-asset-tab"]'
+    );
+    const targetButton2 = document.querySelector(
+      '[data-target="settings-tab"]'
+    );
     if (targetButton2) {
       targetButton1.click();
       targetButton2.click();
@@ -2506,7 +2717,9 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
 
     // Trigger the button with data-target="misc-asset-tab"
-    const targetButton1 = document.querySelector('[data-target="bridge-asset-tab"]');
+    const targetButton1 = document.querySelector(
+      '[data-target="bridge-asset-tab"]'
+    );
     if (targetButton1) {
       targetButton1.click();
       targetButton1.focus();
@@ -2523,7 +2736,9 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
 
     // Trigger the button with data-target="misc-asset-tab"
-    const targetButton1 = document.querySelector('[data-target="culvert-asset-tab"]');
+    const targetButton1 = document.querySelector(
+      '[data-target="culvert-asset-tab"]'
+    );
     if (targetButton1) {
       targetButton1.click();
       targetButton1.focus();
@@ -2540,7 +2755,9 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
 
     // Trigger the button with data-target="misc-asset-tab"
-    const targetButton1 = document.querySelector('[data-target="wall-asset-tab"]');
+    const targetButton1 = document.querySelector(
+      '[data-target="wall-asset-tab"]'
+    );
     if (targetButton1) {
       targetButton1.click();
       targetButton1.focus();
@@ -2569,14 +2786,20 @@ function isElementVisible(el) {
 // Step 2: Save current state of visible active buttons, and track focused button
 function saveActiveState() {
   // Get all active buttons that are visible
-  const activeButtons = Array.from(document.querySelectorAll("button.active")).filter((btn) => isElementVisible(btn)); // Only consider visible buttons
+  const activeButtons = Array.from(
+    document.querySelectorAll("button.active")
+  ).filter((btn) => isElementVisible(btn)); // Only consider visible buttons
 
   // Get the state of visible active buttons' data-target attributes
-  const state = activeButtons.map((btn) => btn.getAttribute("data-target")).filter(Boolean);
+  const state = activeButtons
+    .map((btn) => btn.getAttribute("data-target"))
+    .filter(Boolean);
 
   // Track the focused button (if any)
   const focusedButton =
-    document.activeElement && document.activeElement.tagName === "BUTTON" ? document.activeElement.getAttribute("data-target") : null;
+    document.activeElement && document.activeElement.tagName === "BUTTON"
+      ? document.activeElement.getAttribute("data-target")
+      : null;
 
   // Store the state, along with the focused button (if any)
   const newState = { targets: state, focused: focusedButton };
@@ -2606,7 +2829,9 @@ function restoreState(state) {
 
   // Restore the focused button if there was one
   if (state.focused) {
-    const focusedButton = document.querySelector(`button[data-target="${state.focused}"]`);
+    const focusedButton = document.querySelector(
+      `button[data-target="${state.focused}"]`
+    );
     if (focusedButton) {
       focusedButton.focus(); // Set focus back to the button
     }
@@ -2620,7 +2845,11 @@ document.addEventListener("keydown", (event) => {
     const activeElement = document.activeElement;
 
     // Allow the default backspace action in input/textarea or editable elements
-    if (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA" || activeElement.isContentEditable) {
+    if (
+      activeElement.tagName === "INPUT" ||
+      activeElement.tagName === "TEXTAREA" ||
+      activeElement.isContentEditable
+    ) {
       return; // Don't prevent default, let backspace work normally
     }
 
@@ -2665,8 +2894,12 @@ window.addEventListener("load", function () {
 });
 
 // Seymour routes
-const district2Assets = assetData.filter((asset) => asset["(2) Highway Agency District:"] === 2);
-const uniqueInvRoutes = new Set(district2Assets.map((asset) => asset["Inv Route #"]));
+const district2Assets = assetData.filter(
+  (asset) => asset["(2) Highway Agency District:"] === 2
+);
+const uniqueInvRoutes = new Set(
+  district2Assets.map((asset) => asset["Inv Route #"])
+);
 console.log(`Number of unique routes in Seymour: ${uniqueInvRoutes.size}`);
 
 // Glossary Terms
@@ -2708,9 +2941,12 @@ let totalScour = 0;
 
 assetData.forEach((asset) => {
   const district = asset["(2) Highway Agency District:"]; // Get district value
-  const nstmRequired = asset["(92AA) Critical Feature Inspection: NSTM Insp Required?"]; // Check NSTM
-  const specialRequired = asset["(92CC) Critical Feature Inspection: Special Insp Required?"]; // Check special
-  const underwaterRequired = asset["(92BB) Critical Feature Inspection: Underwater Insp Required?"]; // Check underwater
+  const nstmRequired =
+    asset["(92AA) Critical Feature Inspection: NSTM Insp Required?"]; // Check NSTM
+  const specialRequired =
+    asset["(92CC) Critical Feature Inspection: Special Insp Required?"]; // Check special
+  const underwaterRequired =
+    asset["(92BB) Critical Feature Inspection: Underwater Insp Required?"]; // Check underwater
   const elementRequired = asset["(104) Highway System of Inventory Route:"]; // Check element
   const frequencyRequired = asset["(91) Designated Inspection Frequency:"]; // Check frequency
   const postedRequired = asset["(41) Structure Open/Posted/Closed:"]; // Check posted
@@ -2741,12 +2977,14 @@ assetData.forEach((asset) => {
     }
 
     if (frequencyRequired < 24) {
-      reducedIntervalCounts[district] = (reducedIntervalCounts[district] || 0) + 1;
+      reducedIntervalCounts[district] =
+        (reducedIntervalCounts[district] || 0) + 1;
       totalReducedInterval++; // Increment total reduced interval count
     }
 
     if (frequencyRequired > 24) {
-      extendedIntervalCounts[district] = (extendedIntervalCounts[district] || 0) + 1;
+      extendedIntervalCounts[district] =
+        (extendedIntervalCounts[district] || 0) + 1;
       totalExtendedInterval++; // Increment total extended interval count
     }
 
@@ -2755,7 +2993,11 @@ assetData.forEach((asset) => {
       totalPosted++; // Increment total posted count
     }
 
-    if (scourRequired !== null && scourRequired !== "N" && !["A", "B", "AB-T"].includes(scourRequired)) {
+    if (
+      scourRequired !== null &&
+      scourRequired !== "N" &&
+      !["A", "B", "AB-T"].includes(scourRequired)
+    ) {
       scourCounts[district] = (scourCounts[district] || 0) + 1;
       totalScour++; // Increment total scour count
     }
@@ -2857,19 +3099,31 @@ function findAndUpdateAssetErrors() {
     // Extract necessary values
     let assetValues = {
       deck: parseFloat(asset["(B.C.01) Deck Condition Rating"]),
-      inspectionFrequency: parseFloat(asset["(91) Designated Inspection Frequency:"]),
-      superstructure: parseFloat(asset["(B.C.02) Superstructure Condition Rating"]),
+      inspectionFrequency: parseFloat(
+        asset["(91) Designated Inspection Frequency:"]
+      ),
+      superstructure: parseFloat(
+        asset["(B.C.02) Superstructure Condition Rating"]
+      ),
       substructure: parseFloat(asset["(B.C.03) Substructure Condition Rating"]),
       scourCritical: parseFloat(asset["(113) Scour Critical Bridges:"]),
       mainDesignType: asset["(43B) Structure Type, Main: Type of Design:"],
-      wearingSurfaceType: asset["(108A) Wearing Surface Protection System: Wearing Surface"],
-      wearingSurface: parseFloat(asset["(B.C.01a) Wearing Surface Condition Rating"]),
+      wearingSurfaceType:
+        asset["(108A) Wearing Surface Protection System: Wearing Surface"],
+      wearingSurface: parseFloat(
+        asset["(B.C.01a) Wearing Surface Condition Rating"]
+      ),
       deckStructureType: asset["(107) Deck Structure Type:"],
       underfillValue: asset["(B.C.04) Culvert Condition Rating"],
-      membraneValue: asset["(108B) Wearing Surface Protection System: Deck Membrane"],
+      membraneValue:
+        asset["(108B) Wearing Surface Protection System: Deck Membrane"],
     };
 
-    let lowestValue = Math.min(assetValues.deck, assetValues.superstructure, assetValues.substructure);
+    let lowestValue = Math.min(
+      assetValues.deck,
+      assetValues.superstructure,
+      assetValues.substructure
+    );
 
     // Error Check: Frequency Error
     if (lowestValue < 4 && assetValues.inspectionFrequency > 12) {
@@ -2879,7 +3133,10 @@ function findAndUpdateAssetErrors() {
     }
 
     // Error Check: Deck/Slab Error
-    if (assetValues.deck !== assetValues.superstructure && ["1", "01", 1].includes(assetValues.mainDesignType)) {
+    if (
+      assetValues.deck !== assetValues.superstructure &&
+      ["1", "01", 1].includes(assetValues.mainDesignType)
+    ) {
       errorCounts.super[district] = (errorCounts.super[district] || 0) + 1;
       errorAssets.super[district] = errorAssets.super[district] || [];
       errorAssets.super[district].push(assetNumber);
@@ -2894,7 +3151,10 @@ function findAndUpdateAssetErrors() {
           errorAssets.deck[district].push(assetNumber);
         }
       } else {
-        if (assetValues.deck !== assetValues.wearingSurface && assetValues.deck !== assetValues.wearingSurface + 1) {
+        if (
+          assetValues.deck !== assetValues.wearingSurface &&
+          assetValues.deck !== assetValues.wearingSurface + 1
+        ) {
           errorCounts.deck[district] = (errorCounts.deck[district] || 0) + 1;
           errorAssets.deck[district] = errorAssets.deck[district] || [];
           errorAssets.deck[district].push(assetNumber);
@@ -2903,7 +3163,10 @@ function findAndUpdateAssetErrors() {
     }
 
     // Error Check: Scour/Sub Error
-    if (assetValues.scourCritical <= 2 && assetValues.substructure > assetValues.scourCritical) {
+    if (
+      assetValues.scourCritical <= 2 &&
+      assetValues.substructure > assetValues.scourCritical
+    ) {
       errorCounts.sub[district] = (errorCounts.sub[district] || 0) + 1;
       errorAssets.sub[district] = errorAssets.sub[district] || [];
       errorAssets.sub[district].push(assetNumber);
@@ -2941,18 +3204,37 @@ function findAndUpdateAssetErrors() {
   });
 
   // Calculate the sum for each error type and send it to the corresponding textareas
-  let totalFreqErrors = Object.values(errorCounts.freq).reduce((sum, count) => sum + count, 0);
-  let totalSuperErrors = Object.values(errorCounts.super).reduce((sum, count) => sum + count, 0);
-  let totalDeckErrors = Object.values(errorCounts.deck).reduce((sum, count) => sum + count, 0);
-  let totalSubErrors = Object.values(errorCounts.sub).reduce((sum, count) => sum + count, 0);
-  let totalWearingErrors = Object.values(errorCounts.wearing).reduce((sum, count) => sum + count, 0);
+  let totalFreqErrors = Object.values(errorCounts.freq).reduce(
+    (sum, count) => sum + count,
+    0
+  );
+  let totalSuperErrors = Object.values(errorCounts.super).reduce(
+    (sum, count) => sum + count,
+    0
+  );
+  let totalDeckErrors = Object.values(errorCounts.deck).reduce(
+    (sum, count) => sum + count,
+    0
+  );
+  let totalSubErrors = Object.values(errorCounts.sub).reduce(
+    (sum, count) => sum + count,
+    0
+  );
+  let totalWearingErrors = Object.values(errorCounts.wearing).reduce(
+    (sum, count) => sum + count,
+    0
+  );
 
   // Update the sum of errors in the respective textareas
-  document.getElementById("all-textarea-error-frequency").value = totalFreqErrors;
-  document.getElementById("all-textarea-error-monolithic").value = totalSuperErrors;
-  document.getElementById("all-textarea-error-deckslab").value = totalDeckErrors;
+  document.getElementById("all-textarea-error-frequency").value =
+    totalFreqErrors;
+  document.getElementById("all-textarea-error-monolithic").value =
+    totalSuperErrors;
+  document.getElementById("all-textarea-error-deckslab").value =
+    totalDeckErrors;
   document.getElementById("all-textarea-error-scoursub").value = totalSubErrors;
-  document.getElementById("all-textarea-error-membrane").value = totalWearingErrors;
+  document.getElementById("all-textarea-error-membrane").value =
+    totalWearingErrors;
 
   // Log error asset numbers by district and error type
   console.log("Errors by District and Type:");
@@ -2986,7 +3268,12 @@ function showErrorPopup(button, message) {
   let groupRect = group.getBoundingClientRect();
 
   // Position it below the .textarea-group and center it
-  errorPopup.style.left = `${groupRect.left + window.scrollX + groupRect.width / 2 - errorPopup.offsetWidth / 2}px`;
+  errorPopup.style.left = `${
+    groupRect.left +
+    window.scrollX +
+    groupRect.width / 2 -
+    errorPopup.offsetWidth / 2
+  }px`;
   errorPopup.style.top = `${groupRect.bottom + window.scrollY + 10}px`; // Slightly below the group
 
   // Remove popup after 3 seconds
@@ -3006,7 +3293,12 @@ function showAssetErrorPopup(message, button) {
 
   let buttonRect = button.getBoundingClientRect();
 
-  errorPopup.style.left = `${buttonRect.left + window.scrollX + buttonRect.width / 2 - errorPopup.offsetWidth / 2}px`;
+  errorPopup.style.left = `${
+    buttonRect.left +
+    window.scrollX +
+    buttonRect.width / 2 -
+    errorPopup.offsetWidth / 2
+  }px`;
   errorPopup.style.top = `${buttonRect.bottom + window.scrollY + 10}px`;
 
   setTimeout(() => {
@@ -3015,31 +3307,50 @@ function showAssetErrorPopup(message, button) {
 }
 
 // Add event listeners for each error button
-document.querySelector("#error-freq button").addEventListener("click", function () {
-  showErrorPopup(this, "Inspection Frequency Error: When the lowest rating is below 4, the frequency must be 12 months or less.");
-});
+document
+  .querySelector("#error-freq button")
+  .addEventListener("click", function () {
+    showErrorPopup(
+      this,
+      "Inspection Frequency Error: When the lowest rating is below 4, the frequency must be 12 months or less."
+    );
+  });
 
-document.querySelector("#error-super button").addEventListener("click", function () {
-  showErrorPopup(this, "Deck Slab Error: The deck and superstructure ratings must match for slab bridges.");
-});
+document
+  .querySelector("#error-super button")
+  .addEventListener("click", function () {
+    showErrorPopup(
+      this,
+      "Deck Slab Error: The deck and superstructure ratings must match for slab bridges."
+    );
+  });
 
-document.querySelector("#error-deck button").addEventListener("click", function () {
-  showErrorPopup(
-    this,
-    "Monolithic Error: When the deck or wearing surface rating is below 6, they must match; otherwise, the wearing surface rating can be one less."
-  );
-});
+document
+  .querySelector("#error-deck button")
+  .addEventListener("click", function () {
+    showErrorPopup(
+      this,
+      "Monolithic Error: When the deck or wearing surface rating is below 6, they must match; otherwise, the wearing surface rating can be one less."
+    );
+  });
 
-document.querySelector("#error-sub button").addEventListener("click", function () {
-  showErrorPopup(this, "Scour Error: When the scour rating is below 3, the substructure rating must be the same or lower.");
-});
+document
+  .querySelector("#error-sub button")
+  .addEventListener("click", function () {
+    showErrorPopup(
+      this,
+      "Scour Error: When the scour rating is below 3, the substructure rating must be the same or lower."
+    );
+  });
 
-document.querySelector("#error-wearing button").addEventListener("click", function () {
-  showErrorPopup(
-    this,
-    "Membrane Error: When there is no membrane between a concrete deck and a bituminous wearing surface, the wearing surface rating must be below 5."
-  );
-});
+document
+  .querySelector("#error-wearing button")
+  .addEventListener("click", function () {
+    showErrorPopup(
+      this,
+      "Membrane Error: When there is no membrane between a concrete deck and a bituminous wearing surface, the wearing surface rating must be below 5."
+    );
+  });
 
 ["asset-error-button1", "asset-error-button2"].forEach((id) => {
   const btn = document.getElementById(id);
@@ -3100,13 +3411,21 @@ function collectUniqueAttributes() {
 
   // If there are duplicate IDs, flag them in the output
   if (duplicateIDs.size > 0) {
-    outputText += `**Duplicate IDs Found:**\n${Array.from(duplicateIDs).join("\n")}\n\n`;
+    outputText += `**Duplicate IDs Found:**\n${Array.from(duplicateIDs).join(
+      "\n"
+    )}\n\n`;
   }
 
   // Add the unique lists to the output text
   outputText += `IDs (${sortedIDs.length}):\n` + sortedIDs.join("\n") + "\n\n";
-  outputText += `Unique Classes (${sortedClasses.length}):\n` + sortedClasses.join("\n") + "\n\n";
-  outputText += `Unique Data Attributes (${sortedDataAttributes.length}):\n` + sortedDataAttributes.join("\n") + "\n";
+  outputText +=
+    `Unique Classes (${sortedClasses.length}):\n` +
+    sortedClasses.join("\n") +
+    "\n\n";
+  outputText +=
+    `Unique Data Attributes (${sortedDataAttributes.length}):\n` +
+    sortedDataAttributes.join("\n") +
+    "\n";
 
   return outputText;
 }
@@ -3181,7 +3500,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // loop through each mapping
   Object.entries(tabMap).forEach(([dataTarget, textareaId]) => {
     const textarea = document.getElementById(textareaId);
-    const button = document.querySelector(`button[data-target="${dataTarget}"]`);
+    const button = document.querySelector(
+      `button[data-target="${dataTarget}"]`
+    );
     if (!textarea || !button) return; // skip if missing
 
     textarea.addEventListener("focus", () => {
@@ -3205,3 +3526,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// :::: (Comment Builder Tab Open in JS so Close in JS)
+
+function openCommentBuilder() {
+  window.open("https://sfhurst.github.io/comment_builder/", "_blank");
+}
