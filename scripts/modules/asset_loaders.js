@@ -146,7 +146,7 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   event.preventDefault();
 
   // Clear maintenance class
-  document.querySelectorAll(".active-maintenance").forEach((el) => el.classList.remove("active-maintenance"));
+  document.querySelectorAll(".active-maintenance").forEach(el => el.classList.remove("active-maintenance"));
   maintenanceArray = [];
 
   updateExampleComments();
@@ -181,7 +181,7 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   }
 
   // Searches for the Asset in assetData and creates a deep copy
-  assetObject = JSON.parse(JSON.stringify(assetData.find((item) => item["Asset Number"].toLowerCase() === searchValue)));
+  assetObject = JSON.parse(JSON.stringify(assetData.find(item => item["Asset Number"].toLowerCase() === searchValue)));
   resetBridgeComponentTextareas(assetObject);
   revertReviewBackgroundColor();
 
@@ -239,7 +239,7 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
   });
 
   // Add the event listener for Enter key press to trigger click
-  searchID.addEventListener("keydown", (event) => {
+  searchID.addEventListener("keydown", event => {
     if (event.key === "Enter") {
       window.open(hyperlink, "_blank");
     }
@@ -249,7 +249,7 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
 // ::: ---------------------------- hideAllErrors() ----------------------------
 
 function hideAllErrors() {
-  document.querySelectorAll('[id^="error-"]').forEach((element) => {
+  document.querySelectorAll('[id^="error-"]').forEach(element => {
     element.style.display = "none";
   });
   document.getElementById("asset-error-button1").style.display = "none";
@@ -406,7 +406,7 @@ function generateSummary(assetObject) {
 
   // Maintenance
   let formattedMaintenanceComments = maintenanceArray
-    .map((item) => {
+    .map(item => {
       let comment = `A ${item.category.toLowerCase()} deficiency was submitted for ${item.name
         .toLowerCase()
         .replace(/\brepair\b/g, "repairs")
@@ -427,10 +427,7 @@ function generateSummary(assetObject) {
   const generalNotes = `General Inspection Notes:\n${generalParaCleaned}\n\n${lowestRatingResponse}\n\nMaintenance / Recommendations:\n${maintenanceResponse}${formattedHistoryResponse}`;
 
   const updatedGeneralNotes = generalNotes
-    .replace(
-      "The bridge is not over water. The bridge does not require an NSTM or special inspection.",
-      "The bridge is not over water and does not require an NSTM or special inspection."
-    )
+    .replace("The bridge is not over water. The bridge does not require an NSTM or special inspection.", "The bridge is not over water and does not require an NSTM or special inspection.")
     .replace("a other", "an other")
     .replace("other other", "other");
 
@@ -462,12 +459,11 @@ function generateSummary(assetObject) {
   }
 
   const scourCriticalSubmittalResponse = scourTypesSubmittal[assetValues.scourVulnerability] || "not over water, ";
-  const scourVulnerabilitySubmittalResponse =
-    scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
+  const scourVulnerabilitySubmittalResponse = scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
   const postedSubmittalResponse = assetValues.postedValue === "A" ? "not posted" : "posted";
 
   let formattedSubmittalMaintenanceComments = maintenanceArray
-    .map((item) => {
+    .map(item => {
       let comment = `A ${item.category.toLowerCase()} deficiency was submitted for ${item.name
         .toLowerCase()
         .replace(/\brepair\b/g, "repairs")
@@ -483,7 +479,7 @@ function generateSummary(assetObject) {
   document.getElementById("submittal-textarea").value = submittalResponse;
 
   // expand all textareas
-  document.querySelectorAll("textarea[oninput^='expandTextarea']").forEach((textarea) => {
+  document.querySelectorAll("textarea[oninput^='expandTextarea']").forEach(textarea => {
     // Trigger the input event manually
     const event = new Event("input", { bubbles: true });
     textarea.dispatchEvent(event);
@@ -523,10 +519,7 @@ function populateTextareas(assetObject) {
     tempDate.setMonth(tempDate.getMonth() + assetValues.inspectionFrequency);
     tempDate.setMonth(tempDate.getMonth() + 1);
     tempDate.setDate(0);
-    formattedInspectionDueDate = `${(tempDate.getMonth() + 1).toString().padStart(2, "0")}/${tempDate
-      .getDate()
-      .toString()
-      .padStart(2, "0")}/${tempDate.getFullYear()}`;
+    formattedInspectionDueDate = `${(tempDate.getMonth() + 1).toString().padStart(2, "0")}/${tempDate.getDate().toString().padStart(2, "0")}/${tempDate.getFullYear()}`;
     inspectionDueDate = formattedInspectionDueDate;
   }
 
@@ -535,10 +528,7 @@ function populateTextareas(assetObject) {
     tempNSTMDate.setMonth(tempNSTMDate.getMonth() + assetValues.nstmInspFrequency);
     tempNSTMDate.setMonth(tempNSTMDate.getMonth() + 1);
     tempNSTMDate.setDate(0);
-    formattedNSTMDueDate = `${(tempNSTMDate.getMonth() + 1).toString().padStart(2, "0")}/${tempNSTMDate
-      .getDate()
-      .toString()
-      .padStart(2, "0")}/${tempNSTMDate.getFullYear()}`;
+    formattedNSTMDueDate = `${(tempNSTMDate.getMonth() + 1).toString().padStart(2, "0")}/${tempNSTMDate.getDate().toString().padStart(2, "0")}/${tempNSTMDate.getFullYear()}`;
     nstmDueDate = formattedNSTMDueDate;
   }
 
@@ -547,10 +537,7 @@ function populateTextareas(assetObject) {
     tempSpecialDate.setMonth(tempSpecialDate.getMonth() + assetValues.specialInspFrequency);
     tempSpecialDate.setMonth(tempSpecialDate.getMonth() + 1);
     tempSpecialDate.setDate(0);
-    formattedSpecialDueDate = `${(tempSpecialDate.getMonth() + 1).toString().padStart(2, "0")}/${tempSpecialDate
-      .getDate()
-      .toString()
-      .padStart(2, "0")}/${tempSpecialDate.getFullYear()}`;
+    formattedSpecialDueDate = `${(tempSpecialDate.getMonth() + 1).toString().padStart(2, "0")}/${tempSpecialDate.getDate().toString().padStart(2, "0")}/${tempSpecialDate.getFullYear()}`;
     specialDueDate = formattedSpecialDueDate;
   }
 
@@ -559,10 +546,7 @@ function populateTextareas(assetObject) {
     tempUnderwaterDate.setMonth(tempUnderwaterDate.getMonth() + assetValues.underwaterInspFrequency);
     tempUnderwaterDate.setMonth(tempUnderwaterDate.getMonth() + 1);
     tempUnderwaterDate.setDate(0);
-    formattedUnderwaterDueDate = `${(tempUnderwaterDate.getMonth() + 1).toString().padStart(2, "0")}/${tempUnderwaterDate
-      .getDate()
-      .toString()
-      .padStart(2, "0")}/${tempUnderwaterDate.getFullYear()}`;
+    formattedUnderwaterDueDate = `${(tempUnderwaterDate.getMonth() + 1).toString().padStart(2, "0")}/${tempUnderwaterDate.getDate().toString().padStart(2, "0")}/${tempUnderwaterDate.getFullYear()}`;
     underwaterDueDate = formattedUnderwaterDueDate;
   }
 
@@ -660,7 +644,7 @@ function populateTextareas(assetObject) {
   ];
 
   // Loop through each field and set the value of the corresponding textarea
-  fields.forEach((field) => {
+  fields.forEach(field => {
     const textarea = document.getElementById(`asset-textarea-${field.id}`);
     if (textarea) {
       textarea.value = field.value;
@@ -680,10 +664,10 @@ function getCodeDescription(variable, code) {
   // Uses the variable name to lookup the code and description in the bridgeData array/object
   // This is for populating the asset data textareas so they display the information in a clean, controlled way
 
-  const category = bridgeData.find((item) => item.variable == variable);
+  const category = bridgeData.find(item => item.variable == variable);
   if (!category) return "Category not found"; // Not likely since function is directly called
 
-  const valueEntry = category.values.find((entry) => entry.code == code);
+  const valueEntry = category.values.find(entry => entry.code == code);
   if (!valueEntry) return ""; // Not likely since function is directly called
 
   return variable === "scourCritical" ? valueEntry.description : `${valueEntry.code} - ${valueEntry.description}`;
@@ -732,9 +716,7 @@ function extractAssetDetails(assetObject) {
     wearingSurface: assetObject["(B.C.01a) Wearing Surface Condition Rating"],
     bridgeBearings: assetObject["(B.C.07) Bridge Bearings Condition Rating"]?.trim() ? assetObject["(B.C.07) Bridge Bearings Condition Rating"] : "N",
     bridgePaint: assetObject["(B.C.02a) Paint Condition Rating"]?.trim() ? assetObject["(B.C.02a) Paint Condition Rating"] : "N",
-    concreteSlopewall: assetObject["(B.C.03a) Concrete Slopewall Condition Rating"]?.trim()
-      ? assetObject["(B.C.03a) Concrete Slopewall Condition Rating"]
-      : "N",
+    concreteSlopewall: assetObject["(B.C.03a) Concrete Slopewall Condition Rating"]?.trim() ? assetObject["(B.C.03a) Concrete Slopewall Condition Rating"] : "N",
 
     // Appraisal
     approachRoadwayAlignment: assetObject["(72) Approach Roadway Alignment:"],
@@ -807,7 +789,7 @@ function lowestValueDetermination(assetObject) {
   ];
 
   // Filter out non-numeric values and "N"
-  const validValues = values.filter((item) => !isNaN(item.value) && item.value !== "N");
+  const validValues = values.filter(item => !isNaN(item.value) && item.value !== "N");
 
   if (validValues.length > 0) {
     // Get the lowest value and the corresponding field
@@ -825,20 +807,20 @@ function resetBridgeComponentTextareas(assetObject) {
   const assetValues = extractAssetDetails(assetObject); // Get new asset data
   let wearingSurfaceMonolithic = "";
   // Reset all textareas and spans first and buttons
-  document.querySelectorAll(".reset-comments").forEach((textarea) => {
+  document.querySelectorAll(".reset-comments").forEach(textarea => {
     textarea.value = "";
   });
 
-  document.querySelectorAll(".rating-button").forEach((textarea) => {
+  document.querySelectorAll(".rating-button").forEach(textarea => {
     textarea.textContent = "N";
   });
 
-  document.querySelectorAll(".textarea-content-here").forEach((span) => {
+  document.querySelectorAll(".textarea-content-here").forEach(span => {
     span.textContent = "";
   });
 
   // Remove the 'highlight' class from all rows
-  document.querySelectorAll(".content-container-rating-lines").forEach((row) => {
+  document.querySelectorAll(".content-container-rating-lines").forEach(row => {
     row.classList.remove("highlight");
   });
 
@@ -864,19 +846,14 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.01a (wearingSurface)
     if (assetValues.wearingSurface === "8" || String(assetValues.wearingSurface) === "9") {
-      updateComponentText("B.C.01a", `${wearingSurfaceMonolithic}There are no defects to report. `, String(assetValues.wearingSurface));
+      updateComponentText("B.C.01a", `${wearingSurfaceMonolithic}There are no deficiencies or significant defects. `, String(assetValues.wearingSurface));
       highlightRowIfMatches("B.C.01a", String(assetValues.wearingSurface));
     } else {
       updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
       highlightRowIfMatches("B.C.01a", String(assetValues.wearingSurface));
     }
 
-    if (
-      assetValues.underfillValue === "N" &&
-      ["1", "2"].includes(assetValues.deckStructureType) &&
-      assetValues.wearingSurfaceType === "6" &&
-      ["0", "8", "N"].includes(assetValues.membraneValue)
-    ) {
+    if (assetValues.underfillValue === "N" && ["1", "2"].includes(assetValues.deckStructureType) && assetValues.wearingSurfaceType === "6" && ["0", "8", "N"].includes(assetValues.membraneValue)) {
       updateComponentText(
         "B.C.01a",
         "The concrete bridge deck has a bituminous wearing surface and is not protected by an agency-approved membrane; therefore, the wearing surface rating must be a 4 or less. "
@@ -885,7 +862,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.01 (deck)
     if (assetValues.deck === "8" || String(assetValues.deck) === "9") {
-      updateComponentText("B.C.01", "There are no defects to report. ", String(assetValues.deck));
+      updateComponentText("B.C.01", "There are no deficiencies or significant defects. ", String(assetValues.deck));
       highlightRowIfMatches("B.C.01", String(assetValues.deck));
     } else {
       updateComponentText("B.C.01", "", String(assetValues.deck));
@@ -929,7 +906,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.02 (superstructure)
     if (assetValues.superstructure === "8" || String(assetValues.superstructure) === "9") {
-      updateComponentText("B.C.02", "There are no defects to report. ", String(assetValues.superstructure));
+      updateComponentText("B.C.02", "There are no deficiencies or significant defects. ", String(assetValues.superstructure));
       highlightRowIfMatches("B.C.02", String(assetValues.superstructure));
     } else {
       updateComponentText("B.C.02", "", String(assetValues.superstructure));
@@ -938,7 +915,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.03 (substructure)
     if (assetValues.substructure === "8" || String(assetValues.substructure) === "9") {
-      updateComponentText("B.C.03", "There are no defects to report. ", String(assetValues.substructure));
+      updateComponentText("B.C.03", "There are no deficiencies or significant defects. ", String(assetValues.substructure));
       highlightRowIfMatches("B.C.03", String(assetValues.substructure));
     } else {
       updateComponentText("B.C.03", "", String(assetValues.substructure));
@@ -947,7 +924,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.04 (culvert)
     if (assetValues.culvert === "8" || String(assetValues.culvert) === "9") {
-      updateComponentText("B.C.04", "There are no defects to report. ", String(assetValues.culvert));
+      updateComponentText("B.C.04", "There are no deficiencies or significant defects. ", String(assetValues.culvert));
       highlightRowIfMatches("B.C.04", String(assetValues.culvert));
     } else {
       updateComponentText("B.C.04", "", String(assetValues.culvert));
@@ -956,7 +933,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.09 (channel)
     if (assetValues.channelValue === "8" || String(assetValues.channelValue) === "9") {
-      updateComponentText("B.C.09", "There are no defects to report. ", String(assetValues.channelValue));
+      updateComponentText("B.C.09", "There are no deficiencies or significant defects. ", String(assetValues.channelValue));
       highlightRowIfMatches("B.C.09", String(assetValues.channelValue));
     } else {
       updateComponentText("B.C.09", "", String(assetValues.channelValue));
@@ -987,7 +964,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
 function resetReviewPageNumericalValues() {
   const reviewNumericalSpans = document.querySelectorAll("#review-ratings-tab .content-container-rating-numerical");
-  reviewNumericalSpans.forEach((span) => {
+  reviewNumericalSpans.forEach(span => {
     span.textContent = ""; // Reset the numerical value
   });
 }
@@ -1005,9 +982,7 @@ function updateComponentText(dataCategory, text, numericalValue = null) {
 
   if (numericalValue !== null) {
     // Update the numerical value in the review ratings tab
-    const reviewNumericalSpan = document.querySelector(
-      `#review-ratings-tab .content-container-rating-lines[data-category="${dataCategory}"] .content-container-rating-numerical`
-    );
+    const reviewNumericalSpan = document.querySelector(`#review-ratings-tab .content-container-rating-lines[data-category="${dataCategory}"] .content-container-rating-numerical`);
     if (reviewNumericalSpan) reviewNumericalSpan.textContent = numericalValue;
     const buttonNumerical = document.getElementById(`${newStr}-button-review`);
     if (buttonNumerical) {
@@ -1022,11 +997,9 @@ function updateComponentText(dataCategory, text, numericalValue = null) {
 // Helper function to highlight the row based on the dataCategory and value in assetValues
 function highlightRowIfMatches(dataCategory, value) {
   // Find all rows with the specific data-category (e.g., B.AP.01), but exclude rows inside the review page container
-  const rows = document.querySelectorAll(
-    `.content-container-rating-lines[data-category="${dataCategory}"]:not(#review-ratings-tab .content-container-rating-lines)`
-  );
+  const rows = document.querySelectorAll(`.content-container-rating-lines[data-category="${dataCategory}"]:not(#review-ratings-tab .content-container-rating-lines)`);
 
-  rows.forEach((row) => {
+  rows.forEach(row => {
     const numericalValueSpan = row.querySelector(".content-container-rating-numerical");
     const numericalValue = numericalValueSpan ? numericalValueSpan.textContent.trim() : null;
 
@@ -1204,9 +1177,7 @@ function inspectionTypeResponseFunction(assetValues) {
 // Membrane | Generate the membrane description if certain conditions are met (e.g., wearing surface and deck type)
 function membraneResponseFunction(assetValues) {
   const membraneResponse =
-    assetValues.underfillValue === "N" &&
-    (assetValues.deckStructureType === "1" || assetValues.deckStructureType === "2") &&
-    assetValues.wearingSurfaceType === "6"
+    assetValues.underfillValue === "N" && (assetValues.deckStructureType === "1" || assetValues.deckStructureType === "2") && assetValues.wearingSurfaceType === "6"
       ? ["0", "8", "N"].includes(assetValues.membraneValue)
         ? "There is not an agency-approved protective membrane between the concrete deck and the bituminous wearing surface. As a result, the wearing surface rating must be a 4, as outlined in Part 7 of INDOT's 2020 Bridge Inspection Manual."
         : "There is an agency-approved protective membrane between the concrete deck and the bituminous wearing surface."
@@ -1227,14 +1198,11 @@ function lowestRatingResponseFunction(lowestValue) {
     5: "(fair condition). This rating is for XXXXX",
     6: "(satisfactory condition). This rating is for XXXXX",
     7: "(good condition). This rating is for minor defects of no structural significance.",
-    8: "(very good condition). There are no defects to report.",
-    9: "(excellent condition). There are no defects to report.",
+    8: "(very good condition). There are no deficiencies or significant defects.",
+    9: "(excellent condition). There are no deficiencies or significant defects.",
   };
   const conditionDescriptionResponse = conditionDescriptions[lowestValue] || "";
-  const lowestRatingResponse = `The lowest condition rating (B.C.13) for the bridge is a ${lowestValue} ${conditionDescriptionResponse}`.replace(
-    "a 8",
-    "an 8"
-  );
+  const lowestRatingResponse = `The lowest condition rating (B.C.13) for the bridge is a ${lowestValue} ${conditionDescriptionResponse}`.replace("a 8", "an 8");
 
   return lowestRatingResponse;
 }
@@ -1390,7 +1358,7 @@ function cardinalResponseFunction() {
 // Example function to remove the highlighted class
 function revertReviewBackgroundColor() {
   const parentDivs = document.querySelectorAll(".main-content-containers");
-  parentDivs.forEach((div) => {
+  parentDivs.forEach(div => {
     div.classList.remove("review-textarea-highlighted");
   });
 }
