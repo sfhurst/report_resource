@@ -33,7 +33,7 @@ const bridgeComponents = [
       // "The bridge is at a traffic light and carries part of the queue.",
       ["The bridge is in a horizontal curve.", "The bridge is located within a horizontal curve."],
       ["The bridge is in a superelevated horizontal curve.", "The bridge is located in a superelevated horizontal curve."],
-      ["There is no signage indicating a speed reduction for a segment."],
+      ["There is no signage indicating a speed reduction for the segment."],
       [
         "There are advisory speed signs recommending a speed reduction for curves in the approach alignment.",
         "Advisory speed signs recommend reduced speeds for curves in the approach alignment.",
