@@ -1350,7 +1350,7 @@ const bridgeComponents = [
       ["The channel condition does not threaten the roadway or the bridge."],
       ["Flow direction varies with rising and receding water levels."],
       ["Accumulated debris has caused localized flow obstruction in the channel."],
-      ["The channel flows against the south abutment, creating a low spot in the channel."],
+      ["The channel has some minor aggradation from a buildup of soft sediment."],
     ],
     rating_table: [
       {
