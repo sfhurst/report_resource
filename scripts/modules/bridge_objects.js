@@ -760,6 +760,7 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       ["There are no deficiencies or significant defects."],
+      ["There is no obvious deformation or structural instability."],
       ["Strength and performance are not affected."],
       ["The superstructure is a reinforced concrete slab. See the deck comments."],
 
@@ -1472,7 +1473,7 @@ const bridgeComponents = [
       ["No channel protection is visible at the bridge.", "No riprap is visible at the interior piers or abutments. "],
       ["No channel protection is visible at the interior piers.", "No riprap is visible at the interior piers."],
       ["Some riprap has washed away leaving sections of bank unprotected."],
-      ["Most of the riprap under the end spans has washed away."],
+      ["The channel side of the interior piers is submerged and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
       ["The channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
     ],
     rating_table: [
