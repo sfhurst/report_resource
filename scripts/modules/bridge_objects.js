@@ -1344,7 +1344,7 @@ const bridgeComponents = [
       ["There are no deficiencies or significant defects."],
       ["The channel flows from north to south through Span B, and is generally well aligned.", "The channel flows from east to west through Span B, and is generally well aligned."],
       ["When the channel is at normal pool, it is shallow enough to access on foot."],
-      ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the average high water mark."],
+      ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark."],
       ["There are localized areas of minor erosion."],
       [
         "The channel bed consists of exposed bedrock; this is a stable condition with a high resistance to erosion; the lack of sediment indicates that high flows are capable of transporting large stones and gravel.",
