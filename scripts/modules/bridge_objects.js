@@ -1342,8 +1342,13 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       ["There are no deficiencies or significant defects."],
-      ["The channel flows from north to south through Span B, and is generally well aligned.", "The channel flows from east to west through Span B, and is generally well aligned."],
-      ["When the channel is at normal pool, it is shallow enough to access on foot."],
+      [
+        "The channel flows from north to south through Span B, and is generally well aligned.",
+        "The channel flows from south to north through Span B, and is generally well aligned.",
+        "The channel flows from east to west through Span B, and is generally well aligned.",
+        "The channel flows from west to east through Span B, and is generally well aligned.",
+      ],
+      ["When the channel is at normal pool, it is shallow enough to access on foot.", "When the channel is at normal pool, access is limited."],
       ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark."],
       ["There are localized areas of minor erosion."],
       [
