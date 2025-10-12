@@ -28,28 +28,42 @@ const bridgeComponents = [
     <li>Use code P when the operating speed is substantially different at the bridge than the rest of the highway segment that crosses the bridge.</li>
     </ul>`,
     example_comments: [
-      ["No speed reduction is necessary.", "No speed reduction is indicated.", "The speed at the bridge is the same as the rest of the highway segment."],
-      // "An intersection is present at the north approach.",
-      // "The bridge is at a traffic light and carries part of the queue.",
-      ["The bridge is in a horizontal curve.", "The bridge is located within a horizontal curve."],
-      ["The bridge is in a superelevated horizontal curve.", "The bridge is located in a superelevated horizontal curve."],
-      ["There is no signage indicating a speed reduction for the segment."],
       [
-        "There are advisory speed signs recommending a speed reduction for curves in the approach alignment.",
-        "Advisory speed signs recommend reduced speeds for curves in the approach alignment.",
-        "Advisory speed signs suggest reduced speeds for approach alignment curves.",
-      ],
-      ["There are horizontal alignment signs marking curves in the approach alignment.", "Horizontal alignment signs are present for curves in the approach alignment."],
-      ["The bridge is in a sag vertical curve.", "The bridge is located within a sag vertical curve."],
-      ["The bridge is in a crest vertical curve.", "The bridge is located within a crest vertical curve."],
-      [
-        "The bridge carries a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
-        "The bridge is a railroad owned and maintained structure; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        "No speed reduction is necessary.",
+        "No speed reduction is indicated.",
+        "The speed at the bridge is the same as the rest of the highway segment.",
+        "There is no signage indicating a speed reduction for the segment.",
       ],
       [
-        "The bridge is over a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
-        "The bridge crosses a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
-        "The bridge spans a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        [
+          "There are advisory speed signs recommending a speed reduction for curves in the approach alignment.",
+          "Advisory speed signs recommend reduced speeds for curves in the approach alignment.",
+          "Advisory speed signs suggest reduced speeds for approach alignment curves.",
+        ],
+        ["There are horizontal alignment signs marking curves in the approach alignment.", "Horizontal alignment signs are present for curves in the approach alignment."],
+      ],
+      [
+        ["The bridge is in a horizontal curve."],
+        ["The bridge is in a horizontal curve that is supperelvated on the north side.", "The bridge is supperelevated on the north side"],
+        ["The bridge is in a horizontal curve that is supperelvated on the south side.", "The bridge is supperelevated on the south side"],
+        ["The bridge is in a horizontal curve that is supperelvated on the east side.", "The bridge is supperelevated on the east side"],
+        ["The bridge is in a horizontal curve that is supperelvated on the west side.", "The bridge is supperelevated on the west side"],
+        ["The bridge is in a superelevated horizontal curve."],
+      ],
+      [
+        ["The bridge is in a sag vertical curve.", "The bridge is located within a sag vertical curve."],
+        ["The bridge is in a crest vertical curve.", "The bridge is located within a crest vertical curve."],
+      ],
+      [
+        [
+          "The bridge carries a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+          "The bridge is a railroad owned and maintained structure; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        ],
+        [
+          "The bridge is over a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+          "The bridge crosses a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+          "The bridge spans a railroad; INDOT personnel may access the railroad right-of-way based on rule IC 8-3-15-3 (d)(8).",
+        ],
       ],
     ],
 
@@ -96,24 +110,47 @@ const bridgeComponents = [
                 <br />
                 <p>Consider the roughness and ride provided by the approach slab.</p>`,
     example_comments: [
-      ["There are no deficiencies or significant defects."],
-      ["The approach slabs provide a smooth transition from the approach roadway to the bridge.", "Rideability is generally good."],
-      ["No significant settlement has occurred.", "No noticeable settlement is present."],
       [
-        "The approach slabs show no noticeable settlement or significant surface defects.",
-        "The approach slabs have some insignificant cracking. No noticeable settlement is present.",
-        "There is some insignificant cracking with no noticeable settlement in the approach slabs.",
+        // No problems
+        "There are no deficiencies or significant defects.",
       ],
-      ["The approach slabs have been covered with an overlay."],
-      ["There are some minor cracks in the approach slabs.", "Some minor cracking is present in the approach slabs."],
-      ["There are sound concrete patches in the approach slabs.", "Some sound concrete patching is present in the approach slabs."],
-      ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs."],
-      ["There is a moderate impact to rideability."],
       [
-        "There are no deficiencies or significant defects. The approach slabs provide a smooth transition from the approach roadway to the bridge. No significant settlement has occurred.",
-        "There are no deficiencies or significant defects. The approach slabs provide a smooth transition from the approach roadway to the bridge. No noticeable settlement is present.",
-        "There are no deficiencies or significant defects. Rideability is generally smooth with no obvious impact. No significant settlement has occurred.",
-        "There are no deficiencies or significant defects. Rideability is generally smooth with no obvious impact. No noticeable settlement is present.",
+        // Rideability
+        ["Rideability is generally smooth with no obvious impact.", "The approach slabs provide a smooth transition from the approach roadway to the bridge."],
+        ["There is a some impact to rideability.", "Rideability is somewhat impacted.", "The approach slabs create a rough transition to the bridge."],
+      ],
+      [
+        // Settlement
+        ["No significant settlement has occurred.", "No noticeable settlement is present.", "The approach slabs show no noticeable settlement"],
+        ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs."],
+      ],
+      [
+        // Complete
+        "The approach slabs provide a smooth transition from the approach roadway to the bridge. No significant settlement has occurred.",
+        "The approach slabs provide a smooth transition from the approach roadway to the bridge. No noticeable settlement is present.",
+        "Rideability is generally smooth with no obvious impact. No noticeable settlement is present.",
+        "Rideability is generally smooth with no obvious impact. No significant settlement has occurred.",
+      ],
+      [
+        // Cracking
+        ["The approach slabs have some insignificant cracking.", "Only inherent cracking is present in the approach slabs; rideability is not impacted."],
+        ["There are some minor cracks in the approach slabs.", "Some minor cracking is present in the approach slabs."],
+      ],
+      [
+        // Patching
+        ["There are some sound concrete patches in the approach slabs.", "Some sound concrete patching is present in the approach slabs."],
+      ],
+      [
+        // Spalling
+        [
+          "There are some shallow-depth spalls in the approach slabs.",
+          "The approach slabs have some minor shallow-depth spalling.",
+          "Some minor shallow-depth spalling is present in the approach slabs. ",
+        ],
+      ],
+      [
+        // Overlay
+        "The approach slabs have been covered with an overlay.",
       ],
     ],
     rating_table: [
@@ -207,7 +244,10 @@ const bridgeComponents = [
       ["The joints provide a smooth transition."],
       ["The bridge has HMA terminal joints."],
       ["The bridge has compression seal (BS) terminal joints."],
-      ["The bridge has integral or semi-integral abutments but no designated terminal joints; the construction joints at the end of the approach slabs function as terminal joints."],
+      [
+        "The bridge has integral abutments but no designed terminal joints; the construction joints at the end of the approach slabs are not designed for thermal expansion.",
+        "The bridge has semi-integral abutments but no designed terminal joints; the construction joints at the end of the approach slabs are not designed for thermal expansion.",
+      ],
       ["The west construction joint is slightly raised due to thermal expansion and compression from the approach slab, creating a slight unevenness in the roadway."],
       ["The terminal joints present a rough transition to the bridge."],
     ],
@@ -263,17 +303,44 @@ const bridgeComponents = [
                   In cases where the joint is not visible, the condition can be assessed based on other indirect indicators of the condition.
                 </p>`,
     example_comments: [
-      ["There are no deficiencies or significant defects."],
-      ["The expansion joints are functioning as designed."],
-      ["The bridge has integral or semi-integral abutments."],
-      ["The joints are partially full of debris."],
-      // "There are areas of the joints that have been repaired with pourable material.",
-      ["There is some leaking at the expansion joints."],
-      // "The joints are leaking throughout.",
-      // "There are several punctures and a loss of adhesion with the nosing in both the north and south joints.",
-      ["The joints have multiple areas that have lost adhesion.", "There is some adhesion loss in the joints."],
-      // "The joints have a loss of adhesion throughout.",
-      ["The joints are full of debris, which may impact their functionality."],
+      [
+        // No problems
+        "There are no deficiencies or significant defects.",
+      ],
+      [
+        // Functioning
+        ["The expansion joints are functioning as designed.", "The joints are functioning as designed."],
+      ],
+      [
+        // No joints
+        "The bridge has integral abutments and does not have expansion joints.",
+        "The bridge has semi-integral abutments and does not have expansion joints.",
+        "The bridge has integral or semi-integral abutments and does not have expansion joints.",
+        "The bridge does not have expansion joints.",
+      ],
+      [
+        // Debris
+        ["The expansion joints are partially full of debris.", "The joints are partially full of debris."],
+        ["The expansion joints are full of debris, which may impact their functionality.", "The joints are full of debris, which may impact their functionality."],
+      ],
+      [
+        // Leaking
+        ["There is some minor leaking in the expansion joints.", "There is some minor leaking in the joints."],
+        ["The expansion joints have localized areas of moderate leaking.", "The joints have localized areas of moderate leaking."],
+        ["The expansion joints have some moderate punctures and widespread leaking.", "The joints have some moderate punctures and widespread leaking."],
+      ],
+      [
+        // Adhesion
+        ["The expansion joints have multiple areas that have lost adhesion.", "The joints have multiple areas that have lost adhesion."],
+        ["There is some adhesion loss in the expansion joints.", "There is some adhesion loss in the joints."],
+        ["There is a widespread loss of adhesion in the expansion joints.", "There is a widespread loss of adhesion in the joints."],
+      ],
+      [
+        // Repairs and General Defects
+        ["There are areas of the expansion joints that have been repaired with pourable material.", "There are areas of the joints that have been repaired with pourable material."],
+        ["There is patching along the expansion joints.", "There is patching along the joints."],
+        ["There is some minor chipping along the expansion joint nosing.", "There is some minor chipping along the joint nosing."],
+      ],
     ],
     rating_table: [
       {
@@ -1349,8 +1416,11 @@ const bridgeComponents = [
         "The channel flows from west to east through Span B, and is generally well aligned.",
       ],
       ["When the channel is at normal pool, it is shallow enough to access on foot.", "When the channel is at normal pool, access is limited."],
-      ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark."],
-      ["There are localized areas of minor erosion."],
+      [
+        "The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark.",
+        "The interior piers are set back from the channel and are not typically in the water.",
+      ],
+      ["There are localized areas of minor erosion in the banks."],
       [
         "The channel bed consists of exposed bedrock; this is a stable condition with a high resistance to erosion; the lack of sediment indicates that high flows are capable of transporting large stones and gravel.",
         "The channel bed consists of well-graded stones, cobbles, and boulders; this is a stable condition, as the coarse material protects the bed from erosion; the composition indicates that high flows are strong enough to remove finer material but not to mobilize cobbles or boulders.",

@@ -507,49 +507,83 @@ buildGlossaries(bridgeComponents);
 
 // :::: (Populate Example Comments) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-// Populate example comments for bridge components
+// Track indexes for top-level and nested arrays
+const commentIndexes = new Map();
+// Start random on load
+let commentMode = "random";
+let firstRun = true;
 function updateExampleComments() {
   bridgeComponents.forEach(component => {
     const commentsContainer = document.getElementById(component.example_comments_page_id);
-
-    if (commentsContainer && component.example_comments) {
-      // Find or create the content container for comments
-      let contentContainer = commentsContainer.querySelector(".content-container-paragraphs");
-      if (!contentContainer) {
-        contentContainer = document.createElement("div");
-        contentContainer.classList.add("content-container-paragraphs");
-        commentsContainer.appendChild(contentContainer);
-      }
-
-      // Clear existing content and add new comments
-      contentContainer.innerHTML = "";
-
-      // Iterate over each comment group
-      component.example_comments.forEach(commentGroup => {
-        const randomComment = getRandomComment(commentGroup); // Get random comment from the group
-        const p = document.createElement("p");
-        p.classList.add("content-container-comment-lines");
-
-        // Create the new class from the item_id with "p" prepended and periods removed
-        const newClass = "p-" + component.item_id.replace(/\./g, "");
-
-        // Add the new class to the p element
-        p.classList.add(newClass);
-
-        p.textContent = randomComment.trim();
-        contentContainer.appendChild(p);
-      });
+    if (!commentsContainer || !component.example_comments) return;
+    let contentContainer = commentsContainer.querySelector(".content-container-paragraphs");
+    if (!contentContainer) {
+      contentContainer = document.createElement("div");
+      contentContainer.classList.add("content-container-paragraphs");
+      commentsContainer.appendChild(contentContainer);
     }
+    contentContainer.innerHTML = "";
+    component.example_comments.forEach((commentGroup, groupIndex) => {
+      const comment = Array.isArray(commentGroup[0])
+        ? getNestedComment(component.item_id, groupIndex, commentGroup)
+        : commentMode === "random"
+        ? getRandomComment(commentGroup)
+        : getNextComment(component.item_id, groupIndex, commentGroup);
+      const p = document.createElement("p");
+      p.classList.add("content-container-comment-lines");
+      const newClass = "p-" + component.item_id.replace(/\./g, "");
+      p.classList.add(newClass);
+      p.textContent = comment.trim();
+      contentContainer.appendChild(p);
+    });
   });
+  // Switch from random to sequential after the first run
+  if (firstRun) {
+    commentMode = "sequential";
+    firstRun = false;
+    console.log("Initial random load complete. Sequential mode active.");
+  }
 }
-
-// Function to get a random comment from an array of comments
+// === Flat arrays: purely sequential ===
+function getNextComment(itemId, groupIndex, commentGroup) {
+  const key = `${itemId}-${groupIndex}`;
+  let currentIndex = commentIndexes.get(key) ?? -1;
+  currentIndex = (currentIndex + 1) % commentGroup.length;
+  commentIndexes.set(key, currentIndex);
+  return commentGroup[currentIndex];
+}
+// === Nested arrays: sequential outer, random inner ===
+function getNestedComment(itemId, groupIndex, nestedGroups) {
+  const outerKey = `${itemId}-${groupIndex}-outer`;
+  let outerIndex;
+  if (commentMode === "random") {
+    // Randomly pick a nested array on initial load
+    outerIndex = Math.floor(Math.random() * nestedGroups.length);
+  } else {
+    // Sequentially advance through nested arrays
+    outerIndex = (commentIndexes.get(outerKey) ?? -1) + 1;
+    if (outerIndex >= nestedGroups.length) outerIndex = 0;
+  }
+  commentIndexes.set(outerKey, outerIndex);
+  // Randomly pick a comment from within the chosen subarray
+  const subarray = nestedGroups[outerIndex];
+  const randomInnerIndex = Math.floor(Math.random() * subarray.length);
+  return subarray[randomInnerIndex];
+}
+// === Random for flat arrays ===
 function getRandomComment(commentGroup) {
   const randomIndex = Math.floor(Math.random() * commentGroup.length);
   return commentGroup[randomIndex];
 }
-
-document.addEventListener("DOMContentLoaded", updateExampleComments);
+document.addEventListener("DOMContentLoaded", () => {
+  updateExampleComments();
+  // Click to advance sequentially
+  document.querySelectorAll("button").forEach(button => {
+    if (button.textContent.trim() === "Example Comments") {
+      button.addEventListener("click", updateExampleComments);
+    }
+  });
+});
 
 // :::: (Populate Review Textarea Comments) // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -3178,11 +3212,17 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   // Select all buttons
   const allButtons = document.querySelectorAll("button");
-
-  // Attach dblclick listener to buttons with text "Example Comments" for repopulating/randomizing comments
   allButtons.forEach(button => {
     if (button.textContent.trim() === "Example Comments") {
-      button.addEventListener("dblclick", updateExampleComments);
+      // Fire on click
+      button.addEventListener("click", updateExampleComments);
+      // Fire on Enter key press (keyboard activation)
+      button.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault(); // prevent space from scrolling
+          updateExampleComments();
+        }
+      });
     }
   });
 });
