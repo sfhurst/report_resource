@@ -68,10 +68,10 @@ const maintenanceTasks = [
 
 // 3. Generate Task Elements in the DOM
 // Loops through each maintenance category and adds corresponding elements to the DOM.
-maintenanceTasks.forEach((component) => {
+maintenanceTasks.forEach(component => {
   const maintenancePageContainer = document.getElementById(component.containerID);
 
-  component.tasks.forEach((task) => {
+  component.tasks.forEach(task => {
     const taskPage = document.createElement("div"); // Component pages
     taskPage.className = "component-maintenance-container";
 
@@ -152,11 +152,11 @@ maintenanceContainter.innerHTML = "";
 // Create and append header
 const header = document.createElement("div");
 header.className = "elements-segment-header";
-header.textContent = "Maintenance Items:";
+header.textContent = "Maintenance Items (Grey = 13 months; Green = 6 months; Yellow = 3 months; Red = 1 month):";
 maintenanceContainter.appendChild(header);
 
 // Loop through each repair task and generate UI elements
-repairTasks.forEach((repairItem) => {
+repairTasks.forEach(repairItem => {
   const repairContainer = document.createElement("div");
   repairContainer.className = "component-maintenance-container";
 
