@@ -28,12 +28,8 @@ const bridgeComponents = [
     <li>Use code P when the operating speed is substantially different at the bridge than the rest of the highway segment that crosses the bridge.</li>
     </ul>`,
     example_comments: [
-      [
-        "No speed reduction is necessary.",
-        "No speed reduction is indicated.",
-        "The speed at the bridge is the same as the rest of the highway segment.",
-        "There is no signage indicating a speed reduction for the segment.",
-      ],
+      ["No speed reduction is necessary."],
+      ["The speed at the bridge is the same as the rest of the highway segment.", "There is no signage indicating a speed reduction for the segment."],
       [
         [
           "There are advisory speed signs recommending a speed reduction for curves in the approach alignment.",
