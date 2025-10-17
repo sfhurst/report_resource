@@ -1414,7 +1414,7 @@ const bridgeComponents = [
         "The channel flows from east to west through Span B, and is generally well aligned.",
         "The channel flows from west to east through Span B, and is generally well aligned.",
       ],
-      ["When the channel is at normal pool, it is shallow enough to access on foot.", "When the channel is at normal pool, access is limited."],
+      ["When the channel is at normal pool, it is shallow enough to access on foot.", "When the channel is at normal pool, access is limited.", "The channel was dry at the time of inspection."],
       [
         "The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark.",
         "The interior piers are set back from the channel and are not typically in the water.",
