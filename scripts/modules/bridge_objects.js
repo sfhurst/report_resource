@@ -62,7 +62,10 @@ const bridgeComponents = [
         ],
       ],
       [
-        "This railroad-owned structure is inspected and maintained by other agencies under the guidance of the Federal Railroad Administration. INDOT is not responsible for its inspection or maintenance, and its condition is not documented in this report. A safety inspection was performed to assess conditions affecting the roadway below, and no obvious hazards were found.",
+        [
+          "This railroad-owned structure is inspected and maintained by other agencies under the guidance of the Federal Railroad Administration. INDOT is not responsible for its inspection or maintenance, and its condition is not documented in this report. A safety inspection was performed to assess conditions affecting the roadway below, and no obvious hazards were found.",
+          "This railroad-owned structure is inspected and maintained by other agencies under the guidance of the Federal Railroad Administration. INDOT is not responsible for its inspection or maintenance, and its condition is not documented in this report. A safety inspection was performed to assess conditions affecting the roadway below; no obvious hazards were found.",
+        ],
       ],
     ],
 
