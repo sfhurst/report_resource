@@ -123,7 +123,7 @@ const bridgeComponents = [
       ],
       [
         // Settlement
-        ["No significant settlement has occurred.", "No noticeable settlement is present.", "The approach slabs show no noticeable settlement"],
+        ["No significant settlement has occurred.", "No noticeable settlement is present.", "The approach slabs show no noticeable settlement."],
         ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs."],
       ],
       [
