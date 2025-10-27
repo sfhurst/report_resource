@@ -119,7 +119,7 @@ const bridgeComponents = [
       [
         // Rideability
         ["Rideability is generally smooth with no obvious impact.", "The approach slabs provide a smooth transition from the approach roadway to the bridge."],
-        ["There is a some impact to rideability.", "Rideability is somewhat impacted.", "The approach slabs create a rough transition to the bridge."],
+        ["There is some impact to rideability.", "Rideability is somewhat impacted.", "The approach slabs create a rough transition to the bridge."],
       ],
       [
         // Settlement
@@ -697,24 +697,34 @@ const bridgeComponents = [
     example_comments: [
       ["There are no deficiencies or significant defects."],
       ["Strength and performance are not affected."],
-      ["The top of the deck is covered by an epoxy overlay."],
-      // "No defects are showing through the overlay.",
-      ["The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete barrier walls."],
-      // "The deck underside is concealed by stay-in-place forms and the top of the deck by an epoxy overlay.",
-      ["No corrosion was found in the stay-in-place forms and the copings are in good condition."],
-      // "The copings are exposed to runoff beneath the metal guardrails.",
-      // "The copings have isolated hairline cracks and isolated areas of staining.",
+      ["The top of the deck is covered by an epoxy overlay.", "The top of the deck is covered by an epoxy overlay; no defects are showing through the overlay."],
+      [
+        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete barrier walls; no corrosion was found in the stay-in-place forms and the copings are in good condition.",
+        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete barrier walls.",
+      ],
+      ["The copings are exposed to runoff beneath the metal guardrails."],
       ["There are scattered areas of minor corrosion in the stay-in-place forms.", "Some corrosion is present in the stay-in-place forms."],
       ["There are moderate spalls with delamination and exposed rebar around the deck drains.", "Some moderate spalling with delamination and exposed rebar is present around the deck drains."],
       [
-        "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the north coping in all spans.",
-        "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the north coping in all spans.",
+        [
+          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the north coping in all spans.",
+          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the north coping in all spans.",
+        ],
+        [
+          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the south coping in all spans.",
+          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the south coping in all spans.",
+        ],
+        [
+          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the east coping in all spans.",
+          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the east coping in all spans.",
+        ],
+        [
+          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the west coping in all spans.",
+          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the west coping in all spans.",
+        ],
       ],
-      // "There are large areas of deep spalling with exposed rebar exhibiting moderate section loss on the underside of the deck.",
-      // "Water is penetrating the deck.",
       ["There is efflorescence between the box beams, indicating water moving through the deck.", "Some efflorescence is showing between the box beams, indicating water moving through the deck."],
-      ["There is no evidence of water contacting or moving through the deck."],
-      // "There is not sufficient evidence to suggest that water is moving through the deck or to warrant a lower rating.",
+      ["There is no evidence of water contacting or moving through the deck.", "Water is penetrating the deck and corrosion has initiated in the reinforcing steel."],
     ],
     rating_table: [
       {
@@ -832,20 +842,20 @@ const bridgeComponents = [
       ["There is no obvious deformation or structural instability."],
       ["Strength and performance are not affected."],
       ["The superstructure is a reinforced concrete slab. See the deck comments."],
-
-      ["The steel beams are painted, with no defects in the protective coating."],
-      ["There are some areas of minor pitting in the lower flanges, but no active corrosion.", "Some minor pitting with no active corrosion is present in the lower flanges."],
+      ["The steel beams are painted; there are no defects in the protective coating.", "The steel beams are painted; there are some areas where corrosion has initiated."],
+      [
+        "There are some areas of minor pitting in the lower flanges, but no active corrosion.",
+        "Some minor pitting with no active corrosion is present in the lower flanges.",
+        "The lower flanges have some areas of minor pitting but no active corrosion.",
+      ],
       [
         "There is heavy section loss and rust scale in the beam ends at the abutments under the joints.",
         "Some heavy section loss and rust scaling is present in the beam ends at the abutments under the joints.",
       ],
-
       [
         "There is minor cracking and delamination in the beam ends at the abutments beneath the joints.",
         "Some minor cracking and delamination is present in the beam ends at the abutments beneath the joints.",
       ],
-      // "There are exposed strands in Beam 1 at the west abutment.",
-
       ["There is a moderate, diagonal crack running up toward the center of the beam (indicating shear failure)."],
     ],
     rating_table: [
@@ -1018,12 +1028,15 @@ const bridgeComponents = [
       ["There are no deficiencies or significant defects."],
       ["The elastomeric bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
       ["The steel bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
-      ["There is minor corrosion in the bearings at the abutments.", "Some minor corrosion is present in the steel bearings at the abutments."],
-      // "There is minor pitting in the bearings at the abutments that has been painted over.",
+      [
+        ["There is minor corrosion in the bearings at the abutments.", "Some minor corrosion is present in the steel bearings at the abutments."],
+        ["There is moderate corrosion in the bearings at the abutments.", "Some moderate corrosion is present in the steel bearings at the abutments."],
+        ["There is heavy corrosion in the bearings at the abutments.", "Some heavy corrosion is present in the steel bearings at the abutments."],
+      ],
       ["There is moderate pack rust and heavy corrosion in the bearings at the abutments.", "Some moderate pack rust and heavy corrosion is present in the steel bearings at the abutments."],
       ["There is rust (lamellar) scaling between the bottom of the bearings and the masonry plates at the bearings under the abutments."],
       ["The bearings are slightly misaligned.", "The bearings have a slightly outward lean relative to the ambient temperature."],
-      ["The bridge has integral abutments."],
+      ["The bridge has integral abutments.", "The bridge has semi-integral abutments."],
     ],
     rating_table: [
       {
