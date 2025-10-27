@@ -123,6 +123,7 @@ const bridgeComponents = [
       ],
       [
         // Settlement
+        ["Minor settlement is present at the approach slabs, which has been covered with an overlay to protect ride quality."],
         ["No significant settlement has occurred.", "No noticeable settlement is present.", "The approach slabs show no noticeable settlement."],
         ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs."],
       ],
@@ -153,6 +154,10 @@ const bridgeComponents = [
       [
         // Overlay
         "The approach slabs have been covered with an overlay.",
+      ],
+      [
+        // Partial
+        "The bridge has partial approach slabs that support only the travel lanes; the shoulders have no slab and are slightly lower than the travel lanes.",
       ],
     ],
     rating_table: [
