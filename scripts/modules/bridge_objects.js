@@ -437,9 +437,9 @@ const bridgeComponents = [
       ["There is an isolated area of collision damage."],
       ["Some minor deformations are present in the aluminum railing."],
       ["There is some minor corrosion in the steel railings.", "Some minor corrosion is present in the steel railings."],
-      ["There are widely spaced hairline vertical cracks in the concrete barrier walls.", "Some minor cracking is present in the concrete barrier walls."],
-      ["There are intermittently spaced hairline vertical cracks with efflorescence in the concrete barrier walls."],
-      ["There is horizontal cracking in the concrete barrier walls."],
+      ["There are widely spaced hairline vertical cracks in the concrete bridge railings.", "Some minor cracking is present in the concrete bridge railings."],
+      ["There are intermittently spaced hairline vertical cracks with efflorescence in the concrete bridge railings."],
+      ["There is horizontal cracking in the concrete bridge railings."],
       ["The steel railings are anchored into the exterior box beams."],
     ],
     rating_table: [
@@ -614,14 +614,47 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       ["There are no deficiencies or significant defects."],
-      ["The wearing surface is monolithic with the deck.", "The wearing surface is cast monolithically with the deck."],
-      ["The wearing surface is monolithic with the deck. See the deck comments."],
-      ["There are partially sealed cracks in the wearing surface.", "Some partially sealed cracks are present in the wearing surface."],
-      ["There are unsealed cracks visible across less than 10% of the total surface area."],
-      ["There are isolated areas of minor peeling in the epoxy overlay.", "Isolated areas of minor peeling are present in the overlay."],
-      ["There are scattered areas of peeling in less than 5% of the total surface area."],
-      ["There are numerous areas of bituminous and concrete patching throughout the wearing surface."],
-      ["The concrete bridge deck has a bituminous wearing surface and is not protected by an agency-approved membrane; therefore, the wearing surface rating must be a 4 or less."],
+      [
+        // Type
+        "The wearing surface is monolithic with the deck. See the deck comments.",
+        "The bridge has a thin deck epoxy overlay.",
+        "The bridge has a latex-modified overlay.",
+      ],
+      [
+        // Cracking
+        "There are partially sealed cracks in the wearing surface.",
+        "Some partially sealed cracks are present in the wearing surface.",
+        "There are unsealed cracks visible across less than 10% of the total surface area.",
+      ],
+      [
+        // Peeling
+        ["There are isolated areas of minor peeling in the epoxy overlay.", "Isolated areas of minor peeling are present in the overlay."],
+        ["There are some areas of peeling in less than 5% of the total surface area."],
+      ],
+      [
+        // Patching
+        [
+          "There are some bituminous and concrete patches present; the patches are in good condition.",
+          "The wearing surface has some bituminous and concrete patching; the patches are in good condition.",
+        ],
+        [
+          "There are widespread bituminous and concrete patches present; the patches are in various states of deterioration but are generally in good condition.",
+          "The wearing surface has widespread bituminous and concrete patching; the patches are in various states of deterioration but are generally in good condition.",
+        ],
+        [
+          "There are some bituminous and concrete patches present; the patches are in various states of deterioration but are generally in poor condition.",
+          "The wearing surface has some bituminous and concrete patching; the patches are in various states of deterioration but are generally in poor condition.",
+        ],
+        [
+          "There are widespread bituminous and concrete patches present; the patches are in various states of deterioration but are generally in poor condition.",
+          "The wearing surface has widespread bituminous and concrete patching; the patches are in various states of deterioration but are generally in poor condition.",
+        ],
+      ],
+      [
+        // Membrane & Bituminous
+        "The concrete bridge deck has a bituminous wearing surface and is not protected by an agency-approved membrane; therefore, the wearing surface rating must be a 4 or less.",
+        "The bridge has a bituminous wearing surface with an agency-approved membrane.",
+      ],
     ],
     rating_table: [
       {
@@ -701,35 +734,79 @@ const bridgeComponents = [
                 <p>The deck and superstructure condition ratings are the same for slab bridges.</p>`,
     example_comments: [
       ["There are no deficiencies or significant defects."],
-      ["Strength and performance are not affected."],
-      ["The top of the deck is covered by an epoxy overlay.", "The top of the deck is covered by an epoxy overlay; no defects are showing through the overlay."],
       [
-        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete barrier walls; no corrosion was found in the stay-in-place forms and the copings are in good condition.",
-        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete barrier walls.",
+        // Top concealment
+        "The top of the deck is covered by an epoxy overlay.",
+        "The top of the deck is covered by an epoxy overlay; no defects are showing through the overlay.",
+        "The top of the deck is covered by a latex modified overlay.",
+        "The top of the deck is covered by a bituminous wearing surface.",
       ],
-      ["The copings are exposed to runoff beneath the metal guardrails."],
-      ["There are scattered areas of minor corrosion in the stay-in-place forms.", "Some corrosion is present in the stay-in-place forms."],
-      ["There are moderate spalls with delamination and exposed rebar around the deck drains.", "Some moderate spalling with delamination and exposed rebar is present around the deck drains."],
       [
+        // Top Cracking
+        "There is some minor longitudinal cracking in the top of the deck.",
+        "There is some minor transverse cracking in the top of the deck.",
+        "There is some moderate longitudinal cracking in the top of the deck.",
+        "There is some moderate transverse cracking in the top of the deck.",
+        "There are some areas of pattern cracking in the top of the deck.",
+        "There is widespread pattern cracking in the top of the deck.",
+      ],
+      [
+        // Spalling
+        ["There is isolated shallow-depth spalling in the top of the deck.", "The top of the deck has isolated shallow-depth spalling."],
+        ["There are some shallow-depth spalls in the top of the deck.", "The top of the deck has some shallow-depth spalling."],
         [
-          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the north coping in all spans.",
-          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the north coping in all spans.",
+          "There are some minor spalls in the top of the deck; a yellow deficiency was submitted for deck patching.",
+          "The top of the deck has some minor spalling; a yellow deficiency was submitted for deck patching.",
+        ],
+        ["There are widespread patches and shallow-depth spalls in the top of the deck.", "The top of the deck has widespread patching and shallow-depth spalling."],
+      ],
+      [
+        // Underside concealment
+        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings.",
+        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; no corrosion was found in the stay-in-place forms and the copings are in good condition.",
+        "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; some corrosion was found in the stay-in-place forms.",
+      ],
+      [
+        // Underside Cracking
+        "There is some minor transverse cracking with efflorescence in the underside of the deck.",
+        "There is some moderate transverse cracking with efflorescence in the underside of the deck.",
+        "There are some areas of pattern cracking with rust staining and efflorescence in the underside of the deck; no spalling is present.",
+        "There are some areas of pattern cracking with rust staining and efflorescence in the underside of the deck.",
+      ],
+      [
+        // Coping spalls in slab
+        [
+          "The copings are exposed to runoff beneath the metal guardrails. There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the north coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. Widespread spalling with exposed rebar exhibiting moderate section loss is present along the north coping in all spans.",
         ],
         [
-          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the south coping in all spans.",
-          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the south coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the south coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. Widespread spalling with exposed rebar exhibiting moderate section loss is present along the south coping in all spans.",
         ],
         [
-          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the east coping in all spans.",
-          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the east coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the east coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. Widespread spalling with exposed rebar exhibiting moderate section loss is present along the east coping in all spans.",
         ],
         [
-          "There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the west coping in all spans.",
-          "Widespread spalling with exposed rebar exhibiting moderate section loss is present along the west coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the west coping in all spans.",
+          "The copings are exposed to runoff beneath the metal guardrails. Widespread spalling with exposed rebar exhibiting moderate section loss is present along the west coping in all spans.",
+        ],
+        ["There are moderate spalls with delamination and exposed rebar around the deck drains.", "Some moderate spalling with delamination and exposed rebar is present around the deck drains."],
+      ],
+      [
+        // Water
+        ["There is no evidence of water contacting or moving through the deck."],
+        ["Water is penetrating the deck and corrosion has initiated in the reinforcing steel."],
+        [
+          // Box Beams
+          "There is efflorescence between the box beams, indicating water moving through the deck.",
+          "Some efflorescence is showing between the box beams, indicating water moving through the deck.",
         ],
       ],
-      ["There is efflorescence between the box beams, indicating water moving through the deck.", "Some efflorescence is showing between the box beams, indicating water moving through the deck."],
-      ["There is no evidence of water contacting or moving through the deck.", "Water is penetrating the deck and corrosion has initiated in the reinforcing steel."],
+      [
+        // End Notes
+        "Strength and performance are not affected.",
+      ],
     ],
     rating_table: [
       {
