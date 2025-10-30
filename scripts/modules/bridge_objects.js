@@ -124,6 +124,7 @@ const bridgeComponents = [
       [
         // No problems
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present. The approach slabs provide a smooth transition from the approach roadway to the bridge. No significant settlement has occurred."],
       ],
       [
         // Partial
@@ -137,7 +138,7 @@ const bridgeComponents = [
         // Settlement
         ["Minor settlement is present at the approach slabs, which have been covered with an overlay to protect ride quality."],
         ["No significant settlement has occurred.", "No noticeable settlement is present.", "The approach slabs show no noticeable settlement."],
-        ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs."],
+        ["There is minor settlement of the approach slabs.", "Some minor settlement is present at the approach slabs.", "Minor settlement is present at the approach slabs."],
       ],
       [
         // Complete
@@ -254,33 +255,51 @@ const bridgeComponents = [
                 <p>Do not consider if the terminal joint meets the current standard.</p>`,
     example_comments: [
       [
-        //
+        // General
+        ["The terminal joints are in good condition; there are no ride quality issues and the interface between the approach roadway and the approach slab is functioning as designed."],
         ["The terminal joints are in good condition."],
       ],
       [
-        //
+        // Ride Quality
         ["The joints provide a smooth transition."],
+        ["There are no ride quality issues present at the terminal joints."],
+        ["The terminal joints present a rough transition to the bridge."],
       ],
       [
-        //
+        // Bad Type
         ["The bridge has HMA terminal joints."],
+        ["The bridge has HMA terminal joints; this is an obsolete design standard requiring periodic maintenance to preserve ride quality."],
       ],
       [
-        //
+        // Good Type
         ["The bridge has compression seal (BS) terminal joints."],
       ],
       [
-        //
+        // Abutment Type
         ["The bridge has integral abutments but no designed terminal joints; the construction joints at the end of the approach slabs are not designed for thermal expansion."],
         ["The bridge has semi-integral abutments but no designed terminal joints; the construction joints at the end of the approach slabs are not designed for thermal expansion."],
       ],
       [
-        //
-        ["The west construction joint is slightly raised due to thermal expansion and compression from the approach slab, creating a slight unevenness in the roadway."],
+        // Uplift
+        [
+          "The north terminal joint is slightly raised due to thermal expansion and compression from the approach slab, reducing ride quality and creating an unevenness between the adjoining roadway surfaces.",
+        ],
+        [
+          "The south terminal joint is slightly raised due to thermal expansion and compression from the approach slab, reducing ride quality and creating an unevenness between the adjoining roadway surfaces.",
+        ],
+        [
+          "The east terminal joint is slightly raised due to thermal expansion and compression from the approach slab, reducing ride quality and creating an unevenness between the adjoining roadway surfaces.",
+        ],
+        [
+          "The west terminal joint is slightly raised due to thermal expansion and compression from the approach slab, reducing ride quality and creating an unevenness between the adjoining roadway surfaces.",
+        ],
+        [
+          "The terminal joints are slightly raised due to thermal expansion and compression from the approach slab, reducing ride quality and creating an unevenness between the adjoining roadway surfaces.",
+        ],
       ],
       [
-        //
-        ["The terminal joints present a rough transition to the bridge."],
+        // Spalling
+        ["There is spalling along the terminal joints."],
       ],
     ],
     rating_table: [
@@ -338,10 +357,11 @@ const bridgeComponents = [
       [
         // No problems
         ["There are no deficiencies or significant defects present."],
-      ],
-      [
-        // Functioning
-        ["The expansion joints are functioning as designed.", "The joints are functioning as designed."],
+        ["There are no deficiencies or significant defects present; the joints are free to expand and contract and have no noticeable leaking."],
+        [
+          "There are no deficiencies or significant defects present; the expansion joints are functioning as designed.",
+          "There are no deficiencies or significant defects present; the joints are functioning as designed.",
+        ],
       ],
       [
         // No joints
@@ -357,14 +377,18 @@ const bridgeComponents = [
       ],
       [
         // Leaking
-        ["There is some minor leaking in the expansion joints.", "There is some minor leaking in the joints."],
-        ["The expansion joints have localized areas of moderate leaking.", "The joints have localized areas of moderate leaking."],
-        ["The expansion joints have some moderate punctures and widespread leaking.", "The joints have some moderate punctures and widespread leaking."],
+        ["There is some minor leaking in the expansion joints.", "There is some minor leaking in the joints.", "Some minor leaking is present.", "The joints have some minor leaking."],
+        ["The expansion joints have isolated areas of moderate leaking.", "The joints have isolated areas of moderate leaking.", "There are isolated areas of moderate leaking."],
+        [
+          "The expansion joints have some moderate punctures and widespread leaking.",
+          "The joints have some moderate punctures and widespread leaking.",
+          "There are some moderate punctures and widespread leaking in the joints.",
+        ],
       ],
       [
         // Adhesion
         ["The expansion joints have multiple areas that have lost adhesion.", "The joints have multiple areas that have lost adhesion."],
-        ["There is some adhesion loss in the expansion joints.", "There is some adhesion loss in the joints."],
+        ["There is some adhesion loss in the expansion joints.", "There is some adhesion loss in the joints.", "Some adhesion loss is present."],
         ["There is a widespread loss of adhesion in the expansion joints.", "There is a widespread loss of adhesion in the joints."],
       ],
       [
@@ -458,39 +482,32 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       [
-        //
+        // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; the railings are functioning as designed and appear capable of redirecting errant vehicles."],
       ],
       [
-        //
+        // Functioning
         ["The railings are functioning as designed and appear capable of redirecting errant vehicles."],
       ],
       [
-        //
+        // Collision Damage
         ["There is an isolated area of collision damage."],
+        ["There is some collision damage present."],
       ],
       [
-        //
+        // Steel Railing Defects
         ["Some minor deformations are present in the aluminum railing."],
-      ],
-      [
-        //
         ["There is some minor corrosion in the steel railings.", "Some minor corrosion is present in the steel railings."],
       ],
       [
-        //
+        // Concrete Railing Defects
         ["There are widely spaced hairline vertical cracks in the concrete bridge railings.", "Some minor cracking is present in the concrete bridge railings."],
-      ],
-      [
-        //
         ["There are intermittently spaced hairline vertical cracks with efflorescence in the concrete bridge railings."],
-      ],
-      [
-        //
         ["There is horizontal cracking in the concrete bridge railings."],
       ],
       [
-        //
+        // Box Beam Guardrail Posts
         ["The steel railings are anchored into the exterior box beams."],
       ],
     ],
@@ -578,26 +595,29 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       [
-        //
+        // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; the bridge railing transitions are functioning as designed."],
+        ["There are no deficiencies or significant defects present."],
+        [
+          "There are no deficiencies or significant defects present; the bridge railing transitions are functioning as designed, providing a gradual increase in rigidity when transitioning from the steel approach railing to the concrete bridge railing.",
+        ],
       ],
       [
-        //
+        // Function
         ["The bridge railing transitions are functioning as designed."],
-      ],
-      [
-        //
         ["The bridge railing transitions are functioning as designed and align properly with the bridge and approach railings."],
+        ["The bridge railing transitions are functioning as designed, providing a gradual increase in rigidity when transitioning from the steel approach railing to the concrete bridge railing."],
       ],
       [
-        //
+        // Collision
         ["There is some collision damage in the railing at the transition."],
       ],
       [
-        //
+        // No Transition
         ["There is no transition between the bridge railings and the approach railings. These railings are the same type."],
+        ["There is no approach railing; the concrete TBT transitions are effectively end treatments and should not be rated."],
       ],
-      // "To accomadate other roadway features, the transition railings are designed as attenuators.",
     ],
     rating_table: [
       {
@@ -660,7 +680,7 @@ const bridgeComponents = [
     ],
   },
 
-  // Wearing
+  // Wearing Surface
   {
     name: "Wearing Surface",
     item_id: "B.C.01a",
@@ -722,7 +742,7 @@ const bridgeComponents = [
         ],
       ],
       [
-        // Rideability
+        // Ride Quality
         ["Ride quality is somewhat diminished."],
         ["Ride quality remains good."],
       ],
@@ -815,7 +835,7 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration."],
       ],
       [
-        // Top concealment
+        // Top Concealment
         ["The top of the deck is covered by an epoxy overlay."],
         ["The top of the deck is covered by an epoxy overlay; no defects are showing through the overlay."],
         ["The top of the deck is covered by a latex modified overlay."],
@@ -841,7 +861,7 @@ const bridgeComponents = [
         ["There are widespread patches and shallow-depth spalls in the top of the deck.", "The top of the deck has widespread patching and shallow-depth spalling."],
       ],
       [
-        // Underside concealment
+        // Underside Concealment
         ["The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings."],
         [
           "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; no corrosion was found in the stay-in-place forms and the copings are in good condition.",
@@ -856,7 +876,7 @@ const bridgeComponents = [
         ["There are some areas of pattern cracking with rust staining and efflorescence in the underside of the deck."],
       ],
       [
-        // Coping spalls in slab
+        // Coping Spalls in Slab
         [
           "The copings are exposed to runoff beneath the metal guardrails. There is heavy spalling with multiple layers of exposed rebar exhibiting moderate section loss along the north coping in all spans.",
           "The copings are exposed to runoff beneath the metal guardrails. Widespread spalling with exposed rebar exhibiting moderate section loss is present along the north coping in all spans.",
@@ -1009,7 +1029,7 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present; the superstructure appears stable with no signs of structural distress."],
       ],
       [
-        // Slab (defer to deck)
+        // Slab (Defer to Deck)
         ["The superstructure is a reinforced concrete slab. See the deck comments."],
       ],
       [
@@ -1123,7 +1143,7 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present."],
       ],
       [
-        // Beam protection
+        // Beam Protection
         ["The steel beams of the superstructure have a protective coating.", "The steel beams are painted."],
         ["The bridge beams are weathering steel; the ends of the beams have a protective coating.", "The ends of the beams are painted."],
         ["The bridge piles for the interior piers have a protective coating.", "The piles are painted."],
@@ -1145,12 +1165,12 @@ const bridgeComponents = [
         ["Some areas of light rust and minor peeling are present."],
       ],
       [
-        // Bearings and beam ends
+        // Bearings and Beam Ends
         ["There is moderate to heavy rust at the ends of the beams under the joints."],
         ["There is moderate to heavy corrosion in the bearings under the joints."],
       ],
       [
-        // Worst case
+        // Worst Case
         ["The protective coating is no longer effective."],
       ],
     ],
@@ -1241,11 +1261,11 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present; the bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
       ],
       [
-        // Elastomeric general
+        // Elastomeric General
         ["The elastomeric bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
       ],
       [
-        // Steel general
+        // Steel General
         ["The steel bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
       ],
       [
@@ -1256,7 +1276,7 @@ const bridgeComponents = [
         ["There is moderate pack rust and heavy corrosion in the bearings at the abutments.", "Some moderate pack rust and heavy corrosion is present in the steel bearings at the abutments."],
       ],
       [
-        // Alignment and movement
+        // Alignment and Movement
         [
           "The steel rocker bearings are slightly misaligned, but still have freedom of movement.",
           "The steel rocker bearings have a slightly outward lean relative to the ambient temperature.",
@@ -1265,7 +1285,7 @@ const bridgeComponents = [
         ],
       ],
       [
-        // No bearings
+        // No Bearings
         ["The bridge has integral abutments.", "The bridge has semi-integral abutments."],
       ],
     ],
@@ -1426,18 +1446,8 @@ const bridgeComponents = [
       ],
       [
         // Pier Caps and Columns
-        [
-          "There are some surface spalls with exposed reinforcing steel in the piers and abutments, typical of insufficient concrete cover.",
-          "Some surface spalling with exposed reinforcing steel is present in the piers and abutments; typical of insufficient concrete cover.",
-        ],
-        [
-          "There are some surface spalls with exposed reinforcing steel in the abutments, typical of insufficient concrete cover.",
-          "Some surface spalling with exposed reinforcing steel is present in the abutments; typical of insufficient concrete cover.",
-        ],
-        [
-          "There are some surface spalls with exposed reinforcing steel in the piers, typical of insufficient concrete cover.",
-          "Some surface spalling with exposed reinforcing steel is present in the piers; typical of insufficient concrete cover.",
-        ],
+        ["There are some surface spalls with exposed reinforcing steel in the pier caps.", "Some surface spalling with exposed reinforcing steel is present in the pier caps."],
+        ["There is some minor spalling with exposed reinforcing steel in the columns.", "Some minor spalling with exposed reinforcing steel is present in the columns."],
       ],
       [
         // Settlement
@@ -1538,27 +1548,25 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       [
-        //
+        // General
         ["The slopewalls are in good condition."],
+        ["The slopewalls are in good condition; the slopewalls appear stable with no signs of distress or movement."],
       ],
       [
-        //
-        ["There are some settlement cracks in the slopewalls."],
+        // Cracking
+        ["There are some insignificant settlement cracks in the slopewalls."],
+        ["There is some minor cracking in the slopewalls."],
       ],
       [
-        //
-        ["The slopewalls appear to be stable with no signs of distress or movement."],
-      ],
-      [
-        //
+        // Vegetation
         ["The slopewalls are overgrown with vegetation, which may be hiding potential issues."],
       ],
       [
-        //
+        // MSE Walls
         ["The structure has MSE walls."],
       ],
       [
-        //
+        // MSE Wall General
         ["There are no obvious structural defects in the MSE walls."],
       ],
     ],
@@ -1632,40 +1640,37 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       [
-        //
+        // General
         ["There are no deficiencies or significant defects present."],
       ],
       [
-        //
-        ["Strength and performance are not affected."],
+        // Segmental Box
+        ["There is some minor leaking between the segments."],
+        ["There is some minor spalling at the construction joints."],
       ],
       [
-        //
-        ["There is minor leaking between the segments."],
+        // Concrete
+        ["There is some spalling with exposed rebar present."],
       ],
       [
-        //
-        ["There are minor deformations to the pipe shape."],
-      ],
-      [
-        //
-        ["There is minor corrosion at the waterline."],
-      ],
-      [
-        //
+        // Arch
         ["There is some minor- to moderate-width cracking with efflorescence in the barrel."],
-      ],
-      [
-        //
-        ["There is cracking and efflorescence in the spandrel wall."],
-      ],
-      [
-        //
         ["There is minor cracking with heavy efflorescence at the outer edge of the arch ring."],
       ],
       [
-        //
+        // Spandrel Walls
+        ["There is cracking and efflorescence in the spandrel wall."],
         ["The spandrel walls are intact with no signs of backfill loss at the base."],
+      ],
+      [
+        // CMP
+        ["There is minor corrosion at the waterline."],
+        ["There are minor deformations to the pipe shape."],
+        ["There is some moderate rust scaling with section loss along the pipe invert."],
+      ],
+      [
+        // End Note
+        ["Strength and performance are not affected."],
       ],
       // "There is complete section loss in the pipe invert on the north end for 20'.",
     ],
@@ -1759,32 +1764,40 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present."],
       ],
       [
-        //
+        // Direction
         ["The channel flows from north to south through Span B, and is generally well aligned."],
         ["The channel flows from south to north through Span B, and is generally well aligned."],
         ["The channel flows from east to west through Span B, and is generally well aligned."],
         ["The channel flows from west to east through Span B, and is generally well aligned."],
+        ["Flow direction varies with rising and receding water levels."],
       ],
       [
-        //
-        ["When the channel is at normal pool, it is shallow enough to access on foot.", "When the channel is at normal pool, access is limited.", "The channel was dry at the time of inspection."],
+        // Access
+        ["When the channel is at normal pool, it is shallow enough to access on foot."],
+        ["When the channel is at normal pool, access is limited."],
+        ["The channel was dry at the time of inspection."],
       ],
       [
-        //
+        // Interior Pier Placement
         ["The interior piers are located near the channel banks and are frequently exposed to water when levels are at or near the ordinary high water mark."],
         ["The interior piers are set back from the channel and are not typically in the water."],
       ],
       [
-        //
+        // Bank Erosion
         ["There are localized areas of minor erosion in the banks."],
+        ["There is some minor bank erosion present in the upstream channel."],
+        ["There is some minor bank erosion present in the downstream channel."],
+        ["There are localized areas of minor erosion in the banks."],
+        ["Some minor bank erosion is present upstream of the bridge."],
+        ["Some minor bank erosion is present downstream of the bridge."],
       ],
       [
-        //
+        // Channel Bed
         [
-          "The channel bed consists of exposed bedrock; this is a stable condition with a high resistance to erosion; the lack of sediment indicates that high flows are capable of transporting large stones and gravel.",
+          "The channel bed consists of exposed bedrock; this is a stable condition with a high resistance to erosion; the lack of sediment indicates that high flows, capable of transporting large stones and gravel, are often present.",
         ],
         [
-          "The channel bed consists of well-graded stones, cobbles, and boulders; this is a stable condition, as the coarse material protects the bed from erosion; the composition indicates that high flows are strong enough to remove finer material but not to mobilize cobbles or boulders.",
+          "The channel bed consists of well-graded stones, cobbles, and boulders; this is a stable condition, as the coarse material protects the bed from erosion; the composition indicates that high flows, strong enough to remove finer material but not to mobilize cobbles or boulders, are often present.",
         ],
         [
           "The channel bed consists of sand and pebbles; this is an unstable condition; these finer materials are easily displaced during high flows, which can result in channel degradation or lateral movement.",
@@ -1794,20 +1807,17 @@ const bridgeComponents = [
         ],
       ],
       [
-        //
-        ["The channel condition does not threaten the roadway or the bridge."],
-      ],
-      [
-        //
-        ["Flow direction varies with rising and receding water levels."],
-      ],
-      [
-        //
+        // Debris & Drift
         ["Accumulated debris has caused localized flow obstruction in the channel."],
       ],
       [
-        //
+        // Aggradation & Degradation
         ["The channel has some minor aggradation from a buildup of soft sediment."],
+        ["The channel has some minor aggradation from a buildup of rocky sediment."],
+      ],
+      [
+        // End Notes
+        ["The channel condition does not threaten the roadway or the bridge."],
       ],
     ],
     rating_table: [
@@ -1921,43 +1931,44 @@ const bridgeComponents = [
                 `,
     example_comments: [
       [
-        //
+        // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; all channel protection measures appear to be functioning as designed."],
+        ["There are no deficiencies or significant defects present; all channel protection measures appear to be functioning as designed. There is no erosion or scour present."],
       ],
       [
+        // Not in the Channel
         ["Under normal conditions, none of the substructure components are in the channel."],
         ["The interior piers and abutments are above the ordinary high water mark, and are only in the water during periods of occasional flooding."],
       ],
       [
-        //
-        ["All channel protection measures appear to be functioning as designed."],
-      ],
-      [
-        //
+        // Riprap Protection
         ["The interior piers and abutments are protected with riprap."],
-      ],
-      [
-        //
+        ["The interior abutments are protected with riprap."],
         ["The abutments are protected with riprap. The interior piers are in the channel and no channel protection is visible."],
       ],
       [
-        //
-        ["No channel protection is visible at the bridge.", "No riprap is visible at the interior piers or abutments. "],
+        // No Channel Protection
+        ["No channel protection is visible at the bridge."],
+        ["No riprap is visible at the interior piers or abutments."],
+        ["No channel protection is visible at the interior piers."],
+        ["No riprap is visible at the interior piers."],
+        ["No channel protection is visible at the abutments."],
+        ["No riprap is visible at the abutments."],
       ],
       [
-        //
-        ["No channel protection is visible at the interior piers.", "No riprap is visible at the interior piers."],
-      ],
-      [
-        //
+        // Erosion & Scour
         ["Some riprap has washed away leaving sections of bank unprotected."],
+        ["There is some minor to moderate scour at the interior piers."],
+        ["There is no erosion or scour present."],
       ],
       [
-        //
-        ["The channel side of the interior piers is submerged and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        // Not Visible
+        ["The base of the interior piers on the channel side is submerged and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The base of the interior piers are in the channel and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
       ],
       [
-        //
+        // Failed
         ["The channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
       ],
     ],
@@ -2045,43 +2056,40 @@ const bridgeComponents = [
                 </p>`,
     example_comments: [
       [
-        //
+        // No Scour
         ["There is no scour present."],
       ],
       [
-        //
+        // No Significant Scour
         ["There is no significant scour present."],
       ],
       [
-        //
-        ["There is no visible scour at the bridge."],
-      ],
-      [
-        //
+        // Minor Scour
         ["There is minor localized scour at the interior piers."],
       ],
       [
-        //
+        // No Visible Scour
+        ["There is no visible scour at the bridge."],
+      ],
+      [
+        // Countermeasures
         ["The designed countermeasures are in good condition."],
       ],
       [
-        //
+        // Moderate Scour
         ["There is moderate scour at the base of the upstream piers, but it does not appear to affect the stability of the structure."],
-      ],
-      [
-        //
         ["Scour has exposed the top of the footing at Pier 2, but no undermining was found."],
       ],
       [
-        //
+        // Low Susceptibility
         ["The structure is an underfill arch with low susceptibility to scour."],
       ],
       [
-        //
+        // Not Evaluated
         ["Not evaluated during this inspection."],
       ],
       [
-        //
+        // POA
         ["Please review the scour POA."],
       ],
     ],
