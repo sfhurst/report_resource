@@ -832,7 +832,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Update text dynamically based on asset values
     if (assetValues.wearingSurfaceType === "1") {
-      wearingSurfaceMonolithic = "The wearing surface is monolithic with the deck. ";
+      wearingSurfaceMonolithic = "The wearing surface is monolithic with the deck. See the deck comments. ";
       updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
     }
     if (assetValues.wearingSurfaceType === "3") {
@@ -846,7 +846,11 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.01a (wearingSurface)
     if (assetValues.wearingSurface === "8" || String(assetValues.wearingSurface) === "9") {
-      updateComponentText("B.C.01a", `${wearingSurfaceMonolithic}There are no deficiencies or significant defects. `, String(assetValues.wearingSurface));
+      updateComponentText(
+        "B.C.01a",
+        `${wearingSurfaceMonolithic}There are no deficiencies or significant defects present; ride quality is good and the deck is protected from water and mineral intrusion. `,
+        String(assetValues.wearingSurface)
+      );
       highlightRowIfMatches("B.C.01a", String(assetValues.wearingSurface));
     } else {
       updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
@@ -862,7 +866,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.01 (deck)
     if (assetValues.deck === "8" || String(assetValues.deck) === "9") {
-      updateComponentText("B.C.01", "There are no deficiencies or significant defects. ", String(assetValues.deck));
+      updateComponentText("B.C.01", "There are no deficiencies or significant defects present; the deck shows no indication of water infiltration. ", String(assetValues.deck));
       highlightRowIfMatches("B.C.01", String(assetValues.deck));
     } else {
       updateComponentText("B.C.01", "", String(assetValues.deck));
@@ -906,7 +910,11 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.02 (superstructure)
     if (assetValues.superstructure === "8" || String(assetValues.superstructure) === "9") {
-      updateComponentText("B.C.02", "There are no deficiencies or significant defects. ", String(assetValues.superstructure));
+      updateComponentText(
+        "B.C.02",
+        "There are no deficiencies or significant defects present; the superstructure appears stable with no signs of structural distress. ",
+        String(assetValues.superstructure)
+      );
       highlightRowIfMatches("B.C.02", String(assetValues.superstructure));
     } else {
       updateComponentText("B.C.02", "", String(assetValues.superstructure));
@@ -915,7 +923,11 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.03 (substructure)
     if (assetValues.substructure === "8" || String(assetValues.substructure) === "9") {
-      updateComponentText("B.C.03", "There are no deficiencies or significant defects. ", String(assetValues.substructure));
+      updateComponentText(
+        "B.C.03",
+        "There are no deficiencies or significant defects present; the substructure appears stable with no signs of settlement or movement. ",
+        String(assetValues.substructure)
+      );
       highlightRowIfMatches("B.C.03", String(assetValues.substructure));
     } else {
       updateComponentText("B.C.03", "", String(assetValues.substructure));
@@ -924,7 +936,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.04 (culvert)
     if (assetValues.culvert === "8" || String(assetValues.culvert) === "9") {
-      updateComponentText("B.C.04", "There are no deficiencies or significant defects. ", String(assetValues.culvert));
+      updateComponentText("B.C.04", "There are no deficiencies or significant defects present. ", String(assetValues.culvert));
       highlightRowIfMatches("B.C.04", String(assetValues.culvert));
     } else {
       updateComponentText("B.C.04", "", String(assetValues.culvert));
@@ -933,7 +945,7 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.09 (channel)
     if (assetValues.channelValue === "8" || String(assetValues.channelValue) === "9") {
-      updateComponentText("B.C.09", "There are no deficiencies or significant defects. ", String(assetValues.channelValue));
+      updateComponentText("B.C.09", "There are no deficiencies or significant defects present. ", String(assetValues.channelValue));
       highlightRowIfMatches("B.C.09", String(assetValues.channelValue));
     } else {
       updateComponentText("B.C.09", "", String(assetValues.channelValue));
@@ -956,7 +968,7 @@ function resetBridgeComponentTextareas(assetObject) {
     }
 
     // Update and highlight for B.AP.01 (speed reduction)
-    updateComponentText("B.AP.01", "No speed reduction necessary. ", "G");
+    updateComponentText("B.AP.01", "No speed reduction is necessary; the speed at the bridge is the same as the rest of the highway segment. ", "G");
     // highlightRowIfMatches("B.AP.01", String(assetValues.speedReduction));
     highlightRowIfMatches("B.AP.01", "G");
   }
@@ -1198,8 +1210,8 @@ function lowestRatingResponseFunction(lowestValue) {
     5: "(fair condition) due to the condition of the XXXXX",
     6: "(satisfactory condition) due to the condition of the XXXXX",
     7: "(good condition). This rating is for minor defects of no structural significance.",
-    8: "(very good condition). There are no deficiencies or significant defects.",
-    9: "(excellent condition). There are no deficiencies or significant defects.",
+    8: "(very good condition). There are no deficiencies or significant defects present.",
+    9: "(excellent condition). There are no deficiencies or significant defects present.",
   };
   const conditionDescriptionResponse = conditionDescriptions[lowestValue] || "";
   const lowestRatingResponse = `The lowest condition rating (B.C.13) for the bridge is a ${lowestValue} ${conditionDescriptionResponse}`.replace("a 8", "an 8");
