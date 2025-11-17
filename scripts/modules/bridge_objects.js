@@ -393,7 +393,10 @@ const bridgeComponents = [
       ],
       [
         // Repairs and General Defects
-        ["There are areas of the expansion joints that have been repaired with pourable material.", "There are areas of the joints that have been repaired with pourable material."],
+        [
+          "There are areas of the expansion joints that have been treated with a pourable material as a temporary measure.",
+          "The compression seal joints were treated with a pourable material as a temporary measure.",
+        ],
         ["There is patching along the expansion joints.", "There is patching along the joints."],
         ["There is some minor chipping along the expansion joint nosing.", "There is some minor chipping along the joint nosing."],
       ],
@@ -1556,10 +1559,12 @@ const bridgeComponents = [
         // Cracking
         ["There are some insignificant settlement cracks in the slopewalls."],
         ["There is some minor cracking in the slopewalls."],
+        ["There are some moderate settlement cracks in the slopewalls; the slopewalls are functioning as designed."],
       ],
       [
         // Vegetation
         ["The slopewalls are overgrown with vegetation, which may be hiding potential issues."],
+        ["The slopewalls are overgrown with vegetation; a green deficiency was submitted for brush cutting."],
       ],
       [
         // MSE Walls

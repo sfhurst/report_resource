@@ -220,6 +220,7 @@ document.querySelector(".search-box").addEventListener("keydown", function (even
 
   // Updates Search UI Element and Adds Clickable Hyperlink
   searchID.textContent = assetName;
+  document.title = assetName;
   searchID.replaceWith(searchID.cloneNode(true));
 
   // Select the element with id="searchID"
