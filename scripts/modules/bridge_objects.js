@@ -128,7 +128,9 @@ const bridgeComponents = [
       [
         // No problems
         ["There are no deficiencies or significant defects present."],
-        ["There are no deficiencies or significant defects present. The approach slabs provide a smooth transition from the approach roadway to the bridge. No significant settlement has occurred."],
+        [
+          "There are no deficiencies or significant defects present; the approach slabs provide a smooth transition from the approach roadway to the bridge, and no significant settlement has occurred.",
+        ],
       ],
       [
         // Partial
@@ -260,8 +262,8 @@ const bridgeComponents = [
     example_comments: [
       [
         // General
-        ["The terminal joints are in good condition; there are no ride quality issues and the interface between the approach roadway and the approach slab is functioning as designed."],
         ["The terminal joints are in good condition."],
+        ["The terminal joints are in good condition; there are no ride quality issues and the interface between the approach roadway and the approach slab is functioning as designed."],
       ],
       [
         // Ride Quality
@@ -750,8 +752,9 @@ const bridgeComponents = [
       ],
       [
         // Ride Quality
+        ["Ride quality is unaffectted."],
+        ["Ride quality is not significantly impacted."],
         ["Ride quality is somewhat diminished."],
-        ["Ride quality remains good."],
       ],
       [
         // Membrane & Bituminous
@@ -840,6 +843,7 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration."],
+        ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration, and is effectively transferring the load through the load path."],
       ],
       [
         // Top Concealment
@@ -1148,6 +1152,7 @@ const bridgeComponents = [
       [
         // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; the protective coating is intact with no surface dulling or chalking."],
       ],
       [
         // Beam Protection
@@ -1651,6 +1656,7 @@ const bridgeComponents = [
       [
         // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; there is no loss of fill or indication of voids."],
       ],
       [
         // Segmental Box
@@ -1771,6 +1777,7 @@ const bridgeComponents = [
       [
         // General
         ["There are no deficiencies or significant defects present."],
+        ["There are no deficiencies or significant defects present; the channel is well aligned and the banks are stable."],
       ],
       [
         // Direction
