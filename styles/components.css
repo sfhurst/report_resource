@@ -190,6 +190,18 @@ button.active:focus {
   background-color: var(--content-background-color);
 }
 
+.content-container-paragraphs2 {
+  padding: 12px;
+  background-color: var(--content-background-color);
+  width: 120px;
+}
+
+.content-container-paragraphs3 {
+  padding: 12px;
+  background-color: var(--content-background-color);
+  width: 300px;
+}
+
 .content-container-paragraphs-ul {
   padding: 5px 20px;
   margin: 0 5px;
@@ -545,6 +557,13 @@ button.active:focus {
   margin: 0 0 5px 0;
 }
 
+.textarea3-group-container {
+  display: flex;
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically adjusts to create even columns */
+  gap: 20px; /* Adds consistent spacing between the boxes */
+  padding: 20px; /* Adds padding around the container */
+}
+
 /* ::: ---------------------------- Bridge | Rating Table --------------------------------- */
 
 .highlight {
@@ -644,16 +663,25 @@ button.active:focus {
 .component-elements-button3,
 .component-elements-button4 {
   margin: 4px 5px;
+  background-color: rgba(128, 128, 128, 0); /* Default transparent background */
+  border: solid 2px;
+  transition: background-color 0.3s ease; /* Smooth transition for background change */
 }
 
 .component-elements-button2 {
   background-color: rgb(177, 177, 33);
+  border: solid 2px rgba(177, 177, 33, 0.3);
+  background-color: rgba(177, 177, 33, 0.3);
 }
 .component-elements-button3 {
   background-color: rgb(146, 90, 16);
+  border: solid 2px rgba(146, 90, 16, 0.3);
+  background-color: rgba(146, 90, 16, 0.3);
 }
 .component-elements-button4 {
   background-color: rgb(158, 33, 33);
+  border: solid 2px rgba(158, 33, 33, 0.3);
+  background-color: rgba(158, 33, 33, 0.3);
 }
 
 .component-elements-item {

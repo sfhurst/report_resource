@@ -206,6 +206,10 @@
             Maintenance
           </button>
           |
+          <button class="bridge-component-buttons row2" data-target="bridge-history-tab" data-container-class="bridge-component-containers" data-button-class="bridge-component-buttons">
+            History
+          </button>
+          |
           <button class="bridge-component-buttons row2" data-target="bridge-review-tab" data-container-class="bridge-component-containers" data-button-class="bridge-component-buttons">Review</button>
         </div>
         <!-- ::: Bridge Alignment Tab -->
@@ -3811,6 +3815,98 @@
             </div>
           </div>
         </div>
+        <!-- ::: Bridge History Tab -->
+        <div id="bridge-history-tab" class="bridge-component-containers">
+          <div class="main-content-containers">
+            <h3 class="content-container-links-line-label">Links:</h3>
+            <a class="content-container-links-line-links row4" rel="noopener noreferrer" target="_blank" href="https://www.fhwa.dot.gov/bridge/snbi/snbi_march_2022_publication.pdf">SNBI</a>
+            |
+            <a id="spms-link" class="content-container-links-line-links row4" rel="noopener noreferrer" target="_blank" href="https://spms.indot.in.gov/spms/Dashboard/Home">SPMS</a>
+
+            |
+            <a class="content-container-links-line-links row4" rel="noopener noreferrer" target="_blank" href="https://sfhurst.github.io/glossary/">Glossary</a>
+            <a class="content-container-links-line-links row4" rel="noopener noreferrer" href="#" onclick="openCommentBuilder()">Comment Builder</a>
+          </div>
+          <div class="main-content-containers">
+            <div id="history-container">
+              <div class="review-components-container textarea3-group-container">
+                <!-- Deck -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">History Date:</p>
+                  <div class="content-container-paragraphs2">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea id="asset-textarea-deck" rows="1" class="textarea-comments2"></textarea>
+                      </div>
+                      <div id="error-deck" class="error-icon-container" style="display: none">
+                        <button class="material-symbols-outlined error-icon" type="button">error</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Superstructure -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">Rehab Letter:</p>
+                  <div class="content-container-paragraphs2">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea id="asset-textarea-superstructure" rows="1" class="textarea-comments2"></textarea>
+                      </div>
+                      <div id="error-super" class="error-icon-container" style="display: none">
+                        <button class="material-symbols-outlined error-icon" type="button">error</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Substructure -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">Work Type:</p>
+                  <div class="content-container-paragraphs3">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea id="asset-textarea-substructure" rows="1" class="textarea-comments2"></textarea>
+                      </div>
+                      <div id="error-sub" class="error-icon-container" style="display: none">
+                        <button class="material-symbols-outlined error-icon" type="button">error</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Culverts -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">Des Number:</p>
+                  <div class="content-container-paragraphs2">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea id="asset-textarea-culvert" rows="1" class="textarea-comments2"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lowest -->
+                <div class="textarea-group">
+                  <p class="paragraph-rating2">Contract Number:</p>
+                  <div class="content-container-paragraphs2">
+                    <div class="textarea-containers2">
+                      <div class="textarea-mirrors2">
+                        <textarea id="asset-textarea-lowestValue" rows="1" class="textarea-comments2"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main-content-containers">
+            <h3 class="content-container-links-line-label">Actions:</h3>
+            <button class="content-container-links-line-links row5">Add Row</button>
+            <button class="content-container-links-line-links row5">Update History</button>
+          </div>
+        </div>
         <!-- ::: Bridge Review Tab -->
         <div id="bridge-review-tab" class="bridge-component-containers">
           <div class="main-content-containers">
@@ -5679,7 +5775,7 @@
         </div>
         <!-- :: Culvert Rating Guidance Concrete Tab -->
         <div id="culvert-example-comments-tab" class="culvert-item-containers">
-          <div class="main-content-containers">
+          <div id="culverts-pg5" class="main-content-containers">
             <div class="content-container-paragraphs">
               <p class="content-container-comment-lines">There are no defects to report.</p>
               <p class="content-container-comment-lines">There is minor corrosion in the flow line.</p>

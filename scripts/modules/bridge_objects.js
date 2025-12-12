@@ -76,6 +76,10 @@ const bridgeComponents = [
           "This railroad-owned structure is inspected and maintained by other agencies under the guidance of the Federal Railroad Administration. INDOT is not responsible for its inspection or maintenance, and its condition is not documented in this report. A safety inspection was performed to assess conditions affecting the roadway below; no obvious hazards were found.",
         ],
       ],
+      [
+        // Not evaluated
+        ["This component was not evaluated during this inspection."],
+      ],
     ],
 
     rating_table: [
@@ -2436,6 +2440,55 @@ const bridgeComponents = [
         condition: "HEARD",
         description: "Bats heard nesting at bridge or inside bridge components.",
       },
+    ],
+  },
+
+  // Culverts 2
+  {
+    name: "Culverts",
+    item_id: "C.1",
+    example_comments_page_id: "culverts-pg5",
+    example_comments: [
+      [
+        //
+        ["There are no deficiencies or significant defects present."],
+      ],
+      [
+        //
+        ["There is minor corrosion in the flow line."],
+        ["There is moderate corrosion with minor pitting in the invert."],
+      ],
+      [
+        //
+        ["No perforations are visible."],
+        ["There are minor perforations with rust scaling throughout the flow line."],
+      ],
+      [
+        //
+        ["There are minor deformations to the pipe shape."],
+      ],
+      [
+        //
+        ["There is complete section loss in the pipe invert on the north end for 20'."],
+      ],
+      [
+        //
+        ["The pipe is pulling fill."],
+        ["There is minor sediment in the bottom of the pipe."],
+      ],
+      [
+        //
+        ["The pipe has been lined. The liner is in good condition."],
+        ["The pipe has been lined. The liner is separating from the original pipe."],
+      ],
+      [
+        //
+        ["The culvert is a concrete box widened by CMPs."],
+      ],
+      [
+        //
+        ["The culvert has significant fill so that it does not act structurally and is simply a hydraulic feature."],
+      ],
     ],
   },
 ];
