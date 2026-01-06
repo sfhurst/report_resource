@@ -460,7 +460,8 @@ function generateSummary(assetObject) {
   }
 
   const scourCriticalSubmittalResponse = scourTypesSubmittal[assetValues.scourVulnerability] || "not over water, ";
-  const scourVulnerabilitySubmittalResponse = scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
+  // const scourVulnerabilitySubmittalResponse = scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
+  const scourVulnerabilitySubmittalResponse = "";
   const postedSubmittalResponse = assetValues.postedValue === "A" ? "not posted" : "posted";
 
   let formattedSubmittalMaintenanceComments = maintenanceArray

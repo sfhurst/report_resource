@@ -1810,6 +1810,9 @@ const bridgeComponents = [
       [
         // Channel Bed
         [
+          "The channel is lined with rock and covered with small stones and gravel, creating a stable condition in which the coarse material and stone subgrade protect the bed from accelerated erosion.",
+        ],
+        [
           "The channel bed consists of exposed bedrock; this is a stable condition with a high resistance to erosion; the lack of sediment indicates that high flows, capable of transporting large stones and gravel, are often present.",
         ],
         [
@@ -1960,7 +1963,7 @@ const bridgeComponents = [
       [
         // Riprap Protection
         ["The interior piers and abutments are protected with riprap."],
-        ["The interior abutments are protected with riprap."],
+        ["The abutments are protected with riprap."],
         ["The abutments are protected with riprap. The interior piers are in the channel and no channel protection is visible."],
       ],
       [
