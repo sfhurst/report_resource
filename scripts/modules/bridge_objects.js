@@ -1424,8 +1424,8 @@ const bridgeComponents = [
       [
         // Comments for a 7
         ["There is light abrasion in the interior piers at the waterline."],
-        ["There is minor staining and insignificant surface defects on the interior piers and in the abutment backwalls."],
-        ["Some minor staining and insignificant surface defects are present on the interior piers and in the abutment backwalls."],
+        ["There is insignificant staining and surface defects on the interior piers and in the abutment backwalls."],
+        ["Some insignificant staining and surface defects are present on the interior piers and in the abutment backwalls."],
       ],
       [
         // Cracks (Piers and Abutments)
