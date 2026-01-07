@@ -1835,6 +1835,13 @@ const bridgeComponents = [
         ["The channel has some minor aggradation from a buildup of rocky sediment."],
       ],
       [
+        // Freeboard
+        ["When the channel is at the OHWM, the bridge has XX feet of freeboard."],
+        ["At the OHWM, the bridge has XX feet of freeboard."],
+        ["When water levels reach the OHWM, the bridge maintains XX feet of freeboard."],
+        ["The bridge has XX feet of freeboard at the ordinary high water mark (OHWM)."],
+      ],
+      [
         // End Notes
         ["The channel condition does not threaten the roadway or the bridge."],
       ],
@@ -2077,18 +2084,27 @@ const bridgeComponents = [
       [
         // No Scour
         ["There is no scour present."],
+        ["There is no scour present; channel profile measurements do not indicate an issue with scour."],
       ],
       [
         // No Significant Scour
         ["There is no significant scour present."],
+        ["There is no significant scour present; channel profile measurements do not indicate an issue with scour."],
       ],
       [
-        // Minor Scour
-        ["There is minor localized scour at the interior piers."],
+        // Not In Water
+        ["None of the substructure components are in the water when the water level is at or below the OHWM."],
+        ["The channel was dry and was visually inspected for scour."],
       ],
       [
         // No Visible Scour
         ["There is no visible scour at the bridge."],
+        ["There is no visible scour at the bridge; channel profile measurements do not extend below the substructure."],
+      ],
+      [
+        // Minor Scour
+        ["There is minor localized scour at the interior piers."],
+        ["There is minor localized scour at the interior piers; channel profile measurements do not extend below the substructure."],
       ],
       [
         // Countermeasures
