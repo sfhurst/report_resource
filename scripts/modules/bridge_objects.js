@@ -1300,6 +1300,10 @@ const bridgeComponents = [
         // No Bearings
         ["The bridge has integral abutments.", "The bridge has semi-integral abutments."],
       ],
+      [
+        // Not Visible
+        ["The elastomeric bearings are not visible, but there is nothing to indicate an issue or defect is present."],
+      ],
     ],
     rating_table: [
       {
