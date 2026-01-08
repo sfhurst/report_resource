@@ -1832,6 +1832,7 @@ const bridgeComponents = [
       [
         // Debris & Drift
         ["Accumulated debris has caused localized flow obstruction in the channel."],
+        ["Some riprap has washed into the channel, creating small rapids that disrupt the normal flow and may accelerate localized bank erosion."],
       ],
       [
         // Aggradation & Degradation
@@ -1989,6 +1990,7 @@ const bridgeComponents = [
       [
         // Erosion & Scour
         ["Some riprap has washed away leaving sections of bank unprotected."],
+        ["Some riprap has washed into the channel, creating small rapids that disrupt the normal flow and may accelerate localized bank erosion."],
         ["There is some minor to moderate scour at the interior piers."],
         ["There is no erosion or scour present."],
       ],
