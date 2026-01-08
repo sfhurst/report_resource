@@ -877,6 +877,9 @@ const bridgeComponents = [
         [
           "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; no corrosion was found in the stay-in-place forms and the copings are in good condition.",
         ],
+        [
+          "The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; no corrosion was found in the stay-in-place forms and the copings are in good condition. The wearing surface remains intact with no significant cracking present.",
+        ],
         ["The deck underside is concealed by stay-in-place forms and the copings are protected from runoff by concrete bridge railings; some corrosion was found in the stay-in-place forms."],
       ],
       [
