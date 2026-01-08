@@ -2091,11 +2091,13 @@ const bridgeComponents = [
         // No Scour
         ["There is no scour present."],
         ["There is no scour present; channel profile measurements do not indicate an issue with scour."],
+        ["There is no scour present; channel profile measurements and visual observations of the channel bottom do not indicate any instability."],
       ],
       [
         // No Significant Scour
         ["There is no significant scour present."],
         ["There is no significant scour present; channel profile measurements do not indicate an issue with scour."],
+        ["There is no significant scour present; channel profile measurements and visual observations of the channel bottom do not indicate any instability."],
       ],
       [
         // Not In Water
