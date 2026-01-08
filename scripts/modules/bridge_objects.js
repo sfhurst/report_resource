@@ -627,6 +627,10 @@ const bridgeComponents = [
         ["There is no transition between the bridge railings and the approach railings. These railings are the same type."],
         ["There is no approach railing; the concrete TBT transitions are effectively end treatments and should not be rated."],
         ["There is no transition railing within the limits of the bridge."],
+        [
+          "There is no transition railing within the limits of the bridge. The railing has turned-down end treatments outside of the bridge boundaries.",
+          "There is no transition railing within the limits of the bridge. The railing has turned-down end treatments beyond the bridge boundaries.",
+        ],
       ],
     ],
     rating_table: [
