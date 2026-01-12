@@ -139,6 +139,7 @@ const bridgeComponents = [
       [
         // Overlay
         ["The approach slabs have been covered with an overlay."],
+        ["There is a thin deck overlay concealing the condition of the approach slabs."],
       ],
       [
         // Settlement
@@ -306,6 +307,11 @@ const bridgeComponents = [
       [
         // Spalling
         ["There is spalling along the terminal joints."],
+      ],
+      [
+        // Termination Area
+        ["There is some minor deterioration at the interface between the approach roadway and approach slabs."],
+        ["There is some minor spalling at the interface between the approach roadway and approach slabs."],
       ],
     ],
     rating_table: [
@@ -1794,15 +1800,23 @@ const bridgeComponents = [
       [
         // Direction
         ["The channel flows from north to south through Span B, and is generally well aligned."],
+        ["The channel flows from north to south and is generally well aligned."],
         ["The channel flows from south to north through Span B, and is generally well aligned."],
+        ["The channel flows from south to north and is generally well aligned."],
         ["The channel flows from east to west through Span B, and is generally well aligned."],
+        ["The channel flows from east to west and is generally well aligned."],
         ["The channel flows from west to east through Span B, and is generally well aligned."],
+        ["The channel flows from west to east and is generally well aligned."],
         ["Flow direction varies with rising and receding water levels."],
       ],
       [
         // Access
         ["When the channel is at normal pool, it is shallow enough to access on foot."],
         ["When the channel is at normal pool, access is limited."],
+        [
+          "When the channel is at normal pool, access is somewhat limited by the soft channel bottom.",
+          "When the channel is at normal pool, access is somewhat limited due to the soft channel bottom.",
+        ],
         ["The channel was dry at the time of inspection."],
       ],
       [
@@ -1833,6 +1847,7 @@ const bridgeComponents = [
         [
           "The channel bed consists of sand and pebbles; this is an unstable condition; these finer materials are easily displaced during high flows, which can result in channel degradation or lateral movement.",
         ],
+        ["The channel bed consists of soft sediment overlying a limestone substrate."],
         [
           "The channel bed consists of silt and clay; this is a stable condition typical of slow, low-velocity flow; the fine material indicates that flow velocities are consistently low enough to allow sediment deposition.",
         ],
@@ -2003,9 +2018,19 @@ const bridgeComponents = [
         ["There is no erosion or scour present."],
       ],
       [
+        // No Scour
+        ["Channel measurements show no scour."],
+        ["Channel measurements and visual observations found no scour."],
+        [
+          "Channel profile measurements and visual observations of the channel bottom do not indicate any instability.",
+          "Channel profile measurements and visual observations do not indicate any instability.",
+        ],
+        ["Channel profile measurements of the channel bottom do not indicate any instability.", "Channel profile do not indicate any instability."],
+      ],
+      [
         // Not Visible
-        ["The base of the interior piers on the channel side is submerged and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
-        ["The base of the interior piers are in the channel and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The bottom of the interior piers are submerged on the channel side and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The bottom of the interior piers are in the channel and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
       ],
       [
         // Failed
