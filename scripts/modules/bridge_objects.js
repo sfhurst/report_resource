@@ -1992,14 +1992,22 @@ const bridgeComponents = [
       ],
       [
         // Not in the Channel
-        ["Under normal conditions, none of the substructure components are in the channel."],
-        ["The interior piers and abutments are above the ordinary high water mark, and are only in the water during periods of occasional flooding."],
+        ["Under normal flow conditions, none of the substructure components are in the channel."],
+        ["The interior piers and abutments are above the ordinary high water mark and are only exposed to water during higher-than-normal flows."],
+        ["Substructure components are not typically in the channel except during occasional flood events."],
       ],
       [
         // Riprap Protection
-        ["The interior piers and abutments are protected with riprap."],
+        [
+          "The interior piers and abutments are protected with riprap.",
+          "There is riprap protecting the interior piers and abutments.",
+          "Riprap protection is visible at the interior piers and abutments.",
+        ],
         ["The abutments are protected with riprap."],
-        ["The abutments are protected with riprap. The interior piers are in the channel and no channel protection is visible."],
+        [
+          "The abutments are protected with large stones and well-graded riprap; the placement of the riprap appears inconsistent at the waterline, which indicates some minor hydraulic displacement has occurred.",
+        ],
+        ["The abutments are protected with riprap; the interior piers are in the channel and no channel protection is visible."],
       ],
       [
         // No Channel Protection
@@ -2011,30 +2019,47 @@ const bridgeComponents = [
         ["No riprap is visible at the abutments."],
       ],
       [
-        // Erosion & Scour
+        // Riprap Placement
         ["Some riprap has washed away leaving sections of bank unprotected."],
         ["Some riprap has washed into the channel, creating small rapids that disrupt the normal flow and may accelerate localized bank erosion."],
+        ["The placement of the riprap appears inconsistent at the waterline, which indicates some minor hydraulic displacement has occurred."],
+        ["Some riprap has migrated into the channel, slightly altering flow patterns and contributing to localized bank erosion."],
+      ],
+      [
+        // Erosion & Scour
         ["There is some minor to moderate scour at the interior piers."],
         ["There is no erosion or scour present."],
       ],
       [
         // No Scour
         ["Channel measurements show no scour."],
-        ["Channel measurements and visual observations found no scour."],
+        ["Channel measurements show no scour or channel degradation."],
+        ["Channel measurements do not indicate any instability; visual observations of the channel bottom reveal no scour."],
         [
           "Channel profile measurements and visual observations of the channel bottom do not indicate any instability.",
           "Channel profile measurements and visual observations do not indicate any instability.",
+          "Channel measurements and visual observations indicate stable channel conditions with no evidence of scour.",
         ],
-        ["Channel profile measurements of the channel bottom do not indicate any instability.", "Channel profile do not indicate any instability."],
+        ["Channel profile measurements do not indicate any instability."],
       ],
       [
         // Not Visible
-        ["The bottom of the interior piers are submerged on the channel side and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
-        ["The bottom of the interior piers are in the channel and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The lower portions of the interior piers are submerged on the channel side and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The lower portions of the interior piers are in the channel and cannot be visually inspected; based on channel measurements no significant scour has occurred."],
+        ["The submerged portions of the interior piers are not visible; based on channel measurements, no significant scour is present."],
+        ["The channel side of the interior piers is submerged and not visible; channel measurements indicate no significant scour."],
+      ],
+      [
+        // Underfill Arch
+        ["The structure is an underfill arch with low susceptibility to scour."],
+        [
+          "The structure is an underfill arch with low susceptibility to scour. There are wingwalls that control bank erosion at both the inlet and outlet; there is no significant erosion in the banks behind the wingwalls.",
+        ],
       ],
       [
         // Failed
         ["The channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
+        ["Channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
       ],
     ],
     rating_table: [
