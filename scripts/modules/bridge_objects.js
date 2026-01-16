@@ -78,7 +78,10 @@ const bridgeComponents = [
       ],
       [
         // Not evaluated
-        ["This component was not evaluated during this inspection."],
+        ["This component was not evaluated; the previous rating remains in place for database continuity."],
+        ["This component was not evaluated."],
+        ["This component was not evaluated for this inspection."],
+        ["Not evaluated for this inspection."],
       ],
     ],
 
@@ -2184,10 +2187,6 @@ const bridgeComponents = [
       [
         // Low Susceptibility
         ["The structure is an underfill arch with low susceptibility to scour."],
-      ],
-      [
-        // Not Evaluated
-        ["Not evaluated during this inspection."],
       ],
       [
         // POA
