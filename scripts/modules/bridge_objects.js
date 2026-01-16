@@ -1799,6 +1799,7 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the channel is well aligned and the banks are stable."],
+        ["There are no deficiencies or significant defects present; normal flows are conveyed effectively with no observed hydraulic instability."],
       ],
       [
         // Direction
@@ -1835,6 +1836,8 @@ const bridgeComponents = [
         ["There are localized areas of minor erosion in the banks."],
         ["Some minor bank erosion is present upstream of the bridge."],
         ["Some minor bank erosion is present downstream of the bridge."],
+        ["No bank erosion is present in the upstream or downstream channel near the bridge."],
+        ["The channel banks appear stable with no significant erosion."],
       ],
       [
         // Channel Bed
@@ -1853,6 +1856,9 @@ const bridgeComponents = [
         ["The channel bed consists of soft sediment overlying a limestone substrate."],
         [
           "The channel bed consists of silt and clay; this is a stable condition typical of slow, low-velocity flow; the fine material indicates that flow velocities are consistently low enough to allow sediment deposition.",
+        ],
+        [
+          "Soil borings indicate moist loose silty loam transitioning to very stiff clay loam, forming a stable profile in which the upper loose material is underlain by a dense, competent clay layer that provides good bearing support and reduces settlement concerns; if scour removes the loose surface soils, the stiff clay layer offers increased resistance to deeper erosion.",
         ],
       ],
       [
