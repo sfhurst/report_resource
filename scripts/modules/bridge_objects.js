@@ -867,6 +867,12 @@ const bridgeComponents = [
         ["The top of the deck is covered by a bituminous wearing surface."],
       ],
       [
+        // Previously Documented
+        [
+          "Cracking was documented in the top of the deck prior to the overlay project; the deck is now concealed and is assessed as it was previously documented. There is nothing to indicate a change in rating from the previous inspection report.",
+        ],
+      ],
+      [
         // Top Cracking
         ["There is some minor longitudinal cracking in the top of the deck."],
         ["There is some minor transverse cracking in the top of the deck."],
@@ -2069,6 +2075,7 @@ const bridgeComponents = [
         // Failed
         ["The channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
         ["Channel protection is ineffective; a yellow maintenance deficiency was submitted for erosion control."],
+        ["The existing channel protection is adequately performing based on current channel conditions and observations."],
       ],
     ],
     rating_table: [
