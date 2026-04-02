@@ -432,7 +432,10 @@ main {
   position: absolute;
   left: 50%; /* Positions the top-left corner inside the parent */
   transform: translate(-50%, 0%);
-  -ms-transform: translate(-50%, 0%); /* Adjusts the position based on width and height (left, top) */
+  -ms-transform: translate(
+    -50%,
+    0%
+  ); /* Adjusts the position based on width and height (left, top) */
   width: 320px;
   height: 30px;
   cursor: default;
@@ -476,14 +479,18 @@ main {
 }
 .ite-text {
   color: var(--color-purple);
-  text-shadow: 0 0 2px rgb(0, 0, 0), 1px 1px 2px rgb(0, 0, 0);
+  text-shadow:
+    0 0 2px rgb(0, 0, 0),
+    1px 1px 2px rgb(0, 0, 0);
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: bold;
 }
 .rate-text {
   color: var(--color-orange);
-  text-shadow: 0 0 2px rgb(0, 0, 0), 1px 1px 2px rgb(0, 0, 0);
+  text-shadow:
+    0 0 2px rgb(0, 0, 0),
+    1px 1px 2px rgb(0, 0, 0);
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -493,7 +500,9 @@ main {
   color: rgb(224, 224, 224);
   color: var(--text-color);
   vertical-align: 2px;
-  text-shadow: 0 0 8px rgb(0, 0, 0), 3px 3px 8px rgb(0, 0, 0);
+  text-shadow:
+    0 0 8px rgb(0, 0, 0),
+    3px 3px 8px rgb(0, 0, 0);
 }
 
 /* ::: --------------------------- Media --------------------------- */
@@ -501,7 +510,10 @@ main {
 /* Asset data display boxes */
 @media (max-width: 768px) {
   .textarea2-group-container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusts for smaller screen sizes */
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(250px, 1fr)
+    ); /* Adjusts for smaller screen sizes */
   }
 }
 
@@ -520,21 +532,21 @@ main {
 }
 
 /* Main asset buttons */
-@media (max-width: 768px) {
-  /* Hide the buttons or elements with specific data-target values */
+/* Hide the buttons or elements with specific data-target values */
+/* @media (max-width: 768px) {
   [data-target="culvert-asset-tab"],
   [data-target="wall-asset-tab"],
   [data-target="misc-asset-tab"] {
     display: none;
   }
-}
+} */
 
 /* Hide the whole component row (js automatically activates the review page) */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #bridge-component-button-row {
     display: none;
   }
-}
+} */
 
 /* Pointer on Review tab links back to component pages */
 /* Apply !important because this won't work without it */
