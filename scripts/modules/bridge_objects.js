@@ -2670,7 +2670,8 @@ const bridgeComponents = [
       [
         // Scour Mononitoring
         [
-          "No appreciable scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Ratings unchanged.",
+          "No appreciable scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Rating unchanged.",
+          "Channel appears stable. Water was above the normal pool at the time of inspection.",
         ],
       ],
       [
