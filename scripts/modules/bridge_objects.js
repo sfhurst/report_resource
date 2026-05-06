@@ -2668,6 +2668,12 @@ const bridgeComponents = [
         ],
       ],
       [
+        // Scour Mononitoring
+        [
+          "No appreciable scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Ratings unchanged.",
+        ],
+      ],
+      [
         // POA
         ["Please review the scour POA."],
       ],
