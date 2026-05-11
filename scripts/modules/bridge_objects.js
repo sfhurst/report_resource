@@ -53,19 +53,15 @@ const bridgeComponents = [
         ["The bridge is in a horizontal curve."],
         [
           "The bridge is in a horizontal curve that is supperelvated on the north side.",
-          "The bridge is supperelevated on the north side",
         ],
         [
           "The bridge is in a horizontal curve that is supperelvated on the south side.",
-          "The bridge is supperelevated on the south side",
         ],
         [
           "The bridge is in a horizontal curve that is supperelvated on the east side.",
-          "The bridge is supperelevated on the east side",
         ],
         [
           "The bridge is in a horizontal curve that is supperelvated on the west side.",
-          "The bridge is supperelevated on the west side",
         ],
         ["The bridge is in a superelevated horizontal curve."],
       ],
