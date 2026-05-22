@@ -2669,14 +2669,9 @@ const bridgeComponents = [
           "No appreciable scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Rating unchanged.",
         ],
         [
-          "No significant change in scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Rating unchanged.",
+          "The rain event produced no appreciable scour; rating kept unchanged.",
         ],
-        [
-          "The channel appears stable. Water was above the normal pool at the time of inspection; rating kept unchanged.",
-        ],
-        [
-          "The rain event did not result in any appreciable scour, and no adverse effects to the bridge are present; rating kept unchanged.",
-        ],
+        ["The channel appears stable; rating kept unchanged."],
       ],
       [
         // POA
