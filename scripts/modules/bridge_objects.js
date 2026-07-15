@@ -937,7 +937,7 @@ const bridgeComponents = [
           // Box Beams
           "There is efflorescence between the box beams, indicating water moving through the deck.",
           "Some efflorescence is showing between the box beams, indicating water moving through the deck.",
-          "Efflorescence between the box beams indicates water moving through the deck, and the light brown color of the efflorescence signifies minor corrosion in the reinforcing steel.",
+          "Efflorescence between the box beams indicates water moving through the deck, and the light brown color of the efflorescence signifies some level of corrosion in the reinforcing steel.",
         ],
       ],
       [
