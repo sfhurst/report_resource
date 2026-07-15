@@ -46,10 +46,10 @@ const bridgeComponents = [
       [
         // Horizontal curve
         ["The bridge is in a horizontal curve."],
-        ["The bridge is in a horizontal curve that is supperelvated on the north side.", "The bridge is supperelevated on the north side"],
-        ["The bridge is in a horizontal curve that is supperelvated on the south side.", "The bridge is supperelevated on the south side"],
-        ["The bridge is in a horizontal curve that is supperelvated on the east side.", "The bridge is supperelevated on the east side"],
-        ["The bridge is in a horizontal curve that is supperelvated on the west side.", "The bridge is supperelevated on the west side"],
+        ["The bridge is in a horizontal curve that is superelevated on the north side."],
+        ["The bridge is in a horizontal curve that is superelevated on the south side."],
+        ["The bridge is in a horizontal curve that is superelevated on the east side."],
+        ["The bridge is in a horizontal curve that is superelevated on the west side."],
         ["The bridge is in a superelevated horizontal curve."],
       ],
       [
@@ -2203,6 +2203,12 @@ const bridgeComponents = [
         ["The structure is an underfill arch with low susceptibility to scour."],
       ],
       [
+        // Scour Mononitoring
+        ["No appreciable scour was observed, and no adverse effects to the bridge or any scour‑critical components are present. No additional monitoring is required. Rating unchanged."],
+        ["The rain event produced no appreciable scour; rating kept unchanged."],
+        ["The channel appears stable; rating kept unchanged."],
+      ],
+      [
         // POA
         ["Please review the scour POA."],
       ],
@@ -2594,6 +2600,12 @@ const bridgeComponents = [
         //
         ["The culvert has significant fill so that it does not act structurally and is simply a hydraulic feature."],
       ],
+      [
+        //
+        ["Access to the structure has not been properly maintained; the structure cannot be inspected until all debris and vegetation is removed from the culvert openings. "],
+        ["The structure design limits visual inspection."],
+        ["Access to the structure is not being properly maintained to allow for inspection."],
+      ],
     ],
   },
 ];
@@ -2705,11 +2717,26 @@ const bridgeData = [
       { code: "N/A", description: "Bridge not over water" },
       { code: "1", description: "Scour Analysis on file" },
       { code: "2", description: "Scour POA on file" },
-      { code: "3", description: "Scour Analysis is NOT on file, bridge should have been designed for scour" },
-      { code: "4", description: "Scour Analysis is not on file, scour analysis being performed in house" },
-      { code: "5", description: "Scour Analysis not on file, scour analysis needed" },
-      { code: "6", description: "Scour Analysis not needed. Structure type is not susceptible to scour" },
-      { code: "7", description: "Bridge programmed to be rehabbed or replaced" },
+      {
+        code: "3",
+        description: "Scour Analysis is NOT on file, bridge should have been designed for scour",
+      },
+      {
+        code: "4",
+        description: "Scour Analysis is not on file, scour analysis being performed in house",
+      },
+      {
+        code: "5",
+        description: "Scour Analysis not on file, scour analysis needed",
+      },
+      {
+        code: "6",
+        description: "Scour Analysis not needed. Structure type is not susceptible to scour",
+      },
+      {
+        code: "7",
+        description: "Bridge programmed to be rehabbed or replaced",
+      },
     ],
   },
   {
@@ -2717,8 +2744,14 @@ const bridgeData = [
     category: "Scour Analysis Determination",
     values: [
       { code: "N/A", description: "Bridge Not Over Water" },
-      { code: "1", description: "Scour Analysis complete, bridge is NOT hydraulically scour critical by analysis" },
-      { code: "2", description: "Scour Analysis complete, bridge IS hydraulically scour critical by analysis" },
+      {
+        code: "1",
+        description: "Scour Analysis complete, bridge is NOT hydraulically scour critical by analysis",
+      },
+      {
+        code: "2",
+        description: "Scour Analysis complete, bridge IS hydraulically scour critical by analysis",
+      },
       { code: "3", description: "Scour Assessment on file" },
     ],
   },
@@ -2727,10 +2760,22 @@ const bridgeData = [
     category: "Scour Critical Safety Status",
     values: [
       { code: "N/A", description: "Bridge not over water" },
-      { code: "1", description: "Bridge is NOT scour Critical based on analysis findings" },
-      { code: "2", description: "Bridge IS scour critical based on analysis findings, Scour POA or Countermeasures REQUIRED" },
-      { code: "3", description: "Bridge IS scour critical based on analysis findings and Scour POA is ON FILE" },
-      { code: "4", description: "Bridge IS scour critical based on analysis findings and Countermeasures are installed and FIELD VERIFIED" },
+      {
+        code: "1",
+        description: "Bridge is NOT scour Critical based on analysis findings",
+      },
+      {
+        code: "2",
+        description: "Bridge IS scour critical based on analysis findings, Scour POA or Countermeasures REQUIRED",
+      },
+      {
+        code: "3",
+        description: "Bridge IS scour critical based on analysis findings and Scour POA is ON FILE",
+      },
+      {
+        code: "4",
+        description: "Bridge IS scour critical based on analysis findings and Countermeasures are installed and FIELD VERIFIED",
+      },
     ],
   },
   {

@@ -110,7 +110,9 @@ copySummaryTextareaContent():
 // Function to simulate clicking the bridge asset tab button and refocusing the search box
 function triggerBridgeTabAndRefocus() {
   const searchBox = document.querySelector(".search-box");
-  const bridgeTabButton = document.querySelector("[data-target='bridge-asset-tab']");
+  const bridgeTabButton = document.querySelector(
+    "[data-target='bridge-asset-tab']",
+  );
 
   if (bridgeTabButton) {
     bridgeTabButton.click();
@@ -124,7 +126,9 @@ function triggerBridgeTabAndRefocus() {
 }
 
 // Event Listener for Search Box Focus
-document.querySelector(".search-box").addEventListener("focus", triggerBridgeTabAndRefocus);
+document
+  .querySelector(".search-box")
+  .addEventListener("focus", triggerBridgeTabAndRefocus);
 
 // ::: ---------------------------- Asset Search Box ----------------------------
 
@@ -141,116 +145,132 @@ let lowestValue = null;
 let lowestComponent = null;
 
 // Event Listener Setup (Triggers on Enter Key)
-document.querySelector(".search-box").addEventListener("keydown", function (event) {
-  if (event.key !== "Enter") return; // Ensures only Enter triggers the search
-  event.preventDefault();
+document
+  .querySelector(".search-box")
+  .addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") return; // Ensures only Enter triggers the search
+    event.preventDefault();
 
-  // Clear maintenance class
-  document.querySelectorAll(".active-maintenance").forEach(el => el.classList.remove("active-maintenance"));
-  maintenanceArray = [];
+    // Clear maintenance class
+    document
+      .querySelectorAll(".active-maintenance")
+      .forEach((el) => el.classList.remove("active-maintenance"));
+    maintenanceArray = [];
 
-  updateExampleComments();
+    updateExampleComments();
 
-  // Reset paint year
-  const paintMain = document.getElementById("paint-main");
-  const paintReview = document.getElementById("paint-review");
-  paintMain.value = "";
-  paintReview.value = "";
+    // Reset paint year
+    const paintMain = document.getElementById("paint-main");
+    const paintReview = document.getElementById("paint-review");
+    paintMain.value = "";
+    paintReview.value = "";
 
-  // Reset Comments key to zero so it can unlock the clear and set new comments function once per enter press
-  resetComments = 0;
+    // Reset Comments key to zero so it can unlock the clear and set new comments function once per enter press
+    resetComments = 0;
 
-  // Reset window position to default
-  if (window.innerWidth > 768) {
-    resetViaSimulatedClicks();
-  }
-
-  // Retrieves the Search Input Value
-  searchValue = this.value.trim().toLowerCase();
-
-  // Handles "random" Keyword: If user enters "random", keep it as "random" in the search box
-  if (searchValue === "random") {
-    // Keep "random" in the search box, no modification needed
-    this.value = "random"; // Ensures "random" stays in the search box
-    // Pick a random asset number for searching
-    searchValue = assetData[Math.floor(Math.random() * assetData.length)]["Asset Number"];
-  } else if (/^\d+$/.test(searchValue)) {
-    // If the input is purely numeric, pad with leading zeros to make it 6 digits
-    searchValue = searchValue.padStart(6, "0");
-    this.value = searchValue; // Update the search box with the padded value
-  }
-
-  // Searches for the Asset in assetData and creates a deep copy
-  assetObject = JSON.parse(JSON.stringify(assetData.find(item => item["Asset Number"].toLowerCase() === searchValue)));
-  resetBridgeComponentTextareas(assetObject);
-  revertReviewBackgroundColor();
-
-  // Handles Not Found Case
-  let searchID = document.getElementById("searchID");
-
-  if (!assetObject) {
-    searchID.textContent = "Asset not found.";
-    searchValue = ""; // Reset searchValue if no match is found
-    return;
-  }
-
-  // Extracts required asset data. This is not used outside this function. The asset is what gets passed and it holds everything.
-  const { "Asset Name": assetName, "(16) Latitude:": latValue, "(17) Longitude:": longValue, Hyperlink: hyperlink } = assetObject;
-
-  ///////////////////////////
-
-  // Look for history data related to this asset number
-  const assetHistory = historyData[searchValue]; // Get the history from historyData
-
-  // Format history if it exists
-  if (assetHistory && assetHistory.length > 0) {
-    formattedHistory = `History:\n${assetHistory.join("\n")}`;
-  } else {
-    formattedHistory = "";
-  }
-
-  ///////////////////////////
-
-  // Hides the error icons in the asset data page
-  hideAllErrors();
-
-  // Updates Map Button and Generates Summary
-  updateMapButton(latValue, longValue); // No return needed
-  displaySummary(assetObject); // No return needed
-
-  // Updates Search UI Element and Adds Clickable Hyperlink
-  searchID.textContent = assetName;
-  document.title = assetName;
-  searchID.replaceWith(searchID.cloneNode(true));
-
-  // Select the element with id="searchID"
-  searchID = document.getElementById("searchID");
-
-  // Ensure the 'row1' class is added if it's not already present
-  if (!searchID.classList.contains("row1")) {
-    searchID.classList.add("row1");
-  }
-
-  // Make the element focusable by adding tabindex="0"
-  searchID.tabIndex = 0;
-
-  // Add the event listener to open the link in a new tab
-  searchID.addEventListener("click", () => {
-    window.open(hyperlink, "_blank");
-  });
-
-  // Add the event listener for Enter key press to trigger click
-  searchID.addEventListener("keydown", event => {
-    if (event.key === "Enter") {
-      window.open(hyperlink, "_blank");
+    // Reset window position to default
+    if (window.innerWidth > 768) {
+      resetViaSimulatedClicks();
     }
+
+    // Retrieves the Search Input Value
+    searchValue = this.value.trim().toLowerCase();
+
+    // Handles "random" Keyword: If user enters "random", keep it as "random" in the search box
+    if (searchValue === "random") {
+      // Keep "random" in the search box, no modification needed
+      this.value = "random"; // Ensures "random" stays in the search box
+      // Pick a random asset number for searching
+      searchValue =
+        assetData[Math.floor(Math.random() * assetData.length)]["Asset Number"];
+    } else if (/^\d+$/.test(searchValue)) {
+      // If the input is purely numeric, pad with leading zeros to make it 6 digits
+      searchValue = searchValue.padStart(6, "0");
+      this.value = searchValue; // Update the search box with the padded value
+    }
+
+    // Searches for the Asset in assetData and creates a deep copy
+    assetObject = JSON.parse(
+      JSON.stringify(
+        assetData.find(
+          (item) => item["Asset Number"].toLowerCase() === searchValue,
+        ),
+      ),
+    );
+    resetBridgeComponentTextareas(assetObject);
+    revertReviewBackgroundColor();
+
+    // Handles Not Found Case
+    let searchID = document.getElementById("searchID");
+
+    if (!assetObject) {
+      searchID.textContent = "Asset not found.";
+      searchValue = ""; // Reset searchValue if no match is found
+      return;
+    }
+
+    // Extracts required asset data. This is not used outside this function. The asset is what gets passed and it holds everything.
+    const {
+      "Asset Name": assetName,
+      "(16) Latitude:": latValue,
+      "(17) Longitude:": longValue,
+      Hyperlink: hyperlink,
+    } = assetObject;
+
+    ///////////////////////////
+
+    // Look for history data related to this asset number
+    const assetHistory = historyData[searchValue]; // Get the history from historyData
+
+    // Format history if it exists
+    if (assetHistory && assetHistory.length > 0) {
+      formattedHistory = `History:\n${assetHistory.join("\n")}`;
+    } else {
+      formattedHistory = "";
+    }
+
+    ///////////////////////////
+
+    // Hides the error icons in the asset data page
+    hideAllErrors();
+
+    // Updates Map Button and Generates Summary
+    updateMapButton(latValue, longValue); // No return needed
+    displaySummary(assetObject); // No return needed
+
+    // Updates Search UI Element and Adds Clickable Hyperlink
+    searchID.textContent = assetName;
+    document.title = assetName;
+    searchID.replaceWith(searchID.cloneNode(true));
+
+    // Select the element with id="searchID"
+    searchID = document.getElementById("searchID");
+
+    // Ensure the 'row1' class is added if it's not already present
+    if (!searchID.classList.contains("row1")) {
+      searchID.classList.add("row1");
+    }
+
+    // Make the element focusable by adding tabindex="0"
+    searchID.tabIndex = 0;
+
+    // Add the event listener to open the link in a new tab
+    searchID.addEventListener("click", () => {
+      window.open(hyperlink, "_blank");
+    });
+
+    // Add the event listener for Enter key press to trigger click
+    searchID.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        window.open(hyperlink, "_blank");
+      }
+    });
   });
-});
 
 // ::: ---------------------------- hideAllErrors() ----------------------------
 
 function hideAllErrors() {
-  document.querySelectorAll('[id^="error-"]').forEach(element => {
+  document.querySelectorAll('[id^="error-"]').forEach((element) => {
     element.style.display = "none";
   });
   document.getElementById("asset-error-button1").style.display = "none";
@@ -358,16 +378,20 @@ function generateSummary(assetObject) {
   const lowestRatingResponse = lowestRatingResponseFunction(lowestValue);
 
   // Material Types | Determine the material type of the bridge - mapping integer values to material types
-  const { mainMatTypesResponse, approachMatTypesResponse } = structureMaterialResponseFunction(assetValues);
+  const { mainMatTypesResponse, approachMatTypesResponse } =
+    structureMaterialResponseFunction(assetValues);
 
   // Structure Types | Determine the design type of the bridge - mapping integer values to material types
-  const { mainDesignTypesResponse, approachDesignTypesResponse } = structureDesignResponseFunction(assetValues);
+  const { mainDesignTypesResponse, approachDesignTypesResponse } =
+    structureDesignResponseFunction(assetValues);
 
   // Deck Type
-  const deckStructureTypesResponse = deckStructureTypesResponseFunction(assetValues);
+  const deckStructureTypesResponse =
+    deckStructureTypesResponseFunction(assetValues);
 
   // Wearing Surface Type
-  const wearingSurfaceTypesResponse = wearingSurfaceTypesResponseFunction(assetValues);
+  const wearingSurfaceTypesResponse =
+    wearingSurfaceTypesResponseFunction(assetValues);
 
   // Scour | Determine the scour and generate a response
   const scourTypesResponse = scourTypesResponseFunction(assetValues);
@@ -381,9 +405,13 @@ function generateSummary(assetObject) {
   const noChannel = assetValues.channelValue === "N";
   const channelResponse = noChannel ? `The bridge is not over water.` : "";
 
-  const btn1 = document.querySelector('button[data-target="bridge-channel-tab"]');
+  const btn1 = document.querySelector(
+    'button[data-target="bridge-channel-tab"]',
+  );
   const btn2 = document.querySelector('button[data-target="bridge-scour-tab"]');
-  const btn3 = document.querySelector('button[data-target="bridge-overtopping-tab"]');
+  const btn3 = document.querySelector(
+    'button[data-target="bridge-overtopping-tab"]',
+  );
 
   if (noChannel) {
     btn1.classList.add("gray-out");
@@ -397,17 +425,19 @@ function generateSummary(assetObject) {
 
   ////
 
-  const approachSpansPlural = assetValues.approachSpans === 1 ? "span" : "spans";
+  const approachSpansPlural =
+    assetValues.approachSpans === 1 ? "span" : "spans";
   const mainSpansPlural = assetValues.mainSpans === 1 ? "span" : "spans";
   const ms2 = `The structure is a ${assetValues.mainSpans}-span, ${mainMatTypesResponse} ${mainDesignTypesResponse} design ${deckStructureTypesResponse}.`;
   const ms3a = `The bridge has ${assetValues.approachSpans} approach ${approachSpansPlural} and ${assetValues.mainSpans} main ${mainSpansPlural}.`;
   const ms3b = `The approach spans have a ${approachMatTypesResponse} ${approachDesignTypesResponse} design.`;
   const ms3c = `The main structure has a ${assetValues.mainSpans}-span, ${mainMatTypesResponse} ${mainDesignTypesResponse} design ${deckStructureTypesResponse}.`;
-  const spansResponse = assetValues.approachSpans > 0 ? `${ms3a} ${ms3b} ${ms3c}` : `${ms2}`;
+  const spansResponse =
+    assetValues.approachSpans > 0 ? `${ms3a} ${ms3b} ${ms3c}` : `${ms2}`;
 
   // Maintenance
   let formattedMaintenanceComments = maintenanceArray
-    .map(item => {
+    .map((item) => {
       let comment = `A ${item.category.toLowerCase()} deficiency was submitted for ${item.name
         .toLowerCase()
         .replace(/\brepair\b/g, "repairs")
@@ -418,9 +448,13 @@ function generateSummary(assetObject) {
     .join("\n");
 
   // History
-  const formattedHistoryResponse = formattedHistory !== "" ? `\n\n${formattedHistory}` : "";
+  const formattedHistoryResponse =
+    formattedHistory !== "" ? `\n\n${formattedHistory}` : "";
 
-  const maintenanceResponse = maintenanceArray.length !== 0 ? formattedMaintenanceComments : "There are no open maintenance items.";
+  const maintenanceResponse =
+    maintenanceArray.length !== 0
+      ? formattedMaintenanceComments
+      : "There are no open maintenance items.";
 
   /////////////////////////////////////////// Combine all information into a structured summary
   const generalPara = `${spansResponse} ${wearingSurfaceTypesResponse} ${membraneResponse} The structure is ${postedResponse}${adtResponse}. ${elementResponse}. ${scourTypesResponse} ${channelResponse} ${inspectionTypeResponse} ${cardinalResponse}`;
@@ -428,7 +462,10 @@ function generateSummary(assetObject) {
   const generalNotes = `General Inspection Notes:\n${generalParaCleaned}\n\n${lowestRatingResponse}\n\nMaintenance / Recommendations:\n${maintenanceResponse}${formattedHistoryResponse}`;
 
   const updatedGeneralNotes = generalNotes
-    .replace("The bridge is not over water. The bridge does not require an NSTM or special inspection.", "The bridge is not over water and does not require an NSTM or special inspection.")
+    .replace(
+      "The bridge is not over water. The bridge does not require an NSTM or special inspection.",
+      "The bridge is not over water and does not require an NSTM or special inspection.",
+    )
     .replace("a other", "an other")
     .replace("other other", "other");
 
@@ -452,20 +489,24 @@ function generateSummary(assetObject) {
   const isElement = assetValues.highwaySystem === 1;
   const elementSubmittalResponse = isElement ? "Element, " : "Not element, ";
 
-  const btn = document.querySelector('button[data-target="bridge-elements-tab"]');
+  const btn = document.querySelector(
+    'button[data-target="bridge-elements-tab"]',
+  );
   if (isElement) {
     btn.classList.remove("gray-out");
   } else {
     btn.classList.add("gray-out");
   }
 
-  const scourCriticalSubmittalResponse = scourTypesSubmittal[assetValues.scourVulnerability] || "not over water, ";
+  const scourCriticalSubmittalResponse =
+    scourTypesSubmittal[assetValues.scourVulnerability] || "not over water, ";
   // const scourVulnerabilitySubmittalResponse = scourCriticalSubmittalResponse !== "not over water, " ? "Please update the scour vulnerability rating." : "";
   const scourVulnerabilitySubmittalResponse = "";
-  const postedSubmittalResponse = assetValues.postedValue === "A" ? "not posted" : "posted";
+  const postedSubmittalResponse =
+    assetValues.postedValue === "A" ? "not posted" : "posted";
 
   let formattedSubmittalMaintenanceComments = maintenanceArray
-    .map(item => {
+    .map((item) => {
       let comment = `A ${item.category.toLowerCase()} deficiency was submitted for ${item.name
         .toLowerCase()
         .replace(/\brepair\b/g, "repairs")
@@ -475,17 +516,22 @@ function generateSummary(assetObject) {
     })
     .join(" ");
 
-  const maintenanceSubmittalResponse = maintenanceArray.length !== 0 ? `. ${formattedSubmittalMaintenanceComments}` : ", no maintenance.";
+  const maintenanceSubmittalResponse =
+    maintenanceArray.length !== 0
+      ? `. ${formattedSubmittalMaintenanceComments}`
+      : ", no maintenance.";
 
-  const submittalResponse = `Completed Items 6 and 7. All other items will be systematically updated within the FHWA's grace period, which expires at the end of 2027. ${elementSubmittalResponse}${scourCriticalSubmittalResponse}${postedSubmittalResponse}${maintenanceSubmittalResponse} ${scourVulnerabilitySubmittalResponse}`;
+  const submittalResponse = `Completed Items 6 and 7. All other items will be systematically updated within the FHWA's grace period, which expires at the end of 2027. ${elementSubmittalResponse}${scourCriticalSubmittalResponse}${postedSubmittalResponse}${maintenanceSubmittalResponse} ${scourVulnerabilitySubmittalResponse} Inspection report submitted within the compliance month and within 10 business days from the Inspection Completion Date (B.IE.03). `;
   document.getElementById("submittal-textarea").value = submittalResponse;
 
   // expand all textareas
-  document.querySelectorAll("textarea[oninput^='expandTextarea']").forEach(textarea => {
-    // Trigger the input event manually
-    const event = new Event("input", { bubbles: true });
-    textarea.dispatchEvent(event);
-  });
+  document
+    .querySelectorAll("textarea[oninput^='expandTextarea']")
+    .forEach((textarea) => {
+      // Trigger the input event manually
+      const event = new Event("input", { bubbles: true });
+      textarea.dispatchEvent(event);
+    });
 
   // Final notes is returned as the answer to the generateSummary(assetObject);
   return updatedGeneralNotes;
@@ -499,14 +545,23 @@ function populateTextareas(assetObject) {
   const assetValues = extractAssetDetails(assetObject); // Returns the new asset data
 
   // Set full RP
-  const referencePostOffset = assetValues.referencePost + assetValues.offsetValue;
+  const referencePostOffset =
+    assetValues.referencePost + assetValues.offsetValue;
 
   // :: Calculate due dates ////////////////////////////////////////
   // Create a new Date object based on the inspectionDate to avoid modifying the original
-  const tempDate = assetValues.inspectionDate ? new Date(assetValues.inspectionDate) : null;
-  const tempNSTMDate = assetValues.nstmInspDate ? new Date(assetValues.nstmInspDate) : null;
-  const tempSpecialDate = assetValues.specialInspDate ? new Date(assetValues.specialInspDate) : null;
-  const tempUnderwaterDate = assetValues.underwaterInspDate ? new Date(assetValues.underwaterInspDate) : null;
+  const tempDate = assetValues.inspectionDate
+    ? new Date(assetValues.inspectionDate)
+    : null;
+  const tempNSTMDate = assetValues.nstmInspDate
+    ? new Date(assetValues.nstmInspDate)
+    : null;
+  const tempSpecialDate = assetValues.specialInspDate
+    ? new Date(assetValues.specialInspDate)
+    : null;
+  const tempUnderwaterDate = assetValues.underwaterInspDate
+    ? new Date(assetValues.underwaterInspDate)
+    : null;
   let formattedInspectionDueDate = "";
   let inspectionDueDate = "";
   let formattedNSTMDueDate = "";
@@ -527,7 +582,9 @@ function populateTextareas(assetObject) {
 
   // Determine the next due date for the NSTM inspection
   if (assetValues.nstmInspDate) {
-    tempNSTMDate.setMonth(tempNSTMDate.getMonth() + assetValues.nstmInspFrequency);
+    tempNSTMDate.setMonth(
+      tempNSTMDate.getMonth() + assetValues.nstmInspFrequency,
+    );
     tempNSTMDate.setMonth(tempNSTMDate.getMonth() + 1);
     tempNSTMDate.setDate(0);
     formattedNSTMDueDate = `${(tempNSTMDate.getMonth() + 1).toString().padStart(2, "0")}/${tempNSTMDate.getDate().toString().padStart(2, "0")}/${tempNSTMDate.getFullYear()}`;
@@ -536,7 +593,9 @@ function populateTextareas(assetObject) {
 
   // Determine the next due date for the special inspection
   if (assetValues.specialInspDate) {
-    tempSpecialDate.setMonth(tempSpecialDate.getMonth() + assetValues.specialInspFrequency);
+    tempSpecialDate.setMonth(
+      tempSpecialDate.getMonth() + assetValues.specialInspFrequency,
+    );
     tempSpecialDate.setMonth(tempSpecialDate.getMonth() + 1);
     tempSpecialDate.setDate(0);
     formattedSpecialDueDate = `${(tempSpecialDate.getMonth() + 1).toString().padStart(2, "0")}/${tempSpecialDate.getDate().toString().padStart(2, "0")}/${tempSpecialDate.getFullYear()}`;
@@ -545,7 +604,9 @@ function populateTextareas(assetObject) {
 
   // Determine the next due date for the underwater inspection
   if (assetValues.underwaterInspDate) {
-    tempUnderwaterDate.setMonth(tempUnderwaterDate.getMonth() + assetValues.underwaterInspFrequency);
+    tempUnderwaterDate.setMonth(
+      tempUnderwaterDate.getMonth() + assetValues.underwaterInspFrequency,
+    );
     tempUnderwaterDate.setMonth(tempUnderwaterDate.getMonth() + 1);
     tempUnderwaterDate.setDate(0);
     formattedUnderwaterDueDate = `${(tempUnderwaterDate.getMonth() + 1).toString().padStart(2, "0")}/${tempUnderwaterDate.getDate().toString().padStart(2, "0")}/${tempUnderwaterDate.getFullYear()}`;
@@ -558,32 +619,97 @@ function populateTextareas(assetObject) {
 
   // :: Setup variables and get code descriptions ////////////////////////////////////////
 
-  const channelValueText = assetValues.channelValue === "N" || assetValues.channelValue === "" ? "No" : "Yes";
-  const nstmInspRequiredText = assetValues.nstmInspRequired === "N" || assetValues.nstmInspRequired === "" ? "No" : "Yes";
-  const specialInspRequiredText = assetValues.specialInspRequired === "N" || assetValues.specialInspRequired === "" ? "No" : "Yes";
-  const underwaterInspRequiredText = assetValues.underwaterInspRequired === "N" || assetValues.underwaterInspRequired === "" ? "No" : "Yes";
+  const channelValueText =
+    assetValues.channelValue === "N" || assetValues.channelValue === ""
+      ? "No"
+      : "Yes";
+  const nstmInspRequiredText =
+    assetValues.nstmInspRequired === "N" || assetValues.nstmInspRequired === ""
+      ? "No"
+      : "Yes";
+  const specialInspRequiredText =
+    assetValues.specialInspRequired === "N" ||
+    assetValues.specialInspRequired === ""
+      ? "No"
+      : "Yes";
+  const underwaterInspRequiredText =
+    assetValues.underwaterInspRequired === "N" ||
+    assetValues.underwaterInspRequired === ""
+      ? "No"
+      : "Yes";
 
-  const postedValueText = getCodeDescription("postedValue", assetValues.postedValue);
-  const highwaySystemText = getCodeDescription("highwaySystem", assetValues.highwaySystem);
-  const countyCodeText = getCodeDescription("countyCode", assetValues.countyCode);
-  const highwayAgencyDistrictText = getCodeDescription("highwayAgencyDistrict", assetValues.highwayAgencyDistrict);
-  const scourVulnerabilityText = getCodeDescription("scourVulnerability", assetValues.scourVulnerability);
-  const scourCriticalText = getCodeDescription("scourCritical", assetValues.scourVulnerability); // uses scourVulnerability to make scour determination
-  const approachMatTypeText = getCodeDescription("approachMatType", assetValues.approachMatType);
-  const approachDesignTypeText = getCodeDescription("approachDesignType", assetValues.approachDesignType);
-  const mainMatTypeText = getCodeDescription("mainMatType", assetValues.mainMatType);
-  const mainDesignTypeText = getCodeDescription("mainDesignType", assetValues.mainDesignType);
-  const wearingSurfaceTypeText = getCodeDescription("wearingSurfaceType", assetValues.wearingSurfaceType);
-  const deckMembraneTypeText = getCodeDescription("deckMembraneType", assetValues.deckMembraneType);
-  const deckProtectionTypeText = getCodeDescription("deckProtectionType", assetValues.deckProtectionType);
+  const postedValueText = getCodeDescription(
+    "postedValue",
+    assetValues.postedValue,
+  );
+  const highwaySystemText = getCodeDescription(
+    "highwaySystem",
+    assetValues.highwaySystem,
+  );
+  const countyCodeText = getCodeDescription(
+    "countyCode",
+    assetValues.countyCode,
+  );
+  const highwayAgencyDistrictText = getCodeDescription(
+    "highwayAgencyDistrict",
+    assetValues.highwayAgencyDistrict,
+  );
+  const scourVulnerabilityText = getCodeDescription(
+    "scourVulnerability",
+    assetValues.scourVulnerability,
+  );
+  const scourCriticalText = getCodeDescription(
+    "scourCritical",
+    assetValues.scourVulnerability,
+  ); // uses scourVulnerability to make scour determination
+  const approachMatTypeText = getCodeDescription(
+    "approachMatType",
+    assetValues.approachMatType,
+  );
+  const approachDesignTypeText = getCodeDescription(
+    "approachDesignType",
+    assetValues.approachDesignType,
+  );
+  const mainMatTypeText = getCodeDescription(
+    "mainMatType",
+    assetValues.mainMatType,
+  );
+  const mainDesignTypeText = getCodeDescription(
+    "mainDesignType",
+    assetValues.mainDesignType,
+  );
+  const wearingSurfaceTypeText = getCodeDescription(
+    "wearingSurfaceType",
+    assetValues.wearingSurfaceType,
+  );
+  const deckMembraneTypeText = getCodeDescription(
+    "deckMembraneType",
+    assetValues.deckMembraneType,
+  );
+  const deckProtectionTypeText = getCodeDescription(
+    "deckProtectionType",
+    assetValues.deckProtectionType,
+  );
 
-  const deckStructureTypeText = getCodeDescription("deckStructureType", assetValues.deckStructureType);
+  const deckStructureTypeText = getCodeDescription(
+    "deckStructureType",
+    assetValues.deckStructureType,
+  );
   const deckText = getCodeDescription("deck", assetValues.deck);
-  const superstructureText = getCodeDescription("superstructure", assetValues.superstructure);
-  const substructureText = getCodeDescription("substructure", assetValues.substructure);
+  const superstructureText = getCodeDescription(
+    "superstructure",
+    assetValues.superstructure,
+  );
+  const substructureText = getCodeDescription(
+    "substructure",
+    assetValues.substructure,
+  );
   const culvertText = getCodeDescription("culvert", assetValues.culvert);
   const lowestValueText = getCodeDescription("lowestValue", lowestValue);
-  const wearingSurfaceText = getCodeDescription("deck", assetValues.wearingSurface);
+  const wearingSurfaceText = getCodeDescription(
+    "deck",
+    assetValues.wearingSurface,
+  );
 
   // List of variables and their corresponding IDs in the form
   const fields = [
@@ -618,7 +744,10 @@ function populateTextareas(assetObject) {
     { id: "specialInspFrequency", value: assetValues.specialInspFrequency },
     { id: "specialInspDate", value: specialDueDate },
     { id: "underwaterInspRequired", value: underwaterInspRequiredText },
-    { id: "underwaterInspFrequency", value: assetValues.underwaterInspFrequency },
+    {
+      id: "underwaterInspFrequency",
+      value: assetValues.underwaterInspFrequency,
+    },
     { id: "underwaterInspDate", value: underwaterDueDate },
 
     { id: "deck", value: deckText },
@@ -646,7 +775,7 @@ function populateTextareas(assetObject) {
   ];
 
   // Loop through each field and set the value of the corresponding textarea
-  fields.forEach(field => {
+  fields.forEach((field) => {
     const textarea = document.getElementById(`asset-textarea-${field.id}`);
     if (textarea) {
       textarea.value = field.value;
@@ -666,13 +795,15 @@ function getCodeDescription(variable, code) {
   // Uses the variable name to lookup the code and description in the bridgeData array/object
   // This is for populating the asset data textareas so they display the information in a clean, controlled way
 
-  const category = bridgeData.find(item => item.variable == variable);
+  const category = bridgeData.find((item) => item.variable == variable);
   if (!category) return "Category not found"; // Not likely since function is directly called
 
-  const valueEntry = category.values.find(entry => entry.code == code);
+  const valueEntry = category.values.find((entry) => entry.code == code);
   if (!valueEntry) return ""; // Not likely since function is directly called
 
-  return variable === "scourCritical" ? valueEntry.description : `${valueEntry.code} - ${valueEntry.description}`;
+  return variable === "scourCritical"
+    ? valueEntry.description
+    : `${valueEntry.code} - ${valueEntry.description}`;
 }
 
 // ::: ---------------------------- extractAssetDetails() ----------------------------
@@ -688,7 +819,8 @@ function extractAssetDetails(assetObject) {
     postedValue: assetObject["(41) Structure Open/Posted/Closed:"],
     scourVulnerability: assetObject["(B.AP.03) Scour Vulnerability"] || "",
     scourCritical: assetObject["(113) Scour Critical Bridges:"],
-    adtValue: assetObject["(29) Average Daily Traffic:"]?.toLocaleString() || "",
+    adtValue:
+      assetObject["(29) Average Daily Traffic:"]?.toLocaleString() || "",
     adtYear: assetObject["(30) Year of Average Daily Traffic:"],
     highwaySystem: assetObject["(104) Highway System of Inventory Route:"],
     channelValue: assetObject["(61) Channel / Channel Protection:"],
@@ -712,13 +844,33 @@ function extractAssetDetails(assetObject) {
     culvert: assetObject["(B.C.04) Culvert Condition Rating"],
 
     // Secondary Ratings
-    bridgeJoints: assetObject["(B.C.08) Bridge Joints Condition Rating"]?.trim() ? assetObject["(B.C.08) Bridge Joints Condition Rating"] : "N",
-    terminalJoints: assetObject["(B.C.08a) Terminal Joint Condition Rating"]?.trim() ? assetObject["(B.C.08a) Terminal Joint Condition Rating"] : "N",
-    approachSlabs: assetObject["(B.C.01b ) Approach Slab Condition Rating"]?.trim() ? assetObject["(B.C.01b ) Approach Slab Condition Rating"] : "N",
+    bridgeJoints: assetObject["(B.C.08) Bridge Joints Condition Rating"]?.trim()
+      ? assetObject["(B.C.08) Bridge Joints Condition Rating"]
+      : "N",
+    terminalJoints: assetObject[
+      "(B.C.08a) Terminal Joint Condition Rating"
+    ]?.trim()
+      ? assetObject["(B.C.08a) Terminal Joint Condition Rating"]
+      : "N",
+    approachSlabs: assetObject[
+      "(B.C.01b ) Approach Slab Condition Rating"
+    ]?.trim()
+      ? assetObject["(B.C.01b ) Approach Slab Condition Rating"]
+      : "N",
     wearingSurface: assetObject["(B.C.01a) Wearing Surface Condition Rating"],
-    bridgeBearings: assetObject["(B.C.07) Bridge Bearings Condition Rating"]?.trim() ? assetObject["(B.C.07) Bridge Bearings Condition Rating"] : "N",
-    bridgePaint: assetObject["(B.C.02a) Paint Condition Rating"]?.trim() ? assetObject["(B.C.02a) Paint Condition Rating"] : "N",
-    concreteSlopewall: assetObject["(B.C.03a) Concrete Slopewall Condition Rating"]?.trim() ? assetObject["(B.C.03a) Concrete Slopewall Condition Rating"] : "N",
+    bridgeBearings: assetObject[
+      "(B.C.07) Bridge Bearings Condition Rating"
+    ]?.trim()
+      ? assetObject["(B.C.07) Bridge Bearings Condition Rating"]
+      : "N",
+    bridgePaint: assetObject["(B.C.02a) Paint Condition Rating"]?.trim()
+      ? assetObject["(B.C.02a) Paint Condition Rating"]
+      : "N",
+    concreteSlopewall: assetObject[
+      "(B.C.03a) Concrete Slopewall Condition Rating"
+    ]?.trim()
+      ? assetObject["(B.C.03a) Concrete Slopewall Condition Rating"]
+      : "N",
 
     // Appraisal
     approachRoadwayAlignment: assetObject["(72) Approach Roadway Alignment:"],
@@ -726,26 +878,48 @@ function extractAssetDetails(assetObject) {
 
     // Material & Type
     approachSpans: assetObject["(46) Number of Approach Spans:"] || 0,
-    approachMatType: assetObject["(44A) Structure Type, Approach Spans: Kind of Material:"],
-    approachDesignType: assetObject["(44B) Structure Type, Approach Spans: Type of Design"],
+    approachMatType:
+      assetObject["(44A) Structure Type, Approach Spans: Kind of Material:"],
+    approachDesignType:
+      assetObject["(44B) Structure Type, Approach Spans: Type of Design"],
     mainSpans: assetObject["(45) Number of Spans in Main Unit:"],
     mainMatType: assetObject["(43A) Structure Type, Main: Kind of Material:"],
     mainDesignType: assetObject["(43B) Structure Type, Main: Type of Design:"],
-    wearingSurfaceType: assetObject["(108A) Wearing Surface Protection System: Wearing Surface"],
-    deckMembraneType: assetObject["(108B) Wearing Surface Protection System: Deck Membrane"],
-    deckProtectionType: assetObject["(108C) Wearing Surface Protection System: Deck Protection"],
+    wearingSurfaceType:
+      assetObject["(108A) Wearing Surface Protection System: Wearing Surface"],
+    deckMembraneType:
+      assetObject["(108B) Wearing Surface Protection System: Deck Membrane"],
+    deckProtectionType:
+      assetObject["(108C) Wearing Surface Protection System: Deck Protection"],
     deckStructureType: assetObject["(107) Deck Structure Type:"],
 
     // Inspection Types
-    nstmInspRequired: assetObject["(92AA) Critical Feature Inspection: NSTM Insp Required?"],
-    nstmInspFrequency: assetObject["(92A) Critical Feature Inspection: NSTM Insp Frequency?"],
-    nstmInspDate: assetObject["(93A) Critical Feature Inspection Date: NSTM Insp Date"] || "",
-    specialInspRequired: assetObject["(92CC) Critical Feature Inspection: Special Insp Required?"],
-    specialInspFrequency: assetObject["(92C) Critical Features: Special Insp Frequency?"],
-    specialInspDate: assetObject["(93C) Critical Feature Inspection Date: Special Insp Date"] || "",
-    underwaterInspRequired: assetObject["(92BB) Critical Feature Inspection: Underwater Insp Required?"],
-    underwaterInspFrequency: assetObject["(92B) Critical Feature Inspection: Underwater Insp Frequency?"],
-    underwaterInspDate: assetObject["(93B) Critical Feature Inspection: Underwater Insp Date"] || "",
+    nstmInspRequired:
+      assetObject["(92AA) Critical Feature Inspection: NSTM Insp Required?"],
+    nstmInspFrequency:
+      assetObject["(92A) Critical Feature Inspection: NSTM Insp Frequency?"],
+    nstmInspDate:
+      assetObject["(93A) Critical Feature Inspection Date: NSTM Insp Date"] ||
+      "",
+    specialInspRequired:
+      assetObject["(92CC) Critical Feature Inspection: Special Insp Required?"],
+    specialInspFrequency:
+      assetObject["(92C) Critical Features: Special Insp Frequency?"],
+    specialInspDate:
+      assetObject[
+        "(93C) Critical Feature Inspection Date: Special Insp Date"
+      ] || "",
+    underwaterInspRequired:
+      assetObject[
+        "(92BB) Critical Feature Inspection: Underwater Insp Required?"
+      ],
+    underwaterInspFrequency:
+      assetObject[
+        "(92B) Critical Feature Inspection: Underwater Insp Frequency?"
+      ],
+    underwaterInspDate:
+      assetObject["(93B) Critical Feature Inspection: Underwater Insp Date"] ||
+      "",
 
     // Geometry
     brdgWidthCurbToCurb: assetObject["(B.G.06) Bridge Width Curb-to-Curb"],
@@ -758,7 +932,8 @@ function extractAssetDetails(assetObject) {
 
     // Membrane
     underfillValue: assetObject["(B.C.04) Culvert Condition Rating"],
-    membraneValue: assetObject["(108B) Wearing Surface Protection System: Deck Membrane"],
+    membraneValue:
+      assetObject["(108B) Wearing Surface Protection System: Deck Membrane"],
 
     // Not used
     scourAnalysisComment: assetObject["Scour Analysis Comment:"],
@@ -791,7 +966,9 @@ function lowestValueDetermination(assetObject) {
   ];
 
   // Filter out non-numeric values and "N"
-  const validValues = values.filter(item => !isNaN(item.value) && item.value !== "N");
+  const validValues = values.filter(
+    (item) => !isNaN(item.value) && item.value !== "N",
+  );
 
   if (validValues.length > 0) {
     // Get the lowest value and the corresponding field
@@ -809,22 +986,24 @@ function resetBridgeComponentTextareas(assetObject) {
   const assetValues = extractAssetDetails(assetObject); // Get new asset data
   let wearingSurfaceMonolithic = "";
   // Reset all textareas and spans first and buttons
-  document.querySelectorAll(".reset-comments").forEach(textarea => {
+  document.querySelectorAll(".reset-comments").forEach((textarea) => {
     textarea.value = "";
   });
 
-  document.querySelectorAll(".rating-button").forEach(textarea => {
+  document.querySelectorAll(".rating-button").forEach((textarea) => {
     textarea.textContent = "N";
   });
 
-  document.querySelectorAll(".textarea-content-here").forEach(span => {
+  document.querySelectorAll(".textarea-content-here").forEach((span) => {
     span.textContent = "";
   });
 
   // Remove the 'highlight' class from all rows
-  document.querySelectorAll(".content-container-rating-lines").forEach(row => {
-    row.classList.remove("highlight");
-  });
+  document
+    .querySelectorAll(".content-container-rating-lines")
+    .forEach((row) => {
+      row.classList.remove("highlight");
+    });
 
   // Reset all numerical values in the review page
   resetReviewPageNumericalValues();
@@ -834,41 +1013,71 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Update text dynamically based on asset values
     if (assetValues.wearingSurfaceType === "1") {
-      wearingSurfaceMonolithic = "The wearing surface is monolithic with the deck. See the deck comments. ";
-      updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
+      wearingSurfaceMonolithic =
+        "The wearing surface is monolithic with the deck. See the deck comments. ";
+      updateComponentText(
+        "B.C.01a",
+        wearingSurfaceMonolithic,
+        String(assetValues.wearingSurface),
+      );
     }
     if (assetValues.wearingSurfaceType === "3") {
-      wearingSurfaceMonolithic = "The bridge has a latex-modified wearing surface. ";
-      updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
+      wearingSurfaceMonolithic =
+        "The bridge has a latex-modified wearing surface. ";
+      updateComponentText(
+        "B.C.01a",
+        wearingSurfaceMonolithic,
+        String(assetValues.wearingSurface),
+      );
     }
     if (assetValues.wearingSurfaceType === "5") {
       wearingSurfaceMonolithic = "The bridge has a thin deck overlay. ";
-      updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
+      updateComponentText(
+        "B.C.01a",
+        wearingSurfaceMonolithic,
+        String(assetValues.wearingSurface),
+      );
     }
 
     // Check and update for B.C.01a (wearingSurface)
-    if (assetValues.wearingSurface === "8" || String(assetValues.wearingSurface) === "9") {
+    if (
+      assetValues.wearingSurface === "8" ||
+      String(assetValues.wearingSurface) === "9"
+    ) {
       updateComponentText(
         "B.C.01a",
         `${wearingSurfaceMonolithic}There are no deficiencies or significant defects present; ride quality is good and the deck is protected from water and mineral intrusion. `,
-        String(assetValues.wearingSurface)
+        String(assetValues.wearingSurface),
       );
       highlightRowIfMatches("B.C.01a", String(assetValues.wearingSurface));
     } else {
-      updateComponentText("B.C.01a", wearingSurfaceMonolithic, String(assetValues.wearingSurface));
+      updateComponentText(
+        "B.C.01a",
+        wearingSurfaceMonolithic,
+        String(assetValues.wearingSurface),
+      );
       highlightRowIfMatches("B.C.01a", String(assetValues.wearingSurface));
     }
 
-    if (assetValues.underfillValue === "N" && ["1", "2"].includes(assetValues.deckStructureType) && assetValues.wearingSurfaceType === "6" && ["0", "8", "N"].includes(assetValues.membraneValue)) {
+    if (
+      assetValues.underfillValue === "N" &&
+      ["1", "2"].includes(assetValues.deckStructureType) &&
+      assetValues.wearingSurfaceType === "6" &&
+      ["0", "8", "N"].includes(assetValues.membraneValue)
+    ) {
       updateComponentText(
         "B.C.01a",
-        "The concrete bridge deck has a bituminous wearing surface and is not protected by an agency-approved membrane; therefore, the wearing surface rating must be a 4 or less. "
+        "The concrete bridge deck has a bituminous wearing surface and is not protected by an agency-approved membrane; therefore, the wearing surface rating must be a 4 or less. ",
       );
     }
 
     // Check and update for B.C.01 (deck)
     if (assetValues.deck === "8" || String(assetValues.deck) === "9") {
-      updateComponentText("B.C.01", "There are no deficiencies or significant defects present; the deck shows no indication of water infiltration. ", String(assetValues.deck));
+      updateComponentText(
+        "B.C.01",
+        "There are no deficiencies or significant defects present; the deck shows no indication of water infiltration. ",
+        String(assetValues.deck),
+      );
       highlightRowIfMatches("B.C.01", String(assetValues.deck));
     } else {
       updateComponentText("B.C.01", "", String(assetValues.deck));
@@ -911,11 +1120,14 @@ function resetBridgeComponentTextareas(assetObject) {
     }
 
     // Check and update for B.C.02 (superstructure)
-    if (assetValues.superstructure === "8" || String(assetValues.superstructure) === "9") {
+    if (
+      assetValues.superstructure === "8" ||
+      String(assetValues.superstructure) === "9"
+    ) {
       updateComponentText(
         "B.C.02",
         "There are no deficiencies or significant defects present; the superstructure appears stable with no signs of structural distress. ",
-        String(assetValues.superstructure)
+        String(assetValues.superstructure),
       );
       highlightRowIfMatches("B.C.02", String(assetValues.superstructure));
     } else {
@@ -924,11 +1136,14 @@ function resetBridgeComponentTextareas(assetObject) {
     }
 
     // Check and update for B.C.03 (substructure)
-    if (assetValues.substructure === "8" || String(assetValues.substructure) === "9") {
+    if (
+      assetValues.substructure === "8" ||
+      String(assetValues.substructure) === "9"
+    ) {
       updateComponentText(
         "B.C.03",
         "There are no deficiencies or significant defects present; the substructure appears stable with no signs of settlement or movement. ",
-        String(assetValues.substructure)
+        String(assetValues.substructure),
       );
       highlightRowIfMatches("B.C.03", String(assetValues.substructure));
     } else {
@@ -938,7 +1153,11 @@ function resetBridgeComponentTextareas(assetObject) {
 
     // Check and update for B.C.04 (culvert)
     if (assetValues.culvert === "8" || String(assetValues.culvert) === "9") {
-      updateComponentText("B.C.04", "There are no deficiencies or significant defects present. ", String(assetValues.culvert));
+      updateComponentText(
+        "B.C.04",
+        "There are no deficiencies or significant defects present. ",
+        String(assetValues.culvert),
+      );
       highlightRowIfMatches("B.C.04", String(assetValues.culvert));
     } else {
       updateComponentText("B.C.04", "", String(assetValues.culvert));
@@ -946,8 +1165,15 @@ function resetBridgeComponentTextareas(assetObject) {
     }
 
     // Check and update for B.C.09 (channel)
-    if (assetValues.channelValue === "8" || String(assetValues.channelValue) === "9") {
-      updateComponentText("B.C.09", "There are no deficiencies or significant defects present. ", String(assetValues.channelValue));
+    if (
+      assetValues.channelValue === "8" ||
+      String(assetValues.channelValue) === "9"
+    ) {
+      updateComponentText(
+        "B.C.09",
+        "There are no deficiencies or significant defects present. ",
+        String(assetValues.channelValue),
+      );
       highlightRowIfMatches("B.C.09", String(assetValues.channelValue));
     } else {
       updateComponentText("B.C.09", "", String(assetValues.channelValue));
@@ -955,7 +1181,10 @@ function resetBridgeComponentTextareas(assetObject) {
     }
 
     if (["1", "01", 1].includes(assetValues.mainDesignType)) {
-      updateComponentText("B.C.02", "The superstructure is a reinforced concrete slab. See the deck comments. ");
+      updateComponentText(
+        "B.C.02",
+        "The superstructure is a reinforced concrete slab. See the deck comments. ",
+      );
     }
 
     // Check and update for B.AP.11 (Scour Critical)
@@ -963,46 +1192,65 @@ function resetBridgeComponentTextareas(assetObject) {
       updateComponentText("B.AP.03", "The bridge is not scour critical. ");
     } else if (["C", "D", "CD-T"].includes(assetValues.scourVulnerability)) {
       updateComponentText("B.AP.03", "The bridge is scour critical. ");
-    } else if (["N", "", null, undefined].includes(assetValues.scourVulnerability)) {
+    } else if (
+      ["N", "", null, undefined].includes(assetValues.scourVulnerability)
+    ) {
       updateComponentText("B.AP.03", "");
     } else {
-      updateComponentText("B.AP.03", "The scour vulnerability status is undetermined. ");
+      updateComponentText(
+        "B.AP.03",
+        "The scour vulnerability status is undetermined. ",
+      );
     }
 
     // Update and highlight for B.AP.01 (speed reduction)
-    updateComponentText("B.AP.01", "No speed reduction is necessary; the speed at the bridge is the same as the rest of the highway segment. ", "G");
+    updateComponentText(
+      "B.AP.01",
+      "No speed reduction is necessary; the speed at the bridge is the same as the rest of the highway segment. ",
+      "G",
+    );
     // highlightRowIfMatches("B.AP.01", String(assetValues.speedReduction));
     highlightRowIfMatches("B.AP.01", "G");
   }
 }
 
 function resetReviewPageNumericalValues() {
-  const reviewNumericalSpans = document.querySelectorAll("#review-ratings-tab .content-container-rating-numerical");
-  reviewNumericalSpans.forEach(span => {
+  const reviewNumericalSpans = document.querySelectorAll(
+    "#review-ratings-tab .content-container-rating-numerical",
+  );
+  reviewNumericalSpans.forEach((span) => {
     span.textContent = ""; // Reset the numerical value
   });
 }
 
 // Helper function to update the text content of both textarea and span
 function updateComponentText(dataCategory, text, numericalValue = null) {
-  const textarea = document.querySelector(`textarea[data-category="${dataCategory}"]`);
+  const textarea = document.querySelector(
+    `textarea[data-category="${dataCategory}"]`,
+  );
   let newStr = dataCategory.replace(/\./g, ""); // Replaces all periods with an empty string
   if (textarea) textarea.value = text;
   const textareaReview = document.getElementById(`${newStr}-textarea-review`);
   if (textareaReview) textareaReview.value = text;
 
-  const span = document.querySelector(`.content-container-rating-lines[data-category="${dataCategory}"] .textarea-content-here`);
+  const span = document.querySelector(
+    `.content-container-rating-lines[data-category="${dataCategory}"] .textarea-content-here`,
+  );
   if (span) span.textContent = text;
 
   if (numericalValue !== null) {
     // Update the numerical value in the review ratings tab
-    const reviewNumericalSpan = document.querySelector(`#review-ratings-tab .content-container-rating-lines[data-category="${dataCategory}"] .content-container-rating-numerical`);
+    const reviewNumericalSpan = document.querySelector(
+      `#review-ratings-tab .content-container-rating-lines[data-category="${dataCategory}"] .content-container-rating-numerical`,
+    );
     if (reviewNumericalSpan) reviewNumericalSpan.textContent = numericalValue;
     const buttonNumerical = document.getElementById(`${newStr}-button-review`);
     if (buttonNumerical) {
       buttonNumerical.textContent = numericalValue;
       const colorVar = `--rating-${numericalValue}`;
-      const color = getComputedStyle(document.documentElement).getPropertyValue(colorVar);
+      const color = getComputedStyle(document.documentElement).getPropertyValue(
+        colorVar,
+      );
       buttonNumerical.style.backgroundColor = color.trim();
     }
   }
@@ -1011,11 +1259,17 @@ function updateComponentText(dataCategory, text, numericalValue = null) {
 // Helper function to highlight the row based on the dataCategory and value in assetValues
 function highlightRowIfMatches(dataCategory, value) {
   // Find all rows with the specific data-category (e.g., B.AP.01), but exclude rows inside the review page container
-  const rows = document.querySelectorAll(`.content-container-rating-lines[data-category="${dataCategory}"]:not(#review-ratings-tab .content-container-rating-lines)`);
+  const rows = document.querySelectorAll(
+    `.content-container-rating-lines[data-category="${dataCategory}"]:not(#review-ratings-tab .content-container-rating-lines)`,
+  );
 
-  rows.forEach(row => {
-    const numericalValueSpan = row.querySelector(".content-container-rating-numerical");
-    const numericalValue = numericalValueSpan ? numericalValueSpan.textContent.trim() : null;
+  rows.forEach((row) => {
+    const numericalValueSpan = row.querySelector(
+      ".content-container-rating-numerical",
+    );
+    const numericalValue = numericalValueSpan
+      ? numericalValueSpan.textContent.trim()
+      : null;
 
     // If the numerical value matches the value we're checking for, add the highlight class
     if (numericalValue === value) {
@@ -1034,14 +1288,21 @@ function errorIconDisplay(assetObject, lowestValue) {
   errorString = "";
 
   // Freq
-  if (parseFloat(lowestValue) < 4 && parseFloat(assetValues.inspectionFrequency) > 12) {
+  if (
+    parseFloat(lowestValue) < 4 &&
+    parseFloat(assetValues.inspectionFrequency) > 12
+  ) {
     document.querySelector("#error-freq").style.display = "block";
     anyError = 1;
     errorString = "Inspection Frequency Error";
   }
 
   // Slab
-  if (assetValues.mainDesignType === "1" || assetValues.mainDesignType === "01" || assetValues.mainDesignType === 1) {
+  if (
+    assetValues.mainDesignType === "1" ||
+    assetValues.mainDesignType === "01" ||
+    assetValues.mainDesignType === 1
+  ) {
     if (assetValues.deck !== assetValues.superstructure) {
       document.querySelector("#error-super").style.display = "block";
       anyError = 1;
@@ -1071,7 +1332,10 @@ function errorIconDisplay(assetObject, lowestValue) {
       }
     } else {
       // Wearing surface is >= 6, deck can be 1 higher (max 9)
-      if (deckRating !== wearingSurfaceRating && deckRating !== wearingSurfaceRating + 1) {
+      if (
+        deckRating !== wearingSurfaceRating &&
+        deckRating !== wearingSurfaceRating + 1
+      ) {
         document.querySelector("#error-deck").style.display = "block";
         anyError = 1;
         if (errorString !== "") {
@@ -1103,7 +1367,8 @@ function errorIconDisplay(assetObject, lowestValue) {
   // Membrane
   if (
     assetValues.underfillValue === "N" &&
-    (assetValues.deckStructureType === "1" || assetValues.deckStructureType === "2") &&
+    (assetValues.deckStructureType === "1" ||
+      assetValues.deckStructureType === "2") &&
     assetValues.wearingSurfaceType === "6" &&
     ["0", "8", "N"].includes(assetValues.membraneValue)
   ) {
@@ -1121,7 +1386,8 @@ function errorIconDisplay(assetObject, lowestValue) {
   // Asset error icon
   if (anyError === 1) {
     document.getElementById("asset-error-button1").style.display = "block";
-    document.getElementById("asset-error-button2").style.display = "inline-flex";
+    document.getElementById("asset-error-button2").style.display =
+      "inline-flex";
   }
 }
 
@@ -1133,8 +1399,12 @@ function buildAssetValuesObject() {
 
 // Posted | Determine the posted status based on the posted value
 function postedResponseFunction(assetValues) {
-  const postedResponse = (assetValues.postedValue === "A" ? "not posted" : "posted").toLowerCase();
-  const adtResponse = assetValues.adtValue ? `, and the ${assetValues.adtYear} ADT is ${assetValues.adtValue} vpd` : "";
+  const postedResponse = (
+    assetValues.postedValue === "A" ? "not posted" : "posted"
+  ).toLowerCase();
+  const adtResponse = assetValues.adtValue
+    ? `, and the ${assetValues.adtYear} ADT is ${assetValues.adtValue} vpd`
+    : "";
 
   return { postedResponse, adtResponse }; // Returning an object with both values
 }
@@ -1171,7 +1441,11 @@ function inspectionTypeResponseFunction(assetValues) {
 
   if (assetValues.nstmInspRequired === "Y") inspections.push("an NSTM");
   if (assetValues.specialInspRequired === "Y") inspections.push("a special");
-  if (assetValues.underwaterInspRequired === "Y" && assetValues.channelValue !== "N") inspections.push("an underwater");
+  if (
+    assetValues.underwaterInspRequired === "Y" &&
+    assetValues.channelValue !== "N"
+  )
+    inspections.push("an underwater");
 
   let inspectionTypeResponse = "";
 
@@ -1191,7 +1465,10 @@ function inspectionTypeResponseFunction(assetValues) {
 // Membrane | Generate the membrane description if certain conditions are met (e.g., wearing surface and deck type)
 function membraneResponseFunction(assetValues) {
   const membraneResponse =
-    assetValues.underfillValue === "N" && (assetValues.deckStructureType === "1" || assetValues.deckStructureType === "2") && assetValues.wearingSurfaceType === "6"
+    assetValues.underfillValue === "N" &&
+    (assetValues.deckStructureType === "1" ||
+      assetValues.deckStructureType === "2") &&
+    assetValues.wearingSurfaceType === "6"
       ? ["0", "8", "N"].includes(assetValues.membraneValue)
         ? "There is not an agency-approved protective membrane between the concrete deck and the bituminous wearing surface. As a result, the wearing surface rating must be a 4, as outlined in Part 7 of INDOT's 2020 Bridge Inspection Manual."
         : "There is an agency-approved protective membrane between the concrete deck and the bituminous wearing surface."
@@ -1216,7 +1493,11 @@ function lowestRatingResponseFunction(lowestValue) {
     9: "(excellent condition). There are no deficiencies or significant defects present.",
   };
   const conditionDescriptionResponse = conditionDescriptions[lowestValue] || "";
-  const lowestRatingResponse = `The lowest condition rating (B.C.13) for the bridge is a ${lowestValue} ${conditionDescriptionResponse}`.replace("a 8", "an 8");
+  const lowestRatingResponse =
+    `The lowest condition rating (B.C.13) for the bridge is a ${lowestValue} ${conditionDescriptionResponse}`.replace(
+      "a 8",
+      "an 8",
+    );
 
   return lowestRatingResponse;
 }
@@ -1235,11 +1516,15 @@ function structureMaterialResponseFunction(assetValues) {
     8: "Masonry",
     9: "Aluminum, Wrought Iron, or Cast Iron",
   };
-  const mainMatTypesResponse = (mainMatTypes[assetValues.mainMatType] || "").toLowerCase();
+  const mainMatTypesResponse = (
+    mainMatTypes[assetValues.mainMatType] || ""
+  ).toLowerCase();
 
   // Structure Type, Approach Spans: Kind of Material/Design (same mapping as main material types)
   const approachMatTypes = mainMatTypes;
-  const approachMatTypesResponse = (approachMatTypes[assetValues.approachMatType] || "").toLowerCase();
+  const approachMatTypesResponse = (
+    approachMatTypes[assetValues.approachMatType] || ""
+  ).toLowerCase();
 
   return { mainMatTypesResponse, approachMatTypesResponse };
 }
@@ -1267,11 +1552,15 @@ function structureDesignResponseFunction(assetValues) {
     21: "Segmental Box Girder",
     22: "Channel Beam",
   };
-  const mainDesignTypesResponse = (mainDesignTypes[assetValues.mainDesignType] || "").toLowerCase();
+  const mainDesignTypesResponse = (
+    mainDesignTypes[assetValues.mainDesignType] || ""
+  ).toLowerCase();
 
   // Structure Type, Approach Spans: Type of Design/Construction (same mapping as main design types)
   const approachDesignTypes = mainDesignTypes;
-  const approachDesignTypesResponse = (approachDesignTypes[assetValues.approachDesignType] || "").toLowerCase();
+  const approachDesignTypesResponse = (
+    approachDesignTypes[assetValues.approachDesignType] || ""
+  ).toLowerCase();
 
   return { mainDesignTypesResponse, approachDesignTypesResponse };
 }
@@ -1291,7 +1580,9 @@ function deckStructureTypesResponseFunction(assetValues) {
     9: "With An Other deck",
     N: "and does not have a structural deck",
   };
-  const deckStructureTypesResponse = (deckStructureTypes[assetValues.deckStructureType] || "").toLowerCase();
+  const deckStructureTypesResponse = (
+    deckStructureTypes[assetValues.deckStructureType] || ""
+  ).toLowerCase();
 
   return deckStructureTypesResponse;
 }
@@ -1312,7 +1603,8 @@ function wearingSurfaceTypesResponseFunction(assetValues) {
     9: "The bridge has an other wearing surface.",
     N: "",
   };
-  const wearingSurfaceTypesResponse = wearingSurfaceTypes[assetValues.wearingSurfaceType] || "";
+  const wearingSurfaceTypesResponse =
+    wearingSurfaceTypes[assetValues.wearingSurfaceType] || "";
 
   return wearingSurfaceTypesResponse;
 }
@@ -1361,7 +1653,8 @@ function cardinalResponseFunction() {
     // 60% chance for the first value
     cardinalResponse = cardinalResponses[0];
   } else {
-    cardinalResponse = cardinalResponses[Math.floor(Math.random() * cardinalResponses.length)];
+    cardinalResponse =
+      cardinalResponses[Math.floor(Math.random() * cardinalResponses.length)];
   }
 
   return cardinalResponse;
@@ -1372,7 +1665,7 @@ function cardinalResponseFunction() {
 // Example function to remove the highlighted class
 function revertReviewBackgroundColor() {
   const parentDivs = document.querySelectorAll(".main-content-containers");
-  parentDivs.forEach(div => {
+  parentDivs.forEach((div) => {
     div.classList.remove("review-textarea-highlighted");
   });
 }
