@@ -377,6 +377,12 @@ const bridgeComponents = [
           "There are no deficiencies or significant defects present; the expansion joints are functioning as designed.",
           "There are no deficiencies or significant defects present; the joints are functioning as designed.",
         ],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the joints are free to expand and contract and have no noticeable leaking. Some inherent defects were observed."],
+        [
+          "There are no deficiencies or significant defects present; the expansion joints are functioning as designed. Some inherent defects were observed.",
+          "There are no deficiencies or significant defects present; the joints are functioning as designed. Some inherent defects were observed.",
+        ],
       ],
       [
         // No joints
@@ -503,6 +509,8 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the railings are functioning as designed and appear capable of redirecting errant vehicles."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the railings are functioning as designed and appear capable of redirecting errant vehicles. Some inherent defects were observed."],
       ],
       [
         // Functioning
@@ -619,6 +627,12 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present."],
         [
           "There are no deficiencies or significant defects present; the bridge railing transitions are functioning as designed, providing a gradual increase in rigidity when transitioning from the steel approach railing to the concrete bridge railing.",
+        ],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the bridge railing transitions are functioning as designed. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        [
+          "There are no deficiencies or significant defects present; the bridge railing transitions are functioning as designed, providing a gradual increase in rigidity when transitioning from the steel approach railing to the concrete bridge railing. Some inherent defects were observed.",
         ],
       ],
       [
@@ -858,6 +872,11 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration."],
         ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration, and is effectively transferring the load through the load path."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the deck shows no indication of water infiltration. Some inherent defects were observed."],
+        [
+          "There are no deficiencies or significant defects present; the deck shows no indication of water infiltration, and is effectively transferring the load through the load path. Some inherent defects were observed.",
+        ],
       ],
       [
         // Top Concealment
@@ -1062,6 +1081,9 @@ const bridgeComponents = [
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present. There is no obvious deformation or structural instability."],
         ["There are no deficiencies or significant defects present; the superstructure appears stable with no signs of structural distress."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present. There is no obvious deformation or structural instability. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the superstructure appears stable with no signs of structural distress. Some inherent defects were observed."],
       ],
       [
         // Slab (Defer to Deck)
@@ -1295,6 +1317,10 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the bearings are adequately positioned beneath the bridge beams and fully supported by the substructure."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        [
+          "There are no deficiencies or significant defects present; the bearings are adequately positioned beneath the bridge beams and fully supported by the substructure. Some inherent defects were observed.",
+        ],
       ],
       [
         // Elastomeric General
@@ -1444,6 +1470,8 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; the substructure appears stable with no signs of settlement or movement."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; the substructure appears stable with no signs of settlement or movement. Some inherent defects were observed."],
       ],
       [
         // Abutment Type
@@ -1685,6 +1713,8 @@ const bridgeComponents = [
         // General
         ["There are no deficiencies or significant defects present."],
         ["There are no deficiencies or significant defects present; there is no loss of fill or indication of voids."],
+        ["There are no deficiencies or significant defects present. Some inherent defects were observed."],
+        ["There are no deficiencies or significant defects present; there is no loss of fill or indication of voids. Some inherent defects were observed."],
       ],
       [
         // Segmental Box
